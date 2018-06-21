@@ -10,7 +10,7 @@ class costosadministrativos extends Controller
 
   }
 
-// METODO DEL INDEX
+    // METODO DEL INDEX
 	public function index()
 	{
 
