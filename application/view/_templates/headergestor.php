@@ -28,10 +28,12 @@
 
   <?php
   session_start();
-  if ($_SESSION["nombres"]  != null && $_SESSION["rol"] == 2) {
+  if ($_SESSION["nombres"]  != null && $_SESSION["rol"] == 'Gestor') {
     $nombres = $_SESSION["nombres"];
     $apellidos = $_SESSION["apellidos"];
     $documento = $_SESSION["documento"];
+    $idnodo = $_SESSION["idnodo"];
+    $nodo = $_SESSION["nodo"];
   }else{
     header('location: ' . URL . 'home');
   }

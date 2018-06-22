@@ -94,7 +94,7 @@
                     </div>
                 <div class="panel">
                 <a class="panel-heading collapse" role="tab" id="headingTwo1" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo">
-                  <h4 class="panel-title">Prototipos Finalizados por Mes (Cierre PF + Cierre PMV)</h4>
+                  <h4 class="panel-title">Prototipos funcionales finalizados por mes (Cierre PF)</h4>
                     </a>
                       <div id="collapseTwo1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body">
@@ -148,7 +148,7 @@
                     </div>
                     <div class="panel">
                       <a class="panel-heading collapse" role="tab" id="headingThree1" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1" aria-expanded="true" aria-controls="collapseThree">
-                        <h4 class="panel-title">Prototipos puestos en el mercado por mes (Cierre PMV)</h4>
+                        <h4 class="panel-title">Productos Mínimos Viables puestos en el mercado por mes (Cierre PMV)</h4>
                       </a>
                       <div id="collapseThree1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                         <div class="panel-body">

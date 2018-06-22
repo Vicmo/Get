@@ -3,7 +3,6 @@
 class inicio extends Controller
 {
 
-
  public function administrador()
  {
 

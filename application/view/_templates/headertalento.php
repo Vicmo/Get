@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,9 +26,9 @@
 
 <body class="nav-md">
 
-  <?php 
+  <?php
   session_start();
-  if ($_SESSION["nombres"]  != null && $_SESSION["rol"] == 3) {
+  if ($_SESSION["nombres"]  != null && $_SESSION["rol"] == 'Talento') {
     $nombres = $_SESSION["nombres"];
     $apellidos = $_SESSION["apellidos"];
     $documento = $_SESSION["documento"];
@@ -49,9 +49,9 @@
           <div class="menu_section">
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
-              
+
              <li><a style="background: #238276" href="<?php echo URL; ?>usoinfraestructura/talento"><i class="fa fa-building"></i>Uso de Infraestructura</a></li>
-             
+
            </ul>
          </div>
        </div>
@@ -63,7 +63,7 @@
    <div class="top_nav">
     <div class="nav_menu">
       <nav>
-       
+
         <ul class="nav navbar-nav navbar-right">
           <li class="">
            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -118,4 +118,3 @@
 </body>
 
 </html>
-

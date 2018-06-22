@@ -18,8 +18,8 @@ class cuentas extends Controller
         $contraseñaE= md5($_POST["txtclaveactual"]);
         $this->mdlmodel->__SET("correo",$_POST["txtcorreo"]);
         $resultado = $this->mdlmodel->consultac();
-    
-            if ($resultado["clave"] == $contraseñaE ){
+
+            if ($resultado["password"] == $contraseñaE ){
 
                 $this->mdlmodel->__SET("clave", $_POST["txtclavenueva"]);
                 $this->mdlmodel->__SET("correo",$_POST["txtcorreo"]);
@@ -35,7 +35,7 @@ class cuentas extends Controller
              }
          }
 
-  
+
  }
 
     public function cambiarclave(){
@@ -58,7 +58,7 @@ class cuentas extends Controller
 
      public function cambio($correo)
     {
-       
+
         $this->mdlmodel->__SET("correo", $correo);
         $datos = $this->mdlmodel->consultac();
         echo json_encode($datos);

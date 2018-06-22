@@ -26,7 +26,13 @@
 
 <?php
 session_start();
-if ($_SESSION["correo"]) {
+if ($_SESSION["rol"] == 'Dinamizador') {
+  $nombres = $_SESSION["nombres"];
+  $apellidos = $_SESSION["apellidos"];
+  $documento = $_SESSION["documento"];
+  $idnodo = $_SESSION["idnodo"];
+  $nodo = $_SESSION["nodo"];
+  $rol = $_SESSION["rol"];
 }else{
   header('location: ' . URL . 'home');
 }
@@ -74,7 +80,7 @@ if ($_SESSION["correo"]) {
         <ul class="nav navbar-nav navbar-right">
           <li class="">
            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            Dinamizador nodo {Ciudad}
+            <?php echo " $nombres  $apellidos - $rol nodo $nodo "  ?>
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">

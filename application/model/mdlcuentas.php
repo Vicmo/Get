@@ -23,7 +23,7 @@ class mdlcuentas
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -35,48 +35,48 @@ class mdlcuentas
 
  public function logueo(){
 
-          
+
            $sql = "CALL login(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->correo);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
-         }      
-        
+         }
 
-         public function logueo2(){
-           $sql = "CALL login2(?)";
-           $stm = $this->db->prepare($sql);
-           $stm->bindParam(1, $this->correo);
-           $stm->execute();
-           return $stm->fetch(PDO::FETCH_ASSOC);
-         }  
 
-           public function logueo3(){
-           $sql = "CALL login3(?)";
-           $stm = $this->db->prepare($sql);
-           $stm->bindParam(1, $this->correo);
-           $stm->execute();
-           return $stm->fetch(PDO::FETCH_ASSOC);
-         }      
-        
+         // public function logueo2(){
+         //   $sql = "CALL login2(?)";
+         //   $stm = $this->db->prepare($sql);
+         //   $stm->bindParam(1, $this->correo);
+         //   $stm->execute();
+         //   return $stm->fetch(PDO::FETCH_ASSOC);
+         // }
+         //
+         //   public function logueo3(){
+         //   $sql = "CALL login3(?)";
+         //   $stm = $this->db->prepare($sql);
+         //   $stm->bindParam(1, $this->correo);
+         //   $stm->execute();
+         //   return $stm->fetch(PDO::FETCH_ASSOC);
+         // }
+
           public function consultac(){
            $sql = "CALL consultac(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->correo);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
-         }      
-        
+         }
+
            public function modificarclave()
          {
-    
+
         $sql = "CALL modificarclave(?,?)";
         $stm = $this->db->prepare($sql);
         $stm->bindParam(1, $this->correo);
         $stm->bindParam(2, $this->clave);
         return $stm->execute();
-     
+
         }
 
            public function registrarcuenta()
@@ -102,4 +102,3 @@ class mdlcuentas
    }
 
 }
-       
