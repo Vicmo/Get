@@ -81,6 +81,16 @@ class home extends Controller
 						$_SESSION["correo"] = $resultado["correo"];
 						header("location: ".URL."inicio/info");
 
+					} else if ($resultado["rol"] == 'Administrador'){
+						session_start();
+						$_SESSION["nombres"] = $resultado["nombres"];
+						$_SESSION["apellidos"] = $resultado["apellidos"];
+						$_SESSION["documento"] = $resultado["documento"];
+						$_SESSION["idnodo"] = $resultado["idnodo"];
+						$_SESSION["nodo"] = $resultado["nodo"];
+						$_SESSION["rol"] = $resultado["rol"];
+						$_SESSION["correo"] = $resultado["correo"];
+						header("location: ".URL."inicio/adminodos");
 					}
 					// header("location: ".URL."inicio/i");
 

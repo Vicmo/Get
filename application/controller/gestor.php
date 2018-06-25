@@ -2,28 +2,35 @@
 
 class gestor extends Controller
 {
-	
+
 	private $mdlmodel = null;
 
   function __construct(){
     $this->mdlmodel = $this->loadModel("mdlgestor");
      $this->mdlcuentas = $this->loadModel("mdlcuentas");
-   
+
   }
 
-	public function index()
+	public function index($idnodo)
 	{
-	
 	    $linea = $this->mdlmodel->consultalineaa();
-	  $consultargestor = $this->mdlmodel->consultargestor();
-	require APP . 'view/_templates/headeradmin.php';
-     require APP . 'view/gestor/index.php';
-		
+			$this->mdlmodel->__SET("nodo", $idnodo);
+			$consultargestor = $this->mdlmodel->consultargestor();
+			require APP . 'view/_templates/headeradmin.php';
+     	require APP . 'view/gestor/index.php';
+
 	}
+
+	// public function consulta_gestor_nodo($idnodo){
+	//
+	// 	$this->mdlmodel->__SET("idnodo", $idnodo);
+	// 	echo json_encode($consultargestor);
+	//
+	// }
 
 	public function registrar()
    {
-    
+
     $this->mdlmodel->__SET("documento", $_POST["txtdocumento"]);
     $this->mdlmodel->__SET("nombres", ucwords ($_POST["txtnombres"]));
     $this->mdlmodel->__SET("apellidos", ucwords ($_POST["txtapellidos"]));
@@ -31,12 +38,12 @@ class gestor extends Controller
     $this->mdlmodel->__SET("linea", $_POST["txtlinea"]);
     $this->mdlmodel->__SET("salario", $_POST["txtsalario"]);
 
-       $very= $this->mdlmodel->registrar(); 
+       $very= $this->mdlmodel->registrar();
 
     $this->mdlcuentas->__SET("rol",2);
     $this->mdlcuentas->__SET("correo", $_POST["txtcorreo"]);
     $this->mdlcuentas->__SET("clave", MD5($_POST["txtdocumento"]));
-    $veryy= $this->mdlcuentas->registrarcuenta();  
+    $veryy= $this->mdlcuentas->registrarcuenta();
        header('location: ' . URL . 'gestor');
 
    }
@@ -49,12 +56,12 @@ class gestor extends Controller
       $consultargestor = $this->mdlmodel->consultargestor();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/gestor/modificar.php';
-     
+
     }
 
      public function modificar()
    {
-    
+
     $this->mdlmodel->__SET("documento", $_POST["docutxt"]);
     $this->mdlmodel->__SET("nombres", ucwords ($_POST["txtnombres"]));
     $this->mdlmodel->__SET("apellidos", ucwords ($_POST["txtapellidos"]));
@@ -63,12 +70,12 @@ class gestor extends Controller
     $this->mdlmodel->__SET("salario", $_POST["txtsalario"]);
     $very= $this->mdlmodel->modificargestor();
 
-    
+
     $this->mdlcuentas->__SET("id", $_POST["idc"]);
     $this->mdlcuentas->__SET("correo", $_POST["txtcorreo"]);
     $veryy= $this->mdlcuentas->modificarcuenta();
    header('location: ' . URL . 'gestor/index/#menu2');
-  
+
    }
 
     public function cambiarestadog(){
@@ -81,8 +88,8 @@ class gestor extends Controller
             echo json_encode(["v"=>0]);
 
         }
- 
-    
+
+
     }
 
 public function ver($documento)
@@ -121,5 +128,5 @@ public function vergc($correo)
     }
 
 
-    
+
 }

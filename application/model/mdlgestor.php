@@ -3,7 +3,7 @@
 
 class mdlgestor
 {
- 
+
     private $db;
     private $documento;
     private $nombres;
@@ -21,7 +21,7 @@ class mdlgestor
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -37,15 +37,16 @@ class mdlgestor
            $stm = $this->db->prepare($sql);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }   
+         }
 
  public function consultargestor()
        {
-           $sql = "CALL consultargestor";
+           $sql = "CALL consultargestor(?)";
            $stm = $this->db->prepare($sql);
+           $stm->bindParam(1, $this->nodo);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }  
+         }
  public function registrar()
    {
 
@@ -90,7 +91,7 @@ class mdlgestor
         $stm->bindParam(1, $this->documento);
         $stm->bindParam(2, $this->estado);
         return $stm->execute();
-     
+
     }
  public function vergc()
    {
@@ -108,7 +109,7 @@ class mdlgestor
            $stm->bindParam(1, $this->proyecto);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
-         }   
+         }
 
          public function consultalinea(){
            $sql = "CALL consultalinea(?)";
@@ -116,7 +117,7 @@ class mdlgestor
            $stm->bindParam(1, $this->documento);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
-         } 
+         }
 
 
             public function consultagp(){
@@ -125,9 +126,8 @@ class mdlgestor
            $stm->bindParam(1, $this->gestor);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }   
+         }
 
 
-  
+
 }
-       

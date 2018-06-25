@@ -144,12 +144,9 @@
 
               <thead>
                 <tr>
-                  <th>Cedula</th>
+                  <th>Nodo</th>
                   <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Linea</th>
-                  <th>Salario</th>
-
+                  <th>Presupuesto</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -157,7 +154,7 @@
 
 
               <tbody>
-               <?php foreach ($consultargestor as $value) { ?>
+               <?php foreach ($consultarnodos as $value) { ?>
                <tr>
 
                 <div class="item form-group">
@@ -165,15 +162,9 @@
                 </div>
 
 
-                <td><?= $value["documento"] ?></td>
-                <td><?= $value["nombres"] ?> <?= $value["apellidos"] ?></td>
-                <td><?= $value["correo"] ?></td>
-                <td><?= $value["nombrel"] ?></td>
-                <td><?= $value["salario"] ?></td>
-
-
-
-
+                <td><?= $value["idnodo"] ?></td>
+                <td>Tecnoparque nodo <?= $value["nombre_ciudad"] ?></td>
+                <td><?= $value["presupuesto"] ?></td>
 
                 <td>
                   <a href="<?php echo URL ;?>gestor/edit/<?= $value["idpersona"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
@@ -224,9 +215,6 @@
 
 
    </div>
-
-
-
  </div>
 </div>
 </div>
@@ -237,88 +225,3 @@
 </div>
 </div>
 </div>
-<script src="<?php echo URL; ?>js/gestor.js"></script>
-<script type="text/javascript">
-  var x = location.hash;
-  if (x != "") {
-    $("#home").removeClass("tab-pane fade in active").addClass("tab-pane fade");
-    $(x).addClass('tab-pane fade in active');
-    $("#registro").removeClass();
-    $("#consulta").addClass('active');
-    location.hash = '';
-  }
-
-  var str =  window.location.pathname;
-  var res = str.substr(-5);
-  if (res == "index") {
-    $("#home").removeClass("tab-pane fade in active").addClass("tab-pane fade");
-    $("#menu2").addClass('tab-pane fade in active');
-    $("#registro").removeClass();
-    $("#consulta").addClass('active');
-
-  }
-
-
-  function cambiarestadog(cod,est){
-     $.ajax({
-   dataType:'json',
-   type:'post',
-   url:uri+"gestor/consultagp/"+cod
-}).done(function(respuesta){
-  console.log(respuesta);
-  if (respuesta == "") {
-       swal({
-     title: "¿Desea eliminar este registro?",
-
-     type: "warning",
-     showCancelButton: true,
-     confirmButtonColor: "#57D9D2",
-     confirmButtonText: "Si",
-     closeOnConfirm: false
-   },
-   function(isConfirm){
-     if (isConfirm) {
-      $.ajax({
-
-       dataType:'json',
-       type:'post',
-       url:uri+"gestor/cambiarestadog",
-       data:{id:cod , estado:est}
-     }).done(function(respuesta){
-
-       if (respuesta.v == "1") {
-
-         setTimeout(function(){
-
-           location.href = uri+"gestor/index";
-
-        },1500 );{
-
-           swal("Eliminado", "El registro ha sido eliminado correctamente", "success");
-
-
-         }
-
-       }else{
-
-
-       }
-
-     }).fail(function(){
-
-     })
-
-   } else {
-
-   }
- });
-
-  }else{
-    swal("Ups!!", "El gestor no se puede eliminar ya que tiene proyectos asociados en estado inicio,ejecución o planeacion" , "warning");
-  }
-
-});
-
-
- }
-</script>

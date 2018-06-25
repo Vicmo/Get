@@ -26,7 +26,7 @@
 
 <?php
 session_start();
-if ($_SESSION["rol"] == 'Dinamizador') {
+if ($_SESSION["rol"] == 'Administrador') {
   $nombres = $_SESSION["nombres"];
   $apellidos = $_SESSION["apellidos"];
   $documento = $_SESSION["documento"];
@@ -51,8 +51,8 @@ if ($_SESSION["rol"] == 'Dinamizador') {
           <div class="menu_section">
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
-             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos"><i class="fa fa-home"></i>Costos Administrativos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>nodo"><i class="fa fa-home"></i>Nodos</a></li>
+             <!-- <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Dinamizadores</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?php echo date("Y"); ?>"><i class="fa fa-user"></i>Talentos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>foco"><i class="fa fa-bell-o"></i>Focos</a></li>
@@ -63,7 +63,7 @@ if ($_SESSION["rol"] == 'Dinamizador') {
              <li><a style="background:#238276" href="<?php echo URL; ?>materiales/index"><i class="fa fa-book"></i>Materiales de Formación</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>costos/index"><i class="fa fa-usd"></i>Costos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>reportes/index"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li> -->
            </ul>
          </div>
        </div>
@@ -79,7 +79,7 @@ if ($_SESSION["rol"] == 'Dinamizador') {
         <ul class="nav navbar-nav navbar-right">
           <li class="">
            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <?php echo " $nombres  $apellidos - $rol nodo $nodo "  ?>
+            <?php echo " $nombres  $apellidos - $rol nodos Tecnoparque "  ?>
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -127,112 +127,3 @@ if ($_SESSION["rol"] == 'Dinamizador') {
 </script>
 </body>
 </html>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $('#reportesadmin').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-                }
-            },
-
-
-        ],
-        "columnDefs": [
-            {
-                "targets": [16,15,14,13,12,11,10,9,8,7,5],
-                "visible": false,
-                "searchable": false
-            }
-
-        ],
-        "bStateSave": true,
-    "iCookieDuration":60
-
-
-    } );
-} );
-
-
-
-  $(document).ready(function() {
-    $('#reportesadmint').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [0,1,2,3,4,5,6]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-  $(document).ready(function() {
-    $('#reportepinscritos').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                filename: 'Proyectos por Mes',
-                sheetName: 'Proyectos por mes',
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [1,2]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-  $(document).ready(function() {
-    $('#reportepfinalizado').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                filename: 'Prototipos finalizados(mes)',
-                sheetName: 'Prototipos_Finalizados',
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [1,2]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-  $(document).ready(function() {
-    $('#reporteppm').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                filename: 'Prototipos en el mercado(Cierre PMV)',
-                sheetName: 'Cierre PMV',
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [1,2]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-</script>

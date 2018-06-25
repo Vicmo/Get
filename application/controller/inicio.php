@@ -35,4 +35,12 @@ class inicio extends Controller
 
 }
 
+ public function adminodos()
+{
+
+  require APP . 'view/_templates/headeradminodos.php';
+  require APP . 'view/inicio/index.php';
+
+}
+
 }
