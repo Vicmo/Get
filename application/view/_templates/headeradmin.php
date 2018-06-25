@@ -33,6 +33,7 @@ if ($_SESSION["rol"] == 'Dinamizador') {
   $idnodo = $_SESSION["idnodo"];
   $nodo = $_SESSION["nodo"];
   $rol = $_SESSION["rol"];
+  $idnodo = $_SESSION["idnodo"];
 }else{
   header('location: ' . URL . 'home');
 }
@@ -64,7 +65,6 @@ if ($_SESSION["rol"] == 'Dinamizador') {
              <li><a style="background: #238276" href="<?php echo URL; ?>costos/index"><i class="fa fa-usd"></i>Costos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>reportes/index"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li>
-
            </ul>
          </div>
        </div>

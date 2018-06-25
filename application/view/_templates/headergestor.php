@@ -28,11 +28,12 @@
 
   <?php
   session_start();
-  if ($_SESSION["nombres"]  != null && $_SESSION["rol"] == 'Gestor') {
+  if ($_SESSION["rol"] == 'Gestor') {
     $nombres = $_SESSION["nombres"];
     $apellidos = $_SESSION["apellidos"];
     $documento = $_SESSION["documento"];
     $idnodo = $_SESSION["idnodo"];
+    $rol = $_SESSION["rol"];
     $nodo = $_SESSION["nodo"];
   }else{
     header('location: ' . URL . 'home');
@@ -71,7 +72,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="">
            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <?php echo "Gestor - $nombres $apellidos";?>
+             <?php echo " $nombres  $apellidos - $rol nodo $nodo "  ?>
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">

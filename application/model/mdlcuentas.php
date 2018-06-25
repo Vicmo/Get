@@ -34,8 +34,6 @@ class mdlcuentas
 
 
  public function logueo(){
-
-
            $sql = "CALL login(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->correo);
@@ -43,24 +41,7 @@ class mdlcuentas
            return $stm->fetch(PDO::FETCH_ASSOC);
          }
 
-
-         // public function logueo2(){
-         //   $sql = "CALL login2(?)";
-         //   $stm = $this->db->prepare($sql);
-         //   $stm->bindParam(1, $this->correo);
-         //   $stm->execute();
-         //   return $stm->fetch(PDO::FETCH_ASSOC);
-         // }
-         //
-         //   public function logueo3(){
-         //   $sql = "CALL login3(?)";
-         //   $stm = $this->db->prepare($sql);
-         //   $stm->bindParam(1, $this->correo);
-         //   $stm->execute();
-         //   return $stm->fetch(PDO::FETCH_ASSOC);
-         // }
-
-          public function consultac(){
+ public function consultac(){
            $sql = "CALL consultac(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->correo);
@@ -68,8 +49,7 @@ class mdlcuentas
            return $stm->fetch(PDO::FETCH_ASSOC);
          }
 
-           public function modificarclave()
-         {
+  public function modificarclave(){
 
         $sql = "CALL modificarclave(?,?)";
         $stm = $this->db->prepare($sql);
@@ -79,8 +59,7 @@ class mdlcuentas
 
         }
 
-           public function registrarcuenta()
-   {
+  public function registrarcuenta(){
 
        $sql = "CALL registrarcuenta(?,?,?)";
        $stm = $this->db->prepare($sql);
@@ -91,8 +70,7 @@ class mdlcuentas
 
    }
 
-    public function modificarcuenta()
-   {
+    public function modificarcuenta(){
 
        $sql = "CALL modificarcuenta(?,?)";
        $stm = $this->db->prepare($sql);

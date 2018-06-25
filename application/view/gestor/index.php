@@ -25,22 +25,22 @@
                 <br>
                 <h2><small>Los elementos con (*) son obligatorios</small></h2>
 
-
                 <div class="clearfix" ></div>
 
                 <div class="x_content" >
                   <br />
 
-                  <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left" 
+                  <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                   action="<?= URL?>gestor/registrar"  method="POST">
 
+                  <input type="text" name="" value="<?php $idnodo ?>">
 
 
                   <div class="item form-group">
 
                     <div class="item form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Documento<span class="required">*</span>
-                      </label>  
+                      </label>
                       <div class="control-group">
                         <div class="controls">
                           <div class="col-md-3 ">
@@ -207,7 +207,7 @@
              <div class="table-responsive">
                <table id="tabla" >
                  <thead>
-                 </thead>            
+                 </thead>
                  <tbody id="tablap">
                  </tbody>
                </table>
@@ -252,7 +252,7 @@
     $("#menu2").addClass('tab-pane fade in active');
     $("#registro").removeClass();
     $("#consulta").addClass('active');
-    
+
   }
 
 
@@ -267,7 +267,7 @@
        swal({
      title: "¿Desea eliminar este registro?",
 
-     type: "warning",  
+     type: "warning",
      showCancelButton: true,
      confirmButtonColor: "#57D9D2",
      confirmButtonText: "Si",
@@ -309,7 +309,7 @@
 
    }
  });
-   
+
   }else{
     swal("Ups!!", "El gestor no se puede eliminar ya que tiene proyectos asociados en estado inicio,ejecución o planeacion" , "warning");
   }
