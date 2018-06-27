@@ -33,6 +33,37 @@ class mdlnodo
            return $stm->fetchAll(PDO::FETCH_ASSOC);
          }
 
+         public function registrar(){
+           $sql = "CALL registronodo(?,?,?)";
+           $stm = $this->db->prepare($sql);
+           $stm->bindParam(1, $this->ciudad);
+           $stm->bindParam(2, $this->nombre);
+           $stm->bindParam(3, $this->direccion);
+           $stm->execute();
+         }
+
+         public function vernodo(){
+           $sql = "CALL vernodo(?)";
+           $stm = $this->db->prepare($sql);
+           $stm->bindParam(1, $this->idnodo);
+           $stm->execute();
+           return $stm->fetch(PDO::FETCH_ASSOC);
+         }
+
+         public function consultadepto(){
+           $sql = "CALL consultadepto";
+           $stm = $this->db->prepare($sql);
+           $stm->execute();
+           return $stm->fetchAll(PDO::FETCH_ASSOC);
+         }
+
+         // public function consultaciudad(){
+         //   $sql = "CALL consultaciudad";
+         //   $stm = $this->db->prepare($sql);
+         //   $stm->execute();
+         //   return $stm->fetchAll(PDO::FETCH_ASSOC);
+         // }
+
 
 
 }

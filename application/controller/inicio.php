@@ -3,7 +3,7 @@
 class inicio extends Controller
 {
 
- public function administrador()
+ public function admin()
  {
 
    require APP . 'view/_templates/headeradmin.php';

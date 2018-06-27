@@ -67,7 +67,7 @@ class home extends Controller
 						$_SESSION["idnodo"] = $resultado["idnodo"];
 						$_SESSION["rol"] = $resultado["rol"];
 						$_SESSION["correo"] = $resultado["correo"];
-						header("location: ".URL."inicio/administrador");
+						header("location: ".URL."inicio/admin");
 
 					} else if ($resultado["rol"] == 'Infocenter'){
 

@@ -1,18 +1,18 @@
 
 html , body{
-    
+
  height:100%;
  background-color:#238276;
- 
+
 }
 
- 
+
 .full-width {
-    
+
  width:100%;
- 
+
  }
- 
+
 .full-height{
  height:100%;
  }
@@ -96,7 +96,7 @@ html , body{
     color: #fff;
     background: #1ABB9C
 }
-    
+
 .daterangepicker.picker_2 .calendar-table td.active {
     background: #357EBD
 }
@@ -113,7 +113,7 @@ html , body{
     color: #fff;
     background: #1ABB9C
 }
-    
+
 .daterangepicker.picker_4 .calendar-table td.active {
     background: #357EBD
 }
@@ -123,7 +123,7 @@ html , body{
     color: #fff;
     background: #1ABB9C
 }
-    
+
 .daterangepicker.picker_5 .calendar-table td.active {
     background: #357EBD
 }
@@ -132,7 +132,7 @@ html , body{
     color: #fff;
     background: #1ABB9C
 }
-    
+
 .daterangepicker.picker_6 .calendar-table td.active {
     background: #357EBD
 }
@@ -1407,7 +1407,7 @@ table.display thead td:active {
     -webkit-overflow-scrolling: touch
 }
 .top .dataTables_info {
-    
+
 }
 .clear {
     clear: both
@@ -4246,9 +4246,47 @@ ul.notifications {
 table thead .checkbox { margin-top:-7px;margin-top:-21px; }
 table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 */
-            
+
 .daterangepicker.xdisplay { width:228px; }
 
 .dataTables_wrapper > .row{
   overflow:auto !important; /*prevent datatables overflowing its container*/
+}
+.radio-group label {
+   overflow: hidden;
+} .radio-group input {
+     This is on purpose for accessibility. Using display: hidden is evil.
+    This makes things keyboard friendly right out tha box!
+   height: 1px;
+   width: 1px;
+   position: absolute;
+   top: -20px;
+} .radio-group .not-active  {
+   color: #3276b1;
+   background-color: #fff;
+}
+
+ ::-webkit-scrollbar {
+   width: 17px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+   background: #C3DCD9;
+   border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+   background: #238276;
+   border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   background: #1A5F56;
+}
+
+.topinput{
+    margin-top: 10px;
 }

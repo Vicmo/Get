@@ -1,27 +1,15 @@
-
-
-
-<body style="background: #238276">
-  <title>Tecnoparque  | Gestor</title>
+<body style="background: #F7F7F7">
+  <title>Tecnoparque  | Nodos</title>
   <div class="right_col" role="main" >
-    <div class="">
-      <div class="page-title">
-        <div class="title_left">
-        </div>
-        <div class="title_right">
-          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          </div>
-        </div>
-      </div>
 
       <div class="clearfix"></div>
       <div class="row" >
         <div class="col-md-12">
           <div class="x_panel" >
             <div class="x_title">
-             <ul class="nav nav-tabs">
-              <li class="active" id="registro"><a data-toggle="tab" href="#home">Registrar Gestor</a></li>
-              <li id="consulta"><a data-toggle="tab" href="#menu2"> Consultar Gestor</a></li>
+             <ul class="nav nav-tabs bar_tabs">
+              <li class="active" id="registro"><a data-toggle="tab" href="#home">Registrar Nodo</a></li>
+              <li id="consulta"><a data-toggle="tab" href="#menu2"> Consultar Nodo</a></li>
             </ul>
             <div class="tab-content">
               <div id="home" class="tab-pane fade in active">
@@ -34,100 +22,51 @@
                   <br />
 
                   <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
-                  action="<?= URL?>gestor/registrar"  method="POST">
+                  action="<?= URL?>nodo/registrar"  method="POST">
 
                   <input type="hidden" name="" value="<?php echo $idnodo ?>">
 
 
-                  <div class="item form-group">
-
                     <div class="item form-group">
-                      <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Documento<span class="required">*</span>
+                      <label class="control-label col-md-2 col-sm-3 col-xs-12" for="">Nombre<span class="required">*</span>
                       </label>
-                      <div class="control-group">
-                        <div class="controls">
-                          <div class="col-md-3 ">
-
-                            <input onchange="validad()" name="txtdocumento" required="" id="txtdocumento" onkeypress="return valida(event)" class="form-control col-md-7 col-xs-12">
-                          </div>
-                        </div>
+                      <div class="col-md-3 col-sm-3 col-xs-3">
+                        <input required name="txtnombre"  id="txtnombre" class="form-control col-md-7 col-xs-12" >
                       </div>
 
-                      <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Nombres<span class="required">*</span>
+                      <label class="control-label col-md-2 col-sm-3 col-xs-3">Direccion<span class="required"></span>
                       </label>
-                      <div class="col-md-3 col-sm-3 col-xs-3">
-                       <input required name="txtnombres"  id="txtnombres" class="form-control col-md-7 col-xs-12" >
-                     </div>
-
-
-
-                   </div>
-                 </div>
-
-
-
-
-
-
-                 <div class="item form-group">
-                   <div class="item form-group">
-                     <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Apellidos<span class="required">*</span>
-                     </label>
-                     <div class="col-md-3 col-sm-3 col-xs-3">
-                       <input required name="txtapellidos" id="txtapellidos" class="form-control col-md-7 col-xs-12" >
-                     </div>
-
-                     <div class="item form-group">
-                      <div class="item form-group">
-                       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Correo<span class="required">*</span>
-                       </label>
-                       <div class="col-md-3 col-sm-3 col-xs-3">
-                         <input onchange="validac()" required type="email" name="txtcorreo" id="txtcorreo" class="form-control col-md-7 col-xs-12" >
-                       </div>
-                     </div>
+                          <div class="col-md-3 ">
+                            <input  name="txtdireccion" id="txtdireccion"  class="form-control col-md-7 col-xs-12">
+                          </div>
                    </div>
 
-
-
-
-
-
-
-                   <div class="item form-group">
                     <div class="item form-group">
-                      <label class="control-label col-md-2 col-sm-3 col-xs-3" >Linea<span class="required">*</span>
+                      <label class="control-label col-md-2 col-sm-3 col-xs-3" >Departamento<span class="required">*</span>
                       </label>
-
-
                       <div class="col-md-3 col-sm-3 col-xs-3">
-
-                        <select id="txtlinea" class="form-control" name="txtlinea" required>
+                        <select id="txtdept" class="form-control" name="txtdept" required onchange="metodos.getCiudad(this)">
                          <option value="">Seleccione</option>
-                         <?php foreach ($linea as $key => $value): ?>
-                           <option value="<?= $value['idlinea'] ?>"><?=$value['nombre']?></option>
+                         <?php foreach ($consultardept as $key => $value): ?>
+                           <option value="<?= $value['iddepartamento'] ?>"><?=$value['nombre']?></option>
                          <?php endforeach; ?>
                        </select>
                      </div>
 
-                     <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Salario<span class="required"> (Mensual) *</span>
+                     <label class="control-label col-md-2 col-sm-3 col-xs-3" >Ciudad<span class="required">*</span>
                      </label>
                      <div class="col-md-3 col-sm-3 col-xs-3">
-                       <input required name="txtsalario" onkeypress="return horas(event)" id="txtsalario" class="form-control col-md-7 col-xs-12" >
-                     </div>
-                   </div>
+                       <select id="txtciudad" class="form-control" name="txtciudad" required>
+                        <option value="">Seleccione</option>
+                      </select>
+                    </div>
+                  </div>
 
-
-
-
-
-
-                 </div>
                  <div class="form-group">
                    <center><button type="button" name="registrar" id="registrar" class="btn btn-success">Registrar</button>
                    </div>
 
-                 </div>
-               </div>
+
              </div>
            </div>
 
@@ -146,7 +85,8 @@
                 <tr>
                   <th>Nodo</th>
                   <th>Nombre</th>
-                  <th>Presupuesto</th>
+                  <th>Ubicación</th>
+                  <th>Dirección</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -163,18 +103,19 @@
 
 
                 <td><?= $value["idnodo"] ?></td>
-                <td>Tecnoparque nodo <?= $value["nombre_ciudad"] ?></td>
-                <td><?= $value["presupuesto"] ?></td>
+                <td>Tecnoparque nodo <?= $value["nombrenodo"] ?></td>
+                <td><?= $value["nombre_ciudad"] ?></td>
+                <td><?= $value["direccion"] ?></td>
 
                 <td>
-                  <a href="<?php echo URL ;?>gestor/edit/<?= $value["idpersona"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
+                  <a href="<?php echo URL ;?>nodo/edit/<?= $value["idnodo"] ?>/<?= $value["iddepartamento"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
 
 
 
                 </td>
                 <td>
 
-                  <a  onclick="cambiarestadog(<?= $value["idpersona"] ?>, 0)" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar</a>
+                  <a  onclick="cambiarestadog(<?= $value["idnodo"] ?>, 0)" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar</a>
                 </td>
 
 
@@ -220,8 +161,65 @@
 </div>
 </div>
 
+<script type="text/javascript">
+  var metodos = {
+        getCiudad:function(e){
+        let id = $(e).val();
+        $.ajax({
+            dataType:'json',
+            type:'post',
+            url:uri+'/nodo/getciudad/'+id
+          }).done(function(res){
+              $('#txtciudad').empty();
+              $('#txtciudad').append('<option value="null">--Seleccione la Ciudad--</option>')
+              $.each(res, function(i, e) {
+                  $('#txtciudad').append('<option  value="'+e.idciudad+'">'+e.ciudad+'</option>');
+            })
+        });
+    }
+  }
 
-</div>
-</div>
-</div>
-</div>
+  $('#registrar').on('click',function(e){
+     e.preventDefault();
+     var form = $(this).parents('form');
+     var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+      if ($("#txtciudad").val() &&
+      $("#txtnombre").val() &&
+      $("#txtdireccion").val()
+
+       )
+
+
+      {
+          swal({
+       title: "¿Desea guardar el registro?",
+       type: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#57D9D2",
+       confirmButtonText: "Si",
+       closeOnConfirm: false
+
+
+     },
+     function(isConfirm){
+
+      if (isConfirm) {
+
+
+       setTimeout(function(){
+
+       form.submit();
+
+       },1500 );
+        swal("Registrado", "El registro ha sido guardado correctamente", "success");
+
+      }else{
+      }
+
+    });
+
+     }
+
+
+   });
+</script>
