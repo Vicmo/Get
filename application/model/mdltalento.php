@@ -2,7 +2,7 @@
 
 class mdltalento
 {
- 
+
    private $db;
    private $tipodocumento;
    private $documento;
@@ -33,7 +33,7 @@ class mdltalento
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -69,9 +69,9 @@ class mdltalento
     }
 
 
-   public function consultaciudad()
+   public function consultadepto()
     {
-        $sql = "CALL consultaciudad";
+        $sql = "CALL consultadepto";
         $stm = $this->db->prepare($sql);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -83,7 +83,7 @@ class mdltalento
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
 
      public function consultanivelaca()
     {
@@ -133,10 +133,9 @@ class mdltalento
 
       public function consultatalentog()
    {
-       $sql = "CALL reportegestort(?,?)";
+       $sql = "CALL reportegestort(?)";
        $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->ano);
-       $stm->bindParam(2, $this->gestor);
+       $stm->bindParam(1, $this->idges);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -190,4 +189,3 @@ class mdltalento
 
    }
 }
-       

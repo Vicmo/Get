@@ -12,15 +12,14 @@ class talento extends Controller
      $this->mdlgestor = $this->loadModel("mdlgestor");
   }
 
-	public function index($ano,$gestor)
+	public function index($persona)
 	{
-        $this->mdlmodel->__SET("ano", $ano);
-        $this->mdlmodel->__SET("gestor", $gestor);
+        $this->mdlmodel->__SET("idges", $persona);
         $consultatalento = $this->mdlmodel->consultatalentog();
         $tipodoc = $this->mdlmodel->consultatipodoc();
         $ocu = $this->mdlmodel->consultaocu();
         $tipotale = $this->mdlmodel->consultatipotale();
-        $ciudad = $this->mdlmodel->consultaciudad();
+        $depto = $this->mdlmodel->consultadepto();
         $nivelaca = $this->mdlmodel->consultanivelaca();
 
 

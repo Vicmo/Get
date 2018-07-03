@@ -57,7 +57,7 @@
                      <label class="control-label col-md-2 col-sm-3 col-xs-3" >Departamento<span class="required">*</span>
                      </label>
                      <div class="col-md-3 col-sm-3 col-xs-3">
-                       <select id="txtdept" class="form-control" name="txtdept" required>
+                       <select id="txtdept" class="form-control" name="txtdept" required onchange="metodos.getCiudad(this)">
                         <option value="">Seleccione</option>
                         <?php foreach ($depto as $key => $value): ?>
                           <option value="<?= $value['iddepartamento'] ?>"><?=$value['nombre']?></option>
@@ -76,6 +76,12 @@
                      </select>
                    </div>
                  </div>
+                 <br>
+                 <div class="form-group">
+                   <center><button type="button" id="modificar" class="btn btn-success">Modificar</button>
+                    <a  id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
+
+                  </div>
             </div>
           </div>
         </div>
@@ -95,4 +101,67 @@
   $("#txtciudad").val("<?= $datos['idciudad'];?>");
 </script>
 </script>
-<script type="text/javascript"> $('#cancelar').on('click',function(){location.href = uri+"gestor/index/#menu2";});</script>
+<script type="text/javascript"> $('#cancelar').on('click',function(){location.href = uri+"nodo/";});</script>
+
+<script type="text/javascript">
+
+var metodos = {
+      getCiudad:function(e){
+      let id = $(e).val();
+      $.ajax({
+          dataType:'json',
+          type:'post',
+          url:uri+'/nodo/getciudad/'+id
+        }).done(function(res){
+            $('#txtciudad').empty();
+            $('#txtciudad').append('<option value="null">--Seleccione la Ciudad--</option>')
+            $.each(res, function(i, e) {
+                $('#txtciudad').append('<option  value="'+e.idciudad+'">'+e.ciudad+'</option>');
+          })
+      });
+  }
+}
+
+$('#modificar').on('click',function(e){
+   e.preventDefault();
+   var form = $(this).parents('form');
+   // var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+   // var email = document.getElementById("txtcorreo").value;
+   if ($("#txtciudad").val() &&
+   $("#txtnombre").val() &&
+   $("#txtdireccion").val()
+     )
+
+    {
+        swal({
+     title: "¿Desea modificar el registro?",
+     type: "warning",
+     showCancelButton: true,
+     confirmButtonColor: "#57D9D2",
+     confirmButtonText: "Si",
+     closeOnConfirm: false
+
+
+   },
+   function(isConfirm){
+
+    if (isConfirm) {
+
+
+     setTimeout(function(){
+
+     form.submit();
+
+     },1500 );
+      swal("Modificado", "El registro ha sido modificado correctamente", "success");
+
+    }else{
+    }
+
+  });
+
+   }
+
+
+ });
+</script>

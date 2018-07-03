@@ -37,6 +37,14 @@ class indicadores extends Controller
         echo json_encode($datos);
     }
 
+
+        public function edt($ano)
+    {
+        $this->mdlmodel->__SET("ano", $ano);
+        $datos = $this->mdlmodel->edt();
+        echo json_encode($datos);
+    }
+
          public function reportedtlinea($ano,$linea)
     {
         $this->mdlmodel->__SET("ano", $ano);
@@ -85,6 +93,20 @@ class indicadores extends Controller
     {
 			$this->mdlmodel->__SET("ano", $ano);
         $datos = $this->mdlmodel->artempfin();
+        echo json_encode($datos);
+    }
+
+    public function artsenafin($ano)
+    {
+			$this->mdlmodel->__SET("ano", $ano);
+        $datos = $this->mdlmodel->artsenafin();
+        echo json_encode($datos);
+    }
+
+    public function artgnrfin($ano)
+    {
+			$this->mdlmodel->__SET("ano", $ano);
+        $datos = $this->mdlmodel->artgnrfin();
         echo json_encode($datos);
     }
 

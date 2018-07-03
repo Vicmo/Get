@@ -42,7 +42,7 @@ class home extends Controller
 						$_SESSION["nodo"] = $resultado["nodo"];
             $_SESSION["correo"] = $resultado["correo"];
             $_SESSION["rol"] = $resultado["rol"];
-            $_SESSION["documento"] = $resultado["documento"];
+            $_SESSION["persona"] = $resultado["idpersona"];
             header("location: ".URL."inicio/gestor");
 
           } else if ($resultado["rol"] == 'Talento') {

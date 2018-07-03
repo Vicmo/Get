@@ -40,11 +40,21 @@ class nodo extends Controller
     $depto = $this->mdlmodel->consultadepto();
     $ciudad = $this->mdlciudad->consultarciudad();
     $datos = $this->mdlmodel->vernodo();
-    // var_dump($ciudad);
-    // exit;
     require APP . 'view/_templates/headeradminodos.php';
     require APP . 'view/nodo/modificar.php';
-    // $consultargestor = $this->mdlmodel->consultargestor();
   }
+
+  public function modificar(){
+
+          $this->mdlmodel->__SET("nombre", ucwords($_POST["txtnombre"]));
+          $this->mdlmodel->__SET("direccion",  $_POST["txtdireccion"]);
+          $this->mdlmodel->__SET("ciudad", $_POST["txtciudad"]);
+          $this->mdlmodel->__SET("idnodo", $_POST["txtidnodo"]);
+
+         $very= $this->mdlmodel->modificarnodo();
+
+        header('location: ' . URL . 'nodo/');
+
+        }
 
 }

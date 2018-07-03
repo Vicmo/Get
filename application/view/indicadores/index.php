@@ -23,8 +23,70 @@
              <li ><a data-toggle="tab" href="#home">Línea</a></li>
              <li ><a data-toggle="tab" href="#menu">Gestor</a></li>
              <li ><a data-toggle="tab" href="#menu3">Proyectos</a></li>
+             <li ><a data-toggle="tab" href="#menu4">EDT's</a></li>
            </ul>
            <div class="tab-content">
+             <div id="menu4" class="tab-pane fade">
+                          <div class="panel-body">
+                            <div class="clearfix" ></div>
+                            <ul class="nav nav-tabs bar_tabs">
+                             <li class="active"><a data-toggle="tab" href="#graf_edt">Gráfico</a></li>
+                             <li ><a data-toggle="tab" href="#tab_edt">Tabla (Excel)</a></li>
+                            </ul>
+                            <div class="tab-content">
+                              <div class="tab-pane fade in active" id="graf_edt">
+                                <div class="col-md-8" id="idgrafico_edt">
+                                  <canvas id="grafico_edt"></canvas>
+                                </div>
+                                <div class="col-md-4">
+                                  <br>
+                                  <br>
+                                  <div class="item form-group">
+                                    <label class="control-label col-md-2">Año<span class="required"></span></label>
+                                    <div class="col-md-8">
+                                     <select id="txtanoedt" class="form-control">
+                                       <option value="2017">2017</option>
+                                       <option value="2018">2018</option>
+                                       <option value="2019">2019</option>
+                                       <option value="2020">2020</option>
+                                     </select>
+                                   </div>
+                                 </div>
+                                 <br><br><br>
+                                 <div class="form-group">
+                                   <center><button type="button" id="consultaedt" class="btn btn-success">Consultar</button>
+                                   </center>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <br>
+                                </div>
+                            </div>
+                              <div class="tab-pane fade" id="tab_edt">
+                                <div class="item form-group">
+                                  </center>
+                                </div>
+                                <table class="table table-striped jambo_table bulk_action" id="reporteedt">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Mes</th>
+                                      <th>Cantidad de EDT's realizadas</th>
+                                      <th>Empleados (Empresarios)</th>
+                                      <th>SENA (Aprendices/Instructores)</th>
+                                      <th>Total de Asistentes</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+
+
+                  <div class="clearfix"></div>
+               </div>
              <div id="menu3" class="tab-pane fade">
                <div class="x_content">
                <div class="accordion" id="accordion1" role="tablist" aria-multiselectable="true">
@@ -275,19 +337,6 @@
                                <br><br><br>
                             </div>
                           </div>
-                          <!-- <table class="table table-striped jambo_table bulk_action" id="reporteartempeje">
-                            <thead>
-                              <tr>
-                                <th>Id/Nombre del Proyecto</th>
-                                <th>Empresa</th>
-                                <th>Estado del Proyecto</th>
-                                <th>Gestor</th>
-                                <th>Linea</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                          </table> -->
                         </div>
                       </div>
                       <div class="panel">
@@ -333,6 +382,116 @@
                                       <th>#</th>
                                       <th>Mes</th>
                                       <th>Cantidad de proyectos articulados con empresas que finalizaron (Cierre PF + Cierre PMV)</th>
+                                      <!-- <th>Gestor</th>
+                                      <th>Linea</th> -->
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="panel">
+                        <a class="panel-heading collapse" role="tab" id="headingSeven1" data-toggle="collapse" data-parent="#accordion1" href="#collapseSeven1" aria-expanded="true" aria-controls="collapseSeven">
+                          <h4 class="panel-title">Proyectos articulados con SENA finalizados por mes</h4>
+                        </a>
+                        <div id="collapseSeven1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                          <div class="panel-body">
+                            <ul class="nav nav-tabs bar_tabs">
+                             <li class="active"><a data-toggle="tab" href="#graf_senafin">Gráfico</a></li>
+                             <li ><a data-toggle="tab" href="#tab_senafin">Tabla (Excel)</a></li>
+                            </ul>
+                            <div class="tab-content">
+                              <div class="tab-pane fade in active" id="graf_senafin">
+                                <div class="col-md-8" id="idgrafico_senafin">
+                                  <canvas id="grafico_senafin"></canvas>
+                                </div>
+                                <div class="col-md-4">
+                                  <br>
+                                  <br>
+                                  <div class="item form-group">
+                                    <label class="control-label col-md-2">Año<span class="required"></span></label>
+                                    <div class="col-md-8">
+                                      <select id="txtanosenafin" class="form-control" name="">
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                      </select>
+                                    </div>
+                              </div>
+                              <br><br><br>
+                            </div>
+                            <div class="form-group">
+                              <center><button type="button" id="consultaartsenafin" class="btn btn-success">Consultar</button>
+                              </center>
+                            </div>
+                          </div>
+                              <div class="tab-pane fade" id="tab_senafin">
+                                <table class="table table-striped jambo_table bulk_action" id="reporteartsenafin">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Mes</th>
+                                      <th>Cantidad de proyectos articulados con SENA que finalizaron.</th>
+                                      <!-- <th>Gestor</th>
+                                      <th>Linea</th> -->
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="panel">
+                        <a class="panel-heading collapse" role="tab" id="headingEight1" data-toggle="collapse" data-parent="#accordion1" href="#collapseEight1" aria-expanded="true" aria-controls="collapseEight">
+                          <h4 class="panel-title">Proyectos con público general finalizados por mes</h4>
+                        </a>
+                        <div id="collapseEight1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                          <div class="panel-body">
+                            <ul class="nav nav-tabs bar_tabs">
+                             <li class="active"><a data-toggle="tab" href="#graf_gnrfin">Gráfico</a></li>
+                             <li ><a data-toggle="tab" href="#tab_gnrfin">Tabla (Excel)</a></li>
+                            </ul>
+                            <div class="tab-content">
+                              <div class="tab-pane fade in active" id="graf_gnrfin">
+                                <div class="col-md-8" id="idgrafico_gnrfin">
+                                  <canvas id="grafico_gnrfin"></canvas>
+                                </div>
+                                <div class="col-md-4">
+                                  <br>
+                                  <br>
+                                  <div class="item form-group">
+                                    <label class="control-label col-md-2">Año<span class="required"></span></label>
+                                    <div class="col-md-8">
+                                      <select id="txtanognrfin" class="form-control" name="">
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                      </select>
+                                    </div>
+                              </div>
+                              <br><br><br>
+                            </div>
+                            <div class="form-group">
+                              <center><button type="button" id="consultaartgnrfin" class="btn btn-success">Consultar</button>
+                              </center>
+                            </div>
+                          </div>
+                              <div class="tab-pane fade" id="tab_gnrfin">
+                                <table class="table table-striped jambo_table bulk_action" id="reporteartgnrfin">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Mes</th>
+                                      <th>Cantidad de proyectos con público general que finalizaron (Cierre PF + Cierre PMV)</th>
                                       <!-- <th>Gestor</th>
                                       <th>Linea</th> -->
                                     </tr>
@@ -542,10 +701,41 @@
           </div>
         </div>
       </div>
-
     </body>
 
+
     <script type="text/javascript">
+
+      new Chart(document.getElementById("grafico_edt"), {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: "EDT's",
+            backgroundColor: "#1F3A27",
+            data: [0,0,0,0,0,0,0,0,0,0,0,0]
+          },
+          {
+            label: "Instructores/Aprendices",
+            backgroundColor: "#5C6F61",
+            data: [0,0,0,0,0,0,0,0,0,0,0,0]
+          },
+          {
+            label: "Empleados/Empresarios",
+            backgroundColor: "#3B6B48",
+            data: [0,0,0,0,0,0,0,0,0,0,0,0]
+          },
+          {
+            label: "Total",
+            backgroundColor: "#006200",
+            data: [0,0,0,0,0,0,0,0,0,0,0,0]
+          }
+        ]
+      },
+      options: { }
+    });
+
      new Chart(document.getElementById("graficoestadotodo"),
       {"type":"bar",
       "data":{"labels":["Inico","Planeación","Ejecución","Cierre - PF","Cierre - PMV","Suspendido","Cancelado","P.F. Empresas","EDT","G. Investigación"],
@@ -607,11 +797,274 @@
       "datasets":[{"label":"Indicadores","data":[0,0,0,0,0,0,0,0,0,0,0,0],"fill":false,
       "backgroundColor":["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)",],"borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
 
+     new Chart(document.getElementById("grafico_senafin"),
+      {"type":"bar",
+      "data":{"labels":["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      "datasets":[{"label":"Indicadores","data":[0,0,0,0,0,0,0,0,0,0,0,0],"fill":false,
+      "backgroundColor":["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)",],"borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
+
+     new Chart(document.getElementById("grafico_gnrfin"),
+      {"type":"bar",
+      "data":{"labels":["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      "datasets":[{"label":"Indicadores","data":[0,0,0,0,0,0,0,0,0,0,0,0],"fill":false,
+      "backgroundColor":["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)",],"borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
+
      new Chart(document.getElementById("grafico_empeje"),
       {"type":"bar",
       "data":{"labels":["Inicio","Planeación","Ejecucción","Cierre - PF","Cierre - PMV","Suspendido","Cancelado"],
       "datasets":[{"label":"Indicadores","data":[0,0,0,0,0,0,0,0,0,0,0,0],"fill":false,
       "backgroundColor":["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)","rgba(201, 203, 207, 0.2)",],"borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
+
+      $('#consultaedt').click (function(){
+              let prueba = $("#txtanoedt").val();
+              var totalp = 0;
+              $.ajax({
+                dataType:'json',
+                type:'post',
+                url:uri+"indicadores/edt/"+prueba,
+              }).done(function(response){
+                      var datos = {
+                        data1: [],
+                        data2: [],
+                        data3: [],
+                        data4: [],
+                        data5: []
+                    };
+                    var tamaño = response.length;
+                    // console.log(tamaño);
+
+                    for (var i = 0; i < tamaño; i++) {
+                        if (response[i].edt != null) {
+                            datos.data1.push(response[i].edt);
+                        }
+
+                        if (response[i].empresario != null) {
+                            datos.data2.push(response[i].empresario);
+                        }
+
+                        if (response[i].sena != null) {
+                            datos.data3.push(response[i].sena);
+                        }
+
+                        if (response[i].total != null) {
+                            datos.data4.push(response[i].total);
+                        }
+                        if (response[i].mes != null) {
+                            datos.data5.push(response[i].mes);
+                        }
+                    }
+                  var pi = $('#reporteedt').DataTable();
+                  pi.clear();
+                  console.log(response);
+                    if (response == 0) {
+                      swal("Ups!!", "No se han encontrador EDT's este año.", "warning");
+                      pi.row.add(['','','No se han encontrado resultados','','','']).draw(true);
+                    } else {
+                        pi.clear();
+                      $.each(response, function(i, item) {
+                        pi.row.add( [item.meses,item.mes,item.edt,item.empresario,item.sena,item.total] ).draw(false);
+                      });
+                      var grafica = $('#grafico_edt');
+
+
+                          var edt = {
+                            label: "EDT's",
+                            data: datos.data1,
+                            backgroundColor: 'rgba(31, 58, 39)',
+                          };
+
+                          var sena = {
+                            label: 'Instructores/Aprendices',
+                            data: datos.data3,
+                            backgroundColor: 'rgba(92, 111, 97)',
+                          };
+                          var emp = {
+                            label: 'Empresarios/Empleados',
+                            data: datos.data2,
+                            backgroundColor: 'rgba(59, 107, 72)',
+                          };
+                          var total = {
+                            label: 'Total',
+                            data: datos.data4,
+                            backgroundColor: 'rgba(0, 98, 0)',
+                          };
+
+                          var gf = {
+                            labels: datos.data5,
+                            datasets: [edt, sena, emp, total]
+                          };
+                          var barChart = new Chart(grafica, {
+                            type: 'bar',
+                            data: gf,
+                          });
+                    }
+
+                  });
+              });
+
+      $('#consultaartgnrfin').click (function(){
+        let prueba = $("#txtanognrfin").val();
+        var totalp = 0;
+        $.ajax({
+          dataType:'json',
+          type:'post',
+          url:uri+"indicadores/artgnrfin/"+prueba,
+        }).done(function(response){
+            var pi = $('#reporteartempfin').DataTable();
+              if (response == 0) {
+                pi.clear();
+                var Enero;
+                var Febrero;
+                var Marzo;
+                var Abril;
+                var Mayo;
+                var Junio;
+                var Julio;
+                var Agosto;
+                var Septiembre;
+                var Octubre;
+                var Noviembre;
+                var Diciembre;
+                swal("Ups!!", "No hay proyectos articulados con SENA finalizados este año.", "warning");
+                pi.row.add(['','','No se han encontrado resultados']).draw(true);
+              } else {
+                  pi.clear();
+                $.each(response, function(i, item) {
+                  var pi = $('#reporteartgnrfin').DataTable();
+                  if (item.mes == 'January') {
+                    Enero = item.proyectos;
+                    pi.row.add( [item.meses,'Enero',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'February') {
+                    Febrero = item.proyectos;
+                    pi.row.add( [item.meses,'Febrero',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'March') {
+                    Marzo = item.proyectos;
+                    pi.row.add( [item.meses,'Marzo',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'April') {
+                    Abril = item.proyectos;
+                    pi.row.add( [item.meses,'Abril',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'May') {
+                    Mayo = item.proyectos;
+                    pi.row.add( [item.meses,'Mayo',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'June') {
+                    Junio = item.proyectos;
+                    pi.row.add( [item.meses,'Junio',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'July') {
+                    Julio = item.proyectos;
+                    pi.row.add( [item.meses,'Julio',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'August') {
+                    Agosto = item.proyectos;
+                    pi.row.add( [item.meses,'Agosto',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'September') {
+                    Septiembre = item.proyectos;
+                    pi.row.add( [item.meses,'Septiembre',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'October') {
+                    Octubre = item.proyectos;
+                    pi.row.add( [item.meses,'Octubre',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'November') {
+                    Noviembre = item.proyectos;
+                    pi.row.add( [item.meses,'Noviembre',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'December') {
+                    Diciembre = item.proyectos;
+                    pi.row.add( [item.meses,'Diciembre',item.proyectos] ).draw(false);
+                  }
+                    // pi.row.add( [item.nombreproyecto,item.empresa,item.nombre,item.gestor,item.linea] ).draw(false);
+                });
+                $('#grafico_gnrfin').remove();
+                $('#idgrafico_gnrfin').append('<canvas id="grafico_gnrfin"></canvas>');
+
+                new Chart(document.getElementById("grafico_gnrfin"),
+                {"type":"bar",
+                "data":{"labels":["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre", "Noviembre","Diciembre"],
+                "datasets":[{"label":"Cantidad","data":[Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre],"fill":false,
+                "backgroundColor":["rgba(255, 99, 132, 1)","rgba(255, 159, 64, 1)","rgba(255, 205, 86,1)","rgba(75, 192, 192, 1)","rgba(54, 162, 235,1)","rgba(153, 102, 255,1 )","rgba(201, 203, 207, 1)","rgba(300, 190, 207, 1)","rgba(250, 190, 120, 1)","rgba(100, 190, 207, 1)","rgba(99, 158, 52, 1)","rgba(158, 101, 45, 1)",],"borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
+                // console.log(totalp);
+              }
+
+            });
+        });
+
+      $('#consultaartsenafin').click (function(){
+        let prueba = $("#txtanosenafin").val();
+        var totalp = 0;
+        $.ajax({
+          dataType:'json',
+          type:'post',
+          url:uri+"indicadores/artsenafin/"+prueba,
+        }).done(function(response){
+            var pi = $('#reporteartempfin').DataTable();
+              if (response == 0) {
+                pi.clear();
+                var Enero;
+                var Febrero;
+                var Marzo;
+                var Abril;
+                var Mayo;
+                var Junio;
+                var Julio;
+                var Agosto;
+                var Septiembre;
+                var Octubre;
+                var Noviembre;
+                var Diciembre;
+                swal("Ups!!", "No hay proyectos articulados con SENA finalizados este año.", "warning");
+                pi.row.add(['','','No se han encontrado resultados']).draw(true);
+              } else {
+                  pi.clear();
+                $.each(response, function(i, item) {
+                  var pi = $('#reporteartsenafin').DataTable();
+                  if (item.mes == 'January') {
+                    Enero = item.proyectos;
+                    pi.row.add( [item.meses,'Enero',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'February') {
+                    Febrero = item.proyectos;
+                    pi.row.add( [item.meses,'Febrero',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'March') {
+                    Marzo = item.proyectos;
+                    pi.row.add( [item.meses,'Marzo',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'April') {
+                    Abril = item.proyectos;
+                    pi.row.add( [item.meses,'Abril',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'May') {
+                    Mayo = item.proyectos;
+                    pi.row.add( [item.meses,'Mayo',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'June') {
+                    Junio = item.proyectos;
+                    pi.row.add( [item.meses,'Junio',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'July') {
+                    Julio = item.proyectos;
+                    pi.row.add( [item.meses,'Julio',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'August') {
+                    Agosto = item.proyectos;
+                    pi.row.add( [item.meses,'Agosto',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'September') {
+                    Septiembre = item.proyectos;
+                    pi.row.add( [item.meses,'Septiembre',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'October') {
+                    Octubre = item.proyectos;
+                    pi.row.add( [item.meses,'Octubre',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'November') {
+                    Noviembre = item.proyectos;
+                    pi.row.add( [item.meses,'Noviembre',item.proyectos] ).draw(false);
+                  } else if (item.mes == 'December') {
+                    Diciembre = item.proyectos;
+                    pi.row.add( [item.meses,'Diciembre',item.proyectos] ).draw(false);
+                  }
+                    // pi.row.add( [item.nombreproyecto,item.empresa,item.nombre,item.gestor,item.linea] ).draw(false);
+                });
+                $('#grafico_senafin').remove();
+                $('#idgrafico_senafin').append('<canvas id="grafico_senafin"></canvas>');
+
+                new Chart(document.getElementById("grafico_senafin"),
+                {"type":"bar",
+                "data":{"labels":["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre", "Noviembre","Diciembre"],
+                "datasets":[{"label":"Cantidad","data":[Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre],"fill":false,
+                "backgroundColor":["rgba(255, 99, 132, 1)","rgba(255, 159, 64, 1)","rgba(255, 205, 86,1)","rgba(75, 192, 192, 1)","rgba(54, 162, 235,1)","rgba(153, 102, 255,1 )","rgba(201, 203, 207, 1)","rgba(300, 190, 207, 1)","rgba(250, 190, 120, 1)","rgba(100, 190, 207, 1)","rgba(99, 158, 52, 1)","rgba(158, 101, 45, 1)",],"borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
+                // console.log(totalp);
+              }
+
+            });
+        });
 
       $('#consultaartempfin').click (function(){
         let prueba = $("#txtanoaef").val();
@@ -2070,4 +2523,7 @@ $ ('#pdfgestor').click (function () {
   $("#txtanoppm").val(anoo);
   $("#txtanoarteins").val(anoo);
   $("#txtanoaef").val(anoo);
+  $("#txtanosenafin").val(anoo);
+  $("#txtanognrfin").val(anoo);
+  $("#txtanoedt").val(anoo);
 </script>

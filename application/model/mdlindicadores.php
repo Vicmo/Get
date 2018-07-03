@@ -65,6 +65,26 @@ class mdlindicadores
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
+
+   public function artsenafin()
+   {
+       $sql = "CALL proyectofinsena(?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->ano);
+       $stm->execute();
+       return $stm->fetchAll(PDO::FETCH_ASSOC);
+
+   }
+
+   public function artgnrfin()
+   {
+       $sql = "CALL proyectofingnr(?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->ano);
+       $stm->execute();
+       return $stm->fetchAll(PDO::FETCH_ASSOC);
+
+   }
    public function artempeje()
    {
        $sql = "CALL proyectorartejecucionemp2";
@@ -137,6 +157,32 @@ class mdlindicadores
 
    }
 
+   public function mesesesp()
+        {
+          $sql = "SET lc_time_names = 'es_ES'";
+          $stm = $this->db->prepare($sql);
+          $stm->execute();
+        }
+
+      // function mesesesp(){
+      //
+      //     $mes = "CALL mesesesp";
+      //      $stmes = $this->db->prepare($mes);
+      //      $stmes->execute();
+      //
+      //    }
+
+  public function edt()
+   {
+        $esp = $this->mesesesp();
+       $sql = "CALL reporteedt(?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->ano);
+       $stm->execute();
+       return $stm->fetchAll(PDO::FETCH_ASSOC);
+
+   }
+
              public function reportedtgestor()
    {
        $sql = "CALL reportedtgestor(?,?)";
@@ -168,7 +214,7 @@ class mdlindicadores
 
    }
 
-           public function indicadoresestadoproyecto()
+    public function indicadoresestadoproyecto()
    {
        $sql = "CALL reportestadoproyecto(?)";
        $stm = $this->db->prepare($sql);

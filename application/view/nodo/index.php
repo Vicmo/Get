@@ -65,22 +65,10 @@
                  <div class="form-group">
                    <center><button type="button" name="registrar" id="registrar" class="btn btn-success">Registrar</button>
                    </div>
-
-
              </div>
            </div>
-
-
-
-
-
-
-
-
            <div id="menu2" class="tab-pane fade">
              <table class="table table-striped jambo_table bulk_action" id="tabla">
-
-
               <thead>
                 <tr>
                   <th>Nodo</th>
@@ -91,46 +79,30 @@
                   <th>Eliminar</th>
                 </tr>
               </thead>
-
-
               <tbody>
                <?php foreach ($consultarnodos as $value) { ?>
                <tr>
-
                 <div class="item form-group">
-
                 </div>
-
-
                 <td><?= $value["idnodo"] ?></td>
                 <td>Tecnoparque nodo <?= $value["nombrenodo"] ?></td>
                 <td><?= $value["nombre_ciudad"] ?></td>
                 <td><?= $value["direccion"] ?></td>
-
                 <td>
                   <a href="<?php echo URL ;?>nodo/edit/<?= $value["idnodo"] ?>/<?= $value["iddepartamento"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
-
-
-
                 </td>
                 <td>
-
                   <a  onclick="cambiarestadog(<?= $value["idnodo"] ?>, 0)" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar</a>
                 </td>
-
-
               </tr>
               <?php } ?>
             </tbody>
-
-
           </table>
         </div>
       </div>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-
       <div id="ver" class="modal fade" role="dialog" >
        <div class="modal-dialog modal-sm" >
          <div class="modal-content">
@@ -148,13 +120,9 @@
                </table>
              </div>
            </div>
-
          </div>
-
        </div>
      </div>
-
-
    </div>
  </div>
 </div>

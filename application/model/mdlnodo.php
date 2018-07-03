@@ -57,6 +57,16 @@ class mdlnodo
            return $stm->fetchAll(PDO::FETCH_ASSOC);
          }
 
+         public function modificarnodo(){
+           $sql = "CALL modificarnodo(?,?,?,?)";
+            $stm = $this->db->prepare($sql);
+            $stm->bindParam(1, $this->idnodo);
+            $stm->bindParam(2, $this->nombre);
+            $stm->bindParam(3, $this->direccion);
+            $stm->bindParam(4, $this->ciudad);
+            $stm->execute();
+         }
+
          // public function consultaciudad(){
          //   $sql = "CALL consultaciudad";
          //   $stm = $this->db->prepare($sql);

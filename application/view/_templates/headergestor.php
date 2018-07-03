@@ -31,7 +31,7 @@
   if ($_SESSION["rol"] == 'Gestor') {
     $nombres = $_SESSION["nombres"];
     $apellidos = $_SESSION["apellidos"];
-    $documento = $_SESSION["documento"];
+    $persona = $_SESSION["persona"];
     $idnodo = $_SESSION["idnodo"];
     $rol = $_SESSION["rol"];
     $nodo = $_SESSION["nodo"];
@@ -52,7 +52,7 @@
           <div class="menu_section">
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
-             <li><a style="background: #238276" href="<?php echo URL; ?>talento/index/<?php echo date("Y"); ?>/<?php echo $documento ?>"><i class="fa fa-users"></i>Talentos</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>talento/index/<?php echo $persona ?>"><i class="fa fa-users"></i>Talentos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/gestor/<?php echo $documento ?>/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>usoinfraestructura/index/<?php echo $documento ?>"><i class="fa fa-building"></i>Uso de Infraestructura</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>edt/index/<?php echo $documento ?>"><i class="fa fa-institution"></i>EDT</a></li>

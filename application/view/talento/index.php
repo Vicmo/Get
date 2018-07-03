@@ -123,8 +123,8 @@
 
                  <div class="col-md-3 col-sm-3 col-xs-3" style="margin-top: 7px">
 
-                  Masculino: <input type="radio" class="flat" name="txtgenero"  value="Masculino"  checked=""/>
-                  Femenino: <input type="radio" class="flat" name="txtgenero" value="Femenino" />
+                  Masculino: <input type="radio" class="flat" name="txtgenero"  value="1"  checked=""/>
+                  Femenino: <input type="radio" class="flat" name="txtgenero" value="0" />
 
 
                 </div>
@@ -184,39 +184,38 @@
             </div>
           </div>
         </div>
-        <div class="item form-group">
           <div class="item form-group">
+            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Departamento de Residencia<span class="required">*</span>
+            </label>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+             <select id="txtdepto" class="form-control" name="txtdepto" onchange="metodos.getCiudad(this)">
+               <option value="">Seleccione</option>
+               <?php foreach ($depto as $key => $value): ?>
+                 <option value="<?= $value['iddepartamento'] ?>"><?=$value['nombre'] ?></option>
+               <?php endforeach; ?>
+             </select>
+           </div>
             <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Ciudad de Residencia<span class="required">*</span>
             </label>
             <div class="col-md-3 col-sm-3 col-xs-3">
              <select id="txtciudad" class="form-control" name="txtciudad" required>
-               <option value="">Seleccione</option>
-               <?php foreach ($ciudad as $key => $value): ?>
-                 <option value="<?= $value['idciudad'] ?>"><?=$value['nombre'] ?></option>
-               <?php endforeach; ?>
+               <option value="">Seleccione la Ciudad</option>
              </select>
            </div>
-
-
-           <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Dirección de Residencia<span class="required"></span>
-           </label>
-           <div class="col-md-3 col-sm-3 col-xs-3">
-             <input name="txtdireccion"  id="txtdireccion"  class="form-control col-md-7 col-xs-12" >
-           </div>
          </div>
-       </div>
 
-
-       <div class="item form-group">
         <div class="item form-group">
           <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Estrato<span class="required">*</span>
           </label>
           <div class="col-md-3 col-sm-3 col-xs-3">
             <input required name="txtestrato" maxlength="1" onkeypress="return valida(event)" id="txtestrato" class="form-control col-md-7 col-xs-12" >
           </div>
+          <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Dirección de Residencia<span class="required"></span>
+          </label>
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <input name="txtdireccion"  id="txtdireccion"  class="form-control col-md-7 col-xs-12" >
+          </div>
         </div>
-      </div>
-
       <hr>
       <h3 ><small>Estudios</small></h2>
         <div>
@@ -288,7 +287,7 @@
       <th>Apellidos</th>
       <th>Tipo Talento</th>
       <th>Correo</th>
-      <th>Celular</th>
+      <th>Contacto</th>
       <th>Detalles</th>
       <th>Editar</th>
     </tr>
@@ -309,7 +308,7 @@
     <td><?= $value["apellidos"] ?></td>
     <td><?= $value["tipot"] ?></td>
     <td><?= $value["correo"] ?></td>
-    <td><?= $value["numerocelular"] ?></td>
+    <td><?= $value["contacto"] ?></td>
 
 
     <td>
@@ -373,8 +372,27 @@
 </div>
 </div>
 <script src="<?php echo URL; ?>js/talento.js"></script>
-<script type="text/javascript"> $('#txtciudad').select2();</script>
+<!-- <script type="text/javascript"> $('#txtdepto').select2();</script> -->
 <script type="text/javascript">
+var metodos = {
+      getCiudad:function(e){
+        swal('Exito', 'Exitosos', 'success');
+      let id = $(e).val();
+      $.ajax({
+          dataType:'json',
+          type:'post',
+          url:uri+'/nodo/getciudad/'+id
+        }).done(function(res){
+            $('#txtciudad').empty();
+            $('#txtciudad').append('<option value="null">--Seleccione la Ciudad--</option>')
+            $.each(res, function(i, e) {
+                $('#txtciudad').append('<option  value="'+e.idciudad+'">'+e.ciudad+'</option>');
+          })
+      });
+  }
+}
+
+
  var x = location.hash;
  if (x != "") {
   $("#home").removeClass("tab-pane fade in active").addClass("tab-pane fade");
@@ -384,7 +402,7 @@
   location.hash = '';
 }
 
-$('#txtciudad').select2({
+$('#txtdepto').select2({
   tags:true,
 })
 </script>
