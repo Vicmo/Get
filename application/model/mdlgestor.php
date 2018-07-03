@@ -39,7 +39,7 @@ class mdlgestor
            return $stm->fetchAll(PDO::FETCH_ASSOC);
          }
 
- public function consultargestor()
+         public function consultargestor()
        {
            $sql = "CALL consultargestor(?)";
            $stm = $this->db->prepare($sql);
@@ -47,20 +47,18 @@ class mdlgestor
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
          }
- public function registrar()
-   {
 
-       $sql = "CALL registrargestor(?,?,?,?,?,?)";
-       $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->documento);
-       $stm->bindParam(2, $this->nombres);
-       $stm->bindParam(3, $this->apellidos);
-       $stm->bindParam(4, $this->correo);
-       $stm->bindParam(5, $this->linea);
-       $stm->bindParam(6, $this->salario);
-       $stm->execute();
+         public function registrar(){
+           // var_dump($this->documento);
+           // exit;
+         $sql = "CALL registrargestor(?,?,?)";
+         $stm = $this->db->prepare($sql);
+         $stm->bindParam(1, $this->documento);
+         $stm->bindParam(2, $this->linea);
+         $stm->bindParam(3, $this->salario);
+         $stm->execute();
 
-   }
+     }
    public function modificargestor()
    {
 

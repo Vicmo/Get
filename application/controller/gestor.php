@@ -11,8 +11,7 @@ class gestor extends Controller
 
   }
 
-	public function index($idnodo)
-	{
+	public function index($idnodo){
 	    $linea = $this->mdlmodel->consultalineaa();
 			$this->mdlmodel->__SET("nodo", $idnodo);
 			$consultargestor = $this->mdlmodel->consultargestor();
@@ -27,16 +26,22 @@ class gestor extends Controller
     $this->mdlcuentas->__SET("nombres", ucwords ($_POST["txtnombres"]));
     $this->mdlcuentas->__SET("apellidos", ucwords ($_POST["txtapellidos"]));
     $this->mdlcuentas->__SET("correo", $_POST["txtcorreo"]);
-    $this->mdlcuentas->__SET("linea", $_POST["txtlinea"]);
     $this->mdlcuentas->__SET("idnodo", $_POST["txtidnodo"]);
-		$this->mdlcuentas->__SET("rol",2);
+		$this->mdlcuentas->__SET("rol",'Gestor');
 		$this->mdlcuentas->__SET("correo", $_POST["txtcorreo"]);
-		$this->mdlcuentas->__SET("clave", MD5($_POST["txtdocumento"]));
-		$veryy= $this->mdlcuentas->registrarpersona();
+		$this->mdlcuentas->__SET("estado",1);
+		$this->mdlcuentas->__SET("tipodoc",1);
+		$this->mdlcuentas->__SET("contacto",0);
+		$this->mdlcuentas->__SET("password", MD5($_POST["txtdocumento"]));
+		// var_dump($this->mdlcuentas->__SET("rol",'Gestor'));
+		// exit;
+		$veryy= $this->mdlcuentas->registrarusuario();
 
-		// $very= $this->mdlmodel->registrar();
-		// $this->mdlmodel->__SET("salario", $_POST["txtsalario"]);
-       header('location: ' . URL . 'gestor');
+		$this->mdlmodel->__SET("documento", $_POST["txtdocumento"]);
+		$this->mdlmodel->__SET("linea", $_POST["txtlinea"]);
+		$this->mdlmodel->__SET("salario", $_POST["txtsalario"]);
+		$very= $this->mdlmodel->registrar();
+  	header('location: ' . URL . 'gestor/index/'.$_POST["txtidnodo"]);
    }
 
  public function edit($documento)

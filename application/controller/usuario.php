@@ -64,12 +64,6 @@ class usuario extends Controller
     }
   }
 
-
-
-
-
-
-
   public function ValidarCorreoAjax()
   {
     $this->mdlusuario->__SET("correo", $_POST["validarCorreo"]);
