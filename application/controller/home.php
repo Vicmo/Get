@@ -107,6 +107,8 @@ class home extends Controller
     unset($_SESSION["apellidos"]);
     unset($_SESSION["rol"]);
     unset($_SESSION["correo"]);
+    unset($_SESSION["idnodo"]);
+    unset($_SESSION["nodo"]);
     header('location: ' . URL . 'home');
   }
 

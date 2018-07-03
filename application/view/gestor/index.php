@@ -1,6 +1,3 @@
-
-
-
 <body style="background: #238276">
   <title>Tecnoparque  | Gestor</title>
   <div class="right_col" role="main" >
@@ -36,7 +33,7 @@
                   <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                   action="<?= URL?>gestor/registrar"  method="POST">
 
-                  <input type="hidden" name="" value="<?php echo $idnodo ?>">
+                  <input type="hidden" name="txtidnodo" value="<?php echo $idnodo ?>">
 
 
                   <div class="item form-group">

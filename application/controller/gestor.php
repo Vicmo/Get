@@ -21,31 +21,22 @@ class gestor extends Controller
 
 	}
 
-	// public function consulta_gestor_nodo($idnodo){
-	//
-	// 	$this->mdlmodel->__SET("idnodo", $idnodo);
-	// 	echo json_encode($consultargestor);
-	//
-	// }
-
 	public function registrar()
    {
-
-    $this->mdlmodel->__SET("documento", $_POST["txtdocumento"]);
-    $this->mdlmodel->__SET("nombres", ucwords ($_POST["txtnombres"]));
-    $this->mdlmodel->__SET("apellidos", ucwords ($_POST["txtapellidos"]));
-    $this->mdlmodel->__SET("correo", $_POST["txtcorreo"]);
-    $this->mdlmodel->__SET("linea", $_POST["txtlinea"]);
-    $this->mdlmodel->__SET("salario", $_POST["txtsalario"]);
-
-       $very= $this->mdlmodel->registrar();
-
-    $this->mdlcuentas->__SET("rol",2);
+    $this->mdlcuentas->__SET("documento", $_POST["txtdocumento"]);
+    $this->mdlcuentas->__SET("nombres", ucwords ($_POST["txtnombres"]));
+    $this->mdlcuentas->__SET("apellidos", ucwords ($_POST["txtapellidos"]));
     $this->mdlcuentas->__SET("correo", $_POST["txtcorreo"]);
-    $this->mdlcuentas->__SET("clave", MD5($_POST["txtdocumento"]));
-    $veryy= $this->mdlcuentas->registrarcuenta();
-       header('location: ' . URL . 'gestor');
+    $this->mdlcuentas->__SET("linea", $_POST["txtlinea"]);
+    $this->mdlcuentas->__SET("idnodo", $_POST["txtidnodo"]);
+		$this->mdlcuentas->__SET("rol",2);
+		$this->mdlcuentas->__SET("correo", $_POST["txtcorreo"]);
+		$this->mdlcuentas->__SET("clave", MD5($_POST["txtdocumento"]));
+		$veryy= $this->mdlcuentas->registrarpersona();
 
+		// $very= $this->mdlmodel->registrar();
+		// $this->mdlmodel->__SET("salario", $_POST["txtsalario"]);
+       header('location: ' . URL . 'gestor');
    }
 
  public function edit($documento)
@@ -86,47 +77,38 @@ class gestor extends Controller
             echo json_encode(["v"=>1]);
         }else{
             echo json_encode(["v"=>0]);
-
         }
-
-
     }
 
-public function ver($documento)
-    {
+		public function ver($documento){
          $this->mdlmodel->__SET("documento", $documento);
        $datos = $this->mdlmodel->verg();
          echo json_encode($datos);
     }
 
-public function vergc($correo)
-    {
+		public function vergc($correo){
          $this->mdlmodel->__SET("correo", $correo);
        $datos = $this->mdlmodel->vergc();
          echo json_encode($datos);
     }
 
-	 public function consultauso($proyecto)
-    {
+	 	public function consultauso($proyecto){
         $this->mdlmodel->__SET("proyecto", $proyecto);
         $datos = $this->mdlmodel->consultauso();
         echo json_encode($datos);
     }
 
-     public function consultalinea($documento)
-    {
+		public function consultalinea($documento){
         $this->mdlmodel->__SET("documento", $documento);
         $datos = $this->mdlmodel->consultalinea();
         echo json_encode($datos);
     }
 
-     public function consultagp($gestor)
-    {
+		public function consultagp($gestor){
         $this->mdlmodel->__SET("gestor", $gestor);
         $datos = $this->mdlmodel->consultagp();
         echo json_encode($datos);
     }
-
 
 
 }

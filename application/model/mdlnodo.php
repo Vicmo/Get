@@ -5,6 +5,8 @@ class mdlnodo
 {
 
     private $db;
+    private $idnodo;
+    private $nodo;
 
     public function __SET($attr, $val){
 
@@ -25,7 +27,7 @@ class mdlnodo
     }
 
 
-       public function consultarnodos()
+       public function consultarnodost()
        {
            $sql = "CALL consultarnodos";
            $stm = $this->db->prepare($sql);
@@ -73,6 +75,34 @@ class mdlnodo
          //   $stm->execute();
          //   return $stm->fetchAll(PDO::FETCH_ASSOC);
          // }
+
+         public function consultarnodos(){
+          $sql = "SELECT nodo.idnodo, concat('Tecnoparque nodo ', nodo.nombrenodo, ' (', departamento.nombre, ') ') as nodo FROM nodo
+        JOIN ciudad on nodo.ciudad = ciudad.idciudad
+        JOIN departamento on ciudad.departamento = departamento.iddepartamento";
+                 $stm = $this->db->prepare($sql);
+                 $stm->execute();
+                 return $stm->fetchAll(PDO::FETCH_ASSOC);
+          }
+
+          public function nodos()
+          {
+            $sql = "CALL nodoadmin(?)";
+             $stm = $this->db->prepare($sql);
+             $stm->bindParam(1, $this->idnodo);
+             $stm->execute();
+             return $stm->fetch(PDO::FETCH_ASSOC);
+          }
+
+          public function dinamizadorpornodo()
+          {
+            $sql = "CALL dinamizadorpornodo(?)";
+             $stm = $this->db->prepare($sql);
+             $stm->bindParam(1, $this->idnodo);
+             $stm->execute();
+             return $stm->fetchAll(PDO::FETCH_ASSOC);
+
+          }
 
 
 

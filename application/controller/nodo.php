@@ -11,11 +11,26 @@ class nodo extends Controller
     $this->mdlciudad = $this->loadModel("mdlciudad");
   }
 
-  public function index (){
-    $consultarnodos = $this->mdlmodel->consultarnodos();
+  public function index ($nodo ='1'){
+      $this->mdlmodel->__SET("idnodo", $nodo);
+      $nodos = $this->mdlmodel->nodos();
+
+     if ($nodo == $nodos["idnodo"]) {
+       require APP . 'view/_templates/headeradminodos.php';
+       require APP . 'view/nodo/index.php';
+     }else{
+       header('location: ' . URL . 'problem/index');
+     }
+
+
+   }
+
+
+  public function indexr (){
+    $consultarnodos = $this->mdlmodel->consultarnodost();
     $consultardept = $this->mdlciudad->consultardepto();
     require APP . 'view/_templates/headeradminodos.php';
-    require APP . 'view/nodo/index.php';
+    require APP . 'view/nodo/indexr.php';
 
   }
 
@@ -56,5 +71,11 @@ class nodo extends Controller
         header('location: ' . URL . 'nodo/');
 
         }
+
+  public function selectnodo()
+         {
+           $this->mdlmodel->__SET("idnodo", $_GET["idnodo"]);
+           header('location: ' . URL . 'nodo/index/' . $_GET["idnodo"]);
+         }
 
 }

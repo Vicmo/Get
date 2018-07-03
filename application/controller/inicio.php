@@ -3,6 +3,13 @@
 class inicio extends Controller
 {
 
+  private $mdlmodel = null;
+
+ function __construct(){
+
+   $this->mdlmodel = $this->loadModel("mdlnodo");
+ }
+
  public function admin()
  {
 
@@ -37,7 +44,7 @@ class inicio extends Controller
 
  public function adminodos()
 {
-
+  $nodos = $this->mdlmodel->consultarnodos();
   require APP . 'view/_templates/headeradminodos.php';
   require APP . 'view/inicio/index.php';
 
