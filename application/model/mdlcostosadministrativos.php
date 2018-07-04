@@ -3,12 +3,12 @@
 
 class mdlcostosadministrativos
 {
- 
+
     private $db;
     private $idcostos;
     private $nombre;
     private $valor;
- 
+
 
     public function __SET($attr, $val){
 
@@ -19,7 +19,7 @@ class mdlcostosadministrativos
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -32,8 +32,9 @@ class mdlcostosadministrativos
 
     public function consultar()
     {
-      $sql = "CALL consultarcostosadministrativos";
+      $sql = "CALL consultarcostosadministrativos(?)";
      $stm = $this->db->prepare($sql);
+     $stm->bindParam(1, $this->idnodo);
      $stm->execute();
      return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -41,7 +42,7 @@ class mdlcostosadministrativos
 
    public function uno()
    {
-       $sql = "CALL consutacostosuno(?)";
+       $sql = "CALL consultacostosuno(?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->idcostos);
        $stm->execute();
@@ -54,13 +55,12 @@ class mdlcostosadministrativos
 
         $sql = "CALL modificarcostos(?,?,?)";
         $stm = $this->db->prepare($sql);
-        $stm->bindParam(1, $this->idcostos);
+        $stm->bindParam(1, $this->idcostoadministrativo);
         $stm->bindParam(2, $this->nombre);
         $stm->bindParam(3, $this->valor);
         return $stm->execute();
-     
+
     }
 
-  
+
 }
-       

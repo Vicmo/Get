@@ -9,16 +9,14 @@ class home extends Controller
     $this->mdlmodel = $this->loadModel("mdlcuentas");
   }
 
-  public function index()
-  {
+  public function index(){
     require APP . 'view/home/index.php';
   }
 
 
 
 
-  public function logueo()
-  {
+  public function logueo(){
 
     header('location: ' . URL . 'home/index/#e');
 
@@ -28,12 +26,9 @@ class home extends Controller
       $contraseña= md5($_POST["txtclave"]);
       $this->mdlmodel->__SET("correo", $correo);
       $resultado = $this->mdlmodel->logueo();
-      // $resultado2 = $this->mdlmodel->logueo2();
-      // $resultado3 = $this->mdlmodel->logueo3();
-
       if ($resultado != false) {
         if ($resultado["password"] == $contraseña) {
-          if ($resultado["rol"] == 'Gestor') {
+          if ($resultado["rol"] == 'Gestor' && $resultado["estado"] == 1) {
 
             session_start();
             $_SESSION["nombres"] = $resultado["nombres"];
@@ -45,7 +40,7 @@ class home extends Controller
             $_SESSION["persona"] = $resultado["idpersona"];
             header("location: ".URL."inicio/gestor");
 
-          } else if ($resultado["rol"] == 'Talento') {
+          } else if ($resultado["rol"] == 'Talento' && $resultado["estado"] == 1) {
 
 						session_start();
 						$_SESSION["nombres"] = $resultado["nombres"];
@@ -57,7 +52,7 @@ class home extends Controller
 						$_SESSION["documento"] = $resultado["documento"];
 						header("location: ".URL."inicio/talento");
 
-					} else if ($resultado["rol"] == 'Dinamizador') {
+					} else if ($resultado["rol"] == 'Dinamizador' && $resultado["estado"] == 1) {
 
 						session_start();
 						$_SESSION["nombres"] = $resultado["nombres"];
@@ -69,7 +64,7 @@ class home extends Controller
 						$_SESSION["correo"] = $resultado["correo"];
 						header("location: ".URL."inicio/admin");
 
-					} else if ($resultado["rol"] == 'Infocenter'){
+					} else if ($resultado["rol"] == 'Infocenter' && $resultado["estado"] == 1) {
 
 						session_start();
 						$_SESSION["nombres"] = $resultado["nombres"];
@@ -81,7 +76,8 @@ class home extends Controller
 						$_SESSION["correo"] = $resultado["correo"];
 						header("location: ".URL."inicio/info");
 
-					} else if ($resultado["rol"] == 'Administrador'){
+					} else if ($resultado["rol"] == 'Administrador' && $resultado["estado"] == 1) {
+
 						session_start();
 						$_SESSION["nombres"] = $resultado["nombres"];
 						$_SESSION["apellidos"] = $resultado["apellidos"];
@@ -91,11 +87,9 @@ class home extends Controller
 						$_SESSION["rol"] = $resultado["rol"];
 						$_SESSION["correo"] = $resultado["correo"];
 						header("location: ".URL."inicio/adminodos");
+
 					}
-					// header("location: ".URL."inicio/i");
-
         }
-
       }
     }
   }

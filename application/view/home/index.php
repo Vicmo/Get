@@ -4,8 +4,8 @@
 <head>
   <link href="<?php echo URL; ?>css/build/css/custom.css" rel="stylesheet">
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">        
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Tecnoparque | Inicio</title>
   <link href="<?php echo URL; ?>css/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="<?php echo URL; ?>css/assets/css/style.css" rel='stylesheet' type='text/css' />
@@ -33,12 +33,12 @@
           </div>
 
           <script type="text/javascript">
-           function idea(){ 
+           function idea(){
              var uri = "<?php echo URL; ?>";
              location.href = uri+"idea";
            }
 
-             function info(){ 
+             function info(){
              location.href = "http://entrenamiento.tecnoparquenodomedellin.org";
            }
          </script>
@@ -152,7 +152,7 @@
           <div class="e-left-inner-grid-right">
             <p>El fortalecimiento institucional del Sevicio Nacional de Aprendizaje SENA.</p>
           </div>
-          
+
         </div>
         <div class="e-left-inner-grid">
           <div class="e-left-inner-grid-left">
@@ -169,7 +169,7 @@
     <div class="col-md-3 expertice-left-grid wow fadeInLeft"  data-wow-delay="0.4s">
       <img src="<?php echo URL; ?>img/tecno.jpg" style="width: 450px">
     </div>
-    
+
   </div>
 </div>
 
@@ -194,7 +194,7 @@
 </div>
 
 
-</div>    
+</div>
 </body>
 
 </html>
@@ -211,7 +211,7 @@
         </button>
       </div>
       <div id="div-forms">
-        <form id="login-form" action="<?= URL?>home/logueo" method="POST" data-parsley-validate > 
+        <form id="login-form" action="<?= URL?>home/logueo" method="POST" data-parsley-validate >
           <div class="modal-body">
             <input id="correologin" type="email" value="" class="form-control"  name="txtcorreo" placeholder="Ingrese su correo electrónico" required>
             <input id="clave" class="form-control" value="" type="password" name="txtclave" placeholder="Ingrese su contraseña" required style="margin-top: 5px;">
@@ -259,6 +259,5 @@
     swal("Ups!!", "El usuario y/o clave son incorrectos", "warning");
     location.hash = '';
   }
-  
-</script>
 
+</script>

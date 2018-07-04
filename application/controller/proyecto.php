@@ -2,7 +2,7 @@
 
 class proyecto extends Controller
 {
-	
+
 	private $mdlmodel = null;
 
   function __construct(){
@@ -10,21 +10,22 @@ class proyecto extends Controller
     $this->mdlmodel = $this->loadModel("mdlproyecto");
   }
 
-	public function index($ano)
+	public function index($ano,$idnodo)
 	{
-    $ultima = $this->mdlmodel->consultaultima();
-    $gestor = $this->mdlmodel->consultagestor();
-    $sector = $this->mdlmodel->consultasector();
-    $foco = $this->mdlmodel->consultafoco();
-    $estadopro = $this->mdlmodel->consultaestadoproyecto();
-    $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
-    $talentolider = $this->mdlmodel->consultalider(); 
-    $this->mdlmodel->__SET("ano", $ano); 
+    // $ultima = $this->mdlmodel->consultaultima();
+    // $gestor = $this->mdlmodel->consultagestor();
+    // $sector = $this->mdlmodel->consultasector();
+    // $foco = $this->mdlmodel->consultafoco();
+    // $estadopro = $this->mdlmodel->consultaestadoproyecto();
+    // $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
+    // $talentolider = $this->mdlmodel->consultalider();
+    $this->mdlmodel->__SET("ano", $ano);
+    $this->mdlmodel->__SET("idnodo", $idnodo);
     $proyecto = $this->mdlmodel->consultaproyecto();
 
 		require APP . 'view/_templates/headeradmin.php';
 		require APP . 'view/proyecto/index.php';
-     
+
     }
 
 
@@ -32,18 +33,18 @@ class proyecto extends Controller
   public function gestor($gestor,$ano)
   {
     $this->mdlmodel->__SET("gestor", $gestor);
-    $this->mdlmodel->__SET("ano", $ano); 
+    $this->mdlmodel->__SET("ano", $ano);
     $ultima = $this->mdlmodel->consultaultima();
     $gestor = $this->mdlmodel->consultagestor();
     $sector = $this->mdlmodel->consultasector();
     $foco = $this->mdlmodel->consultafoco();
     $estadopro = $this->mdlmodel->consultaestadoproyecto();
     $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
-    $talentolider = $this->mdlmodel->consultalider(); 
+    $talentolider = $this->mdlmodel->consultalider();
     $proyecto = $this->mdlmodel->consultarproyecto();
     require APP . 'view/_templates/headergestor.php';
     require APP . 'view/proyecto/gestor.php';
-     
+
     }
 
     public function registrar()
@@ -81,7 +82,7 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("id_pate", $_POST["txtidpatente"]);
     $very= $this->mdlmodel->registrar();
 
-     
+
     $this->mdlmodel->__SET("proyecto", $id);
     $this->mdlmodel->__SET("talento", $_POST["txtcedulalider"]);
     $a = $this->mdlmodel->registrardetalle();
@@ -92,10 +93,10 @@ class proyecto extends Controller
           $b= $this->mdlmodel->registrardetalle();
         }
 
-        
+
     header('location: ' . URL . 'proyecto/gestor/'.$documento."/".date("Y"));
-     
-   
+
+
    }
 
    public function modificar(){
@@ -128,7 +129,7 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("id_pate", $_POST["txtidpatente"]);
     $this->mdlmodel->__SET("fechacierre", $_POST["fechacierre"]);
     $very= $this->mdlmodel->modificar();
-    
+
 
     $this->mdlmodel->__SET("proyecto", $_POST["txtidproyecto"]);
     $c = $this->mdlmodel->eliminardetalle();
@@ -160,7 +161,7 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("ficha", $_POST["campoficha"]);
     $this->mdlmodel->__SET("video", $_POST["campovideo"]);
     $this->mdlmodel->__SET("actacierre", $_POST["campoacta"]);
-    $this->mdlmodel->__SET("link", $_POST["txtlink"]); 
+    $this->mdlmodel->__SET("link", $_POST["txtlink"]);
     $very= $this->mdlmodel->modificarentregables();
     header('location: ' . URL . 'proyecto/gestor/'.$documento."/".date("Y").'#menu2');
    }
@@ -180,7 +181,7 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("id", $_POST["txtidproyecto"]);
     $this->mdlmodel->__SET("revisadofinal", $_POST["txtrevisado"]);
     $very= $this->mdlmodel->revisadofinal();
-    
+
     header('location: ' . URL . 'proyecto/index/'.date("Y"));
    }
 
@@ -236,11 +237,11 @@ class proyecto extends Controller
       $foco = $this->mdlmodel->consultafoco();
       $estadopro = $this->mdlmodel->consultaestadoproyectoo();
       $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
-      $talentolider = $this->mdlmodel->consultalider(); 
-      
+      $talentolider = $this->mdlmodel->consultalider();
+
      require APP . 'view/_templates/headergestor.php';
      require APP . 'view/proyecto/modificar.php';
-     
+
     }
 
 
@@ -250,7 +251,7 @@ class proyecto extends Controller
       $datos = $this->mdlmodel->verp();
      require APP . 'view/_templates/headergestor.php';
      require APP . 'view/proyecto/entregables.php';
-     
+
     }
 
      public function entregablesa($idproyecto)
@@ -259,7 +260,7 @@ class proyecto extends Controller
       $datos = $this->mdlmodel->verp();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/proyecto/entregablesa.php';
-     
+
     }
 
         public function edit2($idproyecto)
@@ -271,11 +272,11 @@ class proyecto extends Controller
       $foco = $this->mdlmodel->consultafoco();
       $estadopro = $this->mdlmodel->consultaestadoproyectoo();
       $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
-      $talentolider = $this->mdlmodel->consultalider(); 
-      
+      $talentolider = $this->mdlmodel->consultalider();
+
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/proyecto/modificaradmin.php';
-     
+
     }
 
        public function ultima()
@@ -283,19 +284,13 @@ class proyecto extends Controller
         $datos = $this->mdlmodel->consultaultima();
         echo json_encode($datos);
     }
-    
+
 
         public function ultimo()
     {
         $datos = $this->mdlmodel->consultaultimo();
         echo json_encode($datos);
     }
-    
+
 
   }
-
-
-
-
-
-

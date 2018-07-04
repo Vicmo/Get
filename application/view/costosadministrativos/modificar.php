@@ -1,5 +1,5 @@
 <title>Tecnoparque | Costos Administrativos</title>
-<body style="background: #238276">
+<body style="background: #EDEDED">
   <div class="right_col" role="main">
     <div class="">
       <div class="page-title">
@@ -18,7 +18,7 @@
               <div class="x_content" >
                 <ul class="nav navbar-right panel_toolbox">
 
-                  <li class="dropdown">                       
+                  <li class="dropdown">
                   </li>
                 </li>
               </ul>
@@ -28,8 +28,9 @@
               <br />
               <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"  action="<?= URL?>costosadministrativos/modificar"  method="POST">
 
-                <input type="hidden" value="<?= $datos['idcostos'];?>"  name="txtid" >
+                <input type="hidden" value="<?= $datos['idcostoadministrativo'];?>"  name="txtid" >
                 <input type="hidden" value="<?= $datos['nombre'];?>"  name="nombretxt" >
+                <input type="hidden" value="<?= $idnodo ?>"  name="idnodo" >
 
                 <div class="item form-group">
 
@@ -57,8 +58,8 @@
 
 
 
-              <center><button type="button" id="modificar"  class="btn btn-success">Modificar</button>  
-                <a href="<?php echo URL; ?>costosadministrativos" id="cancelar" class="btn btn-danger" type="button">Cancelar</a>  
+              <center><button type="button" id="modificar"  class="btn btn-success">Modificar</button>
+                <a href="<?php echo URL; ?>costosadministrativos/index/<?php echo $idnodo ?>" id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
                 <br>
                 <br>
               </form>

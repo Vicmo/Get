@@ -51,9 +51,9 @@ if ($_SESSION["rol"] == 'Dinamizador') {
           <div class="menu_section">
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
-             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos"><i class="fa fa-home"></i>Costos Administrativos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $_SESSION["idnodo"] ?>"><i class="fa fa-users"></i>Gestores</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos/index/<?php echo $idnodo ?>"><i class="fa fa-home"></i>Costos Administrativos</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo date("Y"); ?>/<?php echo $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?php echo date("Y"); ?>"><i class="fa fa-user"></i>Talentos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>foco"><i class="fa fa-bell-o"></i>Focos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio"><i class="fa fa-flask"></i>Laboratorios</a></li>

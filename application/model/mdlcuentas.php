@@ -61,10 +61,6 @@ class mdlcuentas
 
   public function registrarusuario(){
 
-      // var_dump($this->rol);
-      // exit;
-
-
        $sql = "CALL registrarcuenta(?,?,?,?,?,?,?,?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->documento);
@@ -83,10 +79,14 @@ class mdlcuentas
 
     public function modificarcuenta(){
 
-       $sql = "CALL modificarcuenta(?,?)";
+       $sql = "CALL modificarcuenta(?,?,?,?,?,?)";
        $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->id);
-       $stm->bindParam(2, $this->correo);
+       $stm->bindParam(1, $this->idpersona);
+       $stm->bindParam(2, $this->documento);
+       $stm->bindParam(3, $this->nombres);
+       $stm->bindParam(4, $this->apellidos);
+       $stm->bindParam(5, $this->correo);
+       $stm->bindParam(6, $this->contacto);
        $stm->execute();
    }
 

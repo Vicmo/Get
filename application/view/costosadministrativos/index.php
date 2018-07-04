@@ -1,4 +1,4 @@
-<body style="background: #238276">
+<body style="background: #EDEDED">
   <title>Tecnoparque  | Costos Administrativos</title>
   <div class="right_col" role="main">
     <div class="">
@@ -23,7 +23,6 @@
                   <tr>
                     <th >Nombre</th>
                     <th>Valor</th>
-
                     <th>Editar</th>
 
                   </tr>
@@ -37,7 +36,7 @@
                   <td><?= $value["valor"] ?></td>
 
                   <td>
-                    <a href="<?php echo URL ;?>costosadministrativos/edit/<?= $value["idcostos"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
+                    <a href="<?php echo URL ;?>costosadministrativos/edit/<?= $value["idcostoadministrativo"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
                   </td>
 
                 </tr>

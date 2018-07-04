@@ -11,33 +11,35 @@ class costosadministrativos extends Controller
   }
 
     // METODO DEL INDEX
-	public function index()
-	{
+			public function index($idnodo){
 
-	$consultar = $this->mdlmodel->consultar();
-	require APP . 'view/_templates/headeradmin.php';
-  require APP . 'view/costosadministrativos/index.php';
+		$this->mdlmodel->__SET("idnodo", $idnodo);
+		$consultar = $this->mdlmodel->consultar();
+		require APP . 'view/_templates/headeradmin.php';
+	  require APP . 'view/costosadministrativos/index.php';
 
-	}
+		}
 
+		//--------------- Editar -----------------//
+ 		public function edit($idcostos){
 
- public function edit($idcostos)
-    {
-      $this->mdlmodel->__SET("idcostos", $idcostos);
-      $datos = $this->mdlmodel->uno();
-     require APP . 'view/_templates/headeradmin.php';
-     require APP . 'view/costosadministrativos/modificar.php';
+	      $this->mdlmodel->__SET("idcostos", $idcostos);
+	      $datos = $this->mdlmodel->uno();
+	     require APP . 'view/_templates/headeradmin.php';
+	     require APP . 'view/costosadministrativos/modificar.php';
 
-    }
+	    }
 
-     public function modificar()
-   {
+			//--------------- Método para guardar cambios -----------------//
 
-    $this->mdlmodel->__SET("idcostos", $_POST["txtid"]);
+     public function modificar(){
+
+    $this->mdlmodel->__SET("idcostoadministrativo", $_POST["txtid"]);
     $this->mdlmodel->__SET("nombre", $_POST["nombretxt"]);
     $this->mdlmodel->__SET("valor", $_POST["txtvalor"]);
     $very= $this->mdlmodel->modificar();
-    header('location: ' . URL . 'costosadministrativos');
+    header('location: ' . URL . 'costosadministrativos/index/'.$_POST["idnodo"]);
+
    }
 
 

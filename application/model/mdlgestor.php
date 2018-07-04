@@ -11,6 +11,7 @@ class mdlgestor
     private $correo;
     private $linea;
     private $salario;
+    private $nodo;
 
     public function __SET($attr, $val){
 
@@ -31,26 +32,27 @@ class mdlgestor
     }
 
 
-       public function consultalineaa()
-       {
+       public function consultalineaa(){
+
            $sql = "CALL consultalineaa";
            $stm = $this->db->prepare($sql);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
+
          }
 
-         public function consultargestor()
-       {
+         public function consultargestor(){
+
            $sql = "CALL consultargestor(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->nodo);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
+
          }
 
          public function registrar(){
-           // var_dump($this->documento);
-           // exit;
+
          $sql = "CALL registrargestor(?,?,?)";
          $stm = $this->db->prepare($sql);
          $stm->bindParam(1, $this->documento);
@@ -59,40 +61,40 @@ class mdlgestor
          $stm->execute();
 
      }
-   public function modificargestor()
-   {
 
-      $sql = "CALL modificargestor(?,?,?,?,?,?)";
+   public function modificargestor(){
+
+      $sql = "CALL modificargestor(?,?,?)";
        $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->documento);
-       $stm->bindParam(2, $this->nombres);
-       $stm->bindParam(3, $this->apellidos);
-       $stm->bindParam(4, $this->correo);
-       $stm->bindParam(5, $this->linea);
-       $stm->bindParam(6, $this->salario);
+       $stm->bindParam(1, $this->idpersona);
+       $stm->bindParam(2, $this->linea);
+       $stm->bindParam(3, $this->salario);
        $stm->execute();
 
    }
-    public function verg()
-   {
+
+      public function verg(){
+
        $sql = "CALL vergestor(?)";
        $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->documento);
+       $stm->bindParam(1, $this->idpersona);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
-   }
-    public function modificarestadog()
-    {
+     }
+
+      public function modificarestadog(){
+
         $sql = "CALL modificarestadogestor(?,?)";
         $stm = $this->db->prepare($sql);
-        $stm->bindParam(1, $this->documento);
+        $stm->bindParam(1, $this->idpersona);
         $stm->bindParam(2, $this->estado);
         return $stm->execute();
 
     }
- public function vergc()
-   {
+
+      public function vergc(){
+
        $sql = "CALL consultacorreog(?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->correo);
@@ -101,31 +103,35 @@ class mdlgestor
 
    }
 
-    public function consultauso(){
+      public function consultauso(){
+
            $sql = "CALL consultalineauso(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->proyecto);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
+
          }
 
          public function consultalinea(){
+
            $sql = "CALL consultalinea(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->documento);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
+
          }
 
 
-            public function consultagp(){
+         public function consultagp(){
+
            $sql = "CALL consultagp(?)";
            $stm = $this->db->prepare($sql);
            $stm->bindParam(1, $this->gestor);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
+
          }
-
-
 
 }

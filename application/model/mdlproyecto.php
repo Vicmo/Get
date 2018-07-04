@@ -3,7 +3,7 @@
 
 class mdlproyecto
 {
- 
+
    private $db;
    private $id;
    private $idp;
@@ -42,7 +42,8 @@ class mdlproyecto
    private $actacierre;
    private $link;
    private $revisadofinal;
-      
+   private $idnodo;
+
 
 
 
@@ -55,7 +56,7 @@ class mdlproyecto
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -70,8 +71,8 @@ class mdlproyecto
            $stm = $this->db->prepare($sql);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }      
-        
+         }
+
 
          public function consultausod()
     {
@@ -222,48 +223,48 @@ class mdlproyecto
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
-  
+  }
+
    public function consultasector(){
     $sql = "CALL consultasector";
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
    public function consultafoco(){
     $sql = "CALL consultafoco";
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
    public function consultaestadoproyecto(){
     $sql = "CALL consultaestadoproyecto";
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
    public function consultatipoproyecto(){
     $sql = "CALL consultatipoproyecto";
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
    public function consultalider(){
     $sql = "CALL consultalider";
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
 
 
       public function consultaproyecto(){
     $sql = "CALL consultaproyecto(?)";
     $stm = $this->db->prepare($sql);
-    $stm->bindParam(1, $this->ano);
+    $stm->bindParam(1, $this->idnodo);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
-  
+  }
+
      public function verp()
    {
        $sql = "CALL verproyecto(?)";
@@ -295,7 +296,7 @@ class mdlproyecto
 
    }
 
-   
+
     public function consultapatente()
    {
        $sql = "CALL consultapatente(?)";
@@ -347,7 +348,7 @@ class mdlproyecto
     $stm = $this->db->prepare($sql);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
-  }  
+  }
 
      public function consultaultima()
     {
@@ -385,7 +386,6 @@ class mdlproyecto
         $stm->execute();
 
     }
-  
-  
+
+
 }
-       

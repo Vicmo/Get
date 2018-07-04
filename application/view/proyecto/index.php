@@ -1,4 +1,4 @@
-  <body style="background: #238276">
+  <body style="background: #EDEDED">
       <script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
   <link href="<?php echo URL; ?>css/reportes/r.min.css" rel="stylesheet">
     <title>Tecnoparque  | Proyecto</title>
@@ -18,23 +18,16 @@
           <div class="col-md-12">
             <div class="x_panel" >
               <div class="x_title">
-               
-               
-
                <table class="table table-striped jambo_table bulk_action" id="reportesadmin">
-
-
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Código de Proyecto</th>
                     <th>Nombre</th>
                     <th>Línea</th>
                     <th>Gestor</th>
-                    
                     <th>Estado</th>
                     <th>Descripción</th>
                     <th>Revisado Final</th>
-
                     <th>Proyecto articulado con Tecnoacademia</th>
                     <th>Aprendiz con apoyo de sostenimiento</th>
                     <th>Aprendiz sin apoyo de sostenimiento</th>
@@ -45,7 +38,6 @@
                     <th>Dinero de regalías</th>
                     <th>Acompañamiento proceso de patente</th>
                     <th>Patente publicada</th>
-
                     <th>Talentos</th>
                     <th>Detalles</th>
                     <th>Editar</th>
@@ -63,9 +55,9 @@
                   </div>
 
 
-                  <td><?= $value["id"] ?></td>
+                  <td><?= $value["codigoproyecto"] ?></td>
                   <td style="width: 15%"><?= $value["nombre"] ?></td>
-                  
+
                   <td><?= $value["linea"] ?></td>
                   <td><?= $value["nombresg"] ?> <?= $value["apellidosg"] ?></td>
                   <td><?= $value["estado"] ?></td>
@@ -85,8 +77,6 @@
                     </div>
                     <?php } ?>
                     </td>
-
-
                     <td><?= $value["pro_art_tecnoaca"] ?></td>
                     <td><?= $value["apre_apoyo"] ?></td>
                     <td><?= $value["apre_sinapoyo"] ?></td>
@@ -97,39 +87,20 @@
                     <td><?= $value["dine_rega"] ?></td>
                     <td><?= $value["aco_pro_pate"] ?></td>
                     <td><?= $value["pata_publi"] ?></td>
-
-
-
-
-
-
-
-
-
                   <td>
-
                    <a class="btn btn-primary btn-xs"  onclick="vert(<?= $value['idproyecto']?>)">
-                    <i class="fa fa-users"></i> Talentos</a>  
-
+                    <i class="fa fa-users"></i> Talentos</a>
                   </td>
                   <td>
-
                    <a class="btn btn-primary btn-xs"  onclick="ver(<?= $value['idproyecto']?>)">
-                    <i class="fa fa-folder"></i> Detalles</a>  
-
+                    <i class="fa fa-folder"></i> Detalles</a>
                   </td>
-
                   <td>
                     <a href="<?php echo URL ;?>proyecto/edit2/<?= $value["idproyecto"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
-
                   </td>
-
-
                   <td>
                     <a href="<?php echo URL ;?>proyecto/entregablesa/<?= $value["idproyecto"] ?>" class="btn btn-warning btn-xs"><i class="fa fa-book"></i> Entregables</a>
-
                   </td>
-
                 </tr>
                 <?php } ?>
               </tbody>
@@ -156,13 +127,13 @@
                    <div class="table-responsive">
                      <table id="tablad" >
                        <thead>
-                       </thead>            
+                       </thead>
                        <tbody id="tablap">
                        </tbody>
                      </table>
                    </div>
                  </div>
-                 
+
                </div>
 
              </div>
@@ -184,9 +155,9 @@
                           <th class="column-title">Documento</th>
                           <th class="column-title">Nombre</th>
                            <th class="column-title">Correo</th>
-                  <th class="column-title">Celular</th>
+                           <th class="column-title">Celular</th>
                         </tr>
-                      </thead>            
+                      </thead>
                       <tbody id="tablatalen">
                       </tbody>
                     </table>
@@ -208,9 +179,6 @@
   </div>
 
 
-  </div>
-  </div>
-  </div>
   </div>
   <script src="<?php echo URL; ?>js/proyecto.js"></script>
   <script type="text/javascript"> $('#txtcedulalider').select2();</script>
@@ -238,9 +206,3 @@
 
     }
   </script>
-<script type="text/javascript">
-
-
-
-
-</script>

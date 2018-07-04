@@ -3,16 +3,16 @@
 new WOW().init();
 
 jQuery(document).ready(function($) {
-  $(".scroll").click(function(event){   
+  $(".scroll").click(function(event){
     event.preventDefault();
     $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
   });
 });
 
-$('nav a').click(function(e){       
-  e.preventDefault();   
-  var strAncla=$(this).attr('href'); 
-  $('body,html').stop(true,true).animate({        
+$('nav a').click(function(e){
+  e.preventDefault();
+  var strAncla=$(this).attr('href');
+  $('body,html').stop(true,true).animate({
     scrollTop: $(strAncla).offset().top
   },1000);
 
@@ -65,19 +65,24 @@ function msgChange($divTag, $iconTag, $textTag, $divClass, $iconClass, $msgText)
   }, $msgShowTime);
 }
 
-
-
-
 function logueo(){
   var correo = $("#correologin").val();
   var clave = $("#clave").val();
   cla = md5(clave);
   $.ajax({
-    dataType:'json',  
+    dataType:'json',
     type:'post',
     url:uri+"cuentas/cambio/"+correo
   }).done(function(response) {
-    console.log(response);
+    if(response != null){
+      if (response.estado == 0) {
+        document.getElementById("correologin").focus();
+        swal("Ups!!", "El usuario se encuentra inhabilitado", "warning");
+        $("#correologin").val("");
+        $("#clave").val("");
+      }
+    }
+
     if(response == false){
       document.getElementById("correologin").focus();
       swal("Ups!!", "El usuario y/o clave son incorrectos", "warning");
@@ -97,5 +102,3 @@ function logueo(){
   });
 
 }
-
-

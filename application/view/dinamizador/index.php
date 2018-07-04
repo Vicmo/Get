@@ -103,8 +103,6 @@
                             </div>
 
                             <div class="row topinput">
-
-
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
                       <label class="control-label col-md-3 col-sm-4 col-xs-12" for="txtestado">Estado</label>

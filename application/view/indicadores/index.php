@@ -855,7 +855,7 @@
                     }
                   var pi = $('#reporteedt').DataTable();
                   pi.clear();
-                  console.log(response);
+                  // console.log(response);
                     if (response == 0) {
                       swal("Ups!!", "No se han encontrador EDT's este año.", "warning");
                       pi.row.add(['','','No se han encontrado resultados','','','']).draw(true);
