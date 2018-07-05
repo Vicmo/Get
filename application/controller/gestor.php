@@ -117,9 +117,9 @@ class gestor extends Controller
 
     }
 
-		public function consultalinea($documento){
+		public function consultalinea($idgestor){
 
-        $this->mdlmodel->__SET("documento", $documento);
+        $this->mdlmodel->__SET("idgestor", $idgestor);
         $datos = $this->mdlmodel->consultalinea();
         echo json_encode($datos);
 

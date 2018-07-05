@@ -38,6 +38,7 @@
                     <th>Dinero de regalías</th>
                     <th>Acompañamiento proceso de patente</th>
                     <th>Patente publicada</th>
+                    <th>Año de cierre</th>
                     <th>Talentos</th>
                     <th>Detalles</th>
                     <th>Editar</th>
@@ -80,13 +81,14 @@
                     <td><?= $value["pro_art_tecnoaca"] ?></td>
                     <td><?= $value["apre_apoyo"] ?></td>
                     <td><?= $value["apre_sinapoyo"] ?></td>
-                    <td><?= $value["arti_cti"] ?></td>
+                    <td><?= $value["art_cti"] ?></td>
                     <td><?= $value["nom_act_cti"] ?></td>
                     <td><?= $value["diri_ar_emp"] ?></td>
                     <td><?= $value["reci_ar_emp"] ?></td>
-                    <td><?= $value["dine_rega"] ?></td>
+                    <td><?= $value["dine_reg"] ?></td>
                     <td><?= $value["aco_pro_pate"] ?></td>
                     <td><?= $value["pata_publi"] ?></td>
+                    <td><?= $value["fechacierre"] ?></td>
                   <td>
                    <a class="btn btn-primary btn-xs"  onclick="vert(<?= $value['idproyecto']?>)">
                     <i class="fa fa-users"></i> Talentos</a>
@@ -185,24 +187,57 @@
   <script type="text/javascript"> $('#txttalento').select2();</script>
 
   <script type="text/javascript">
-    function vert(id){
-      $.ajax({
-        dataType:'json',
-        type:'post',
-        url:uri+"proyecto/detalletalen/"+id
-      }).done(function(respuesta){
+  $(document).ready(function() {
 
-        $("#tablatalen").empty()
+    $('#reportesadmin').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
 
-        if (respuesta != null ) {
-          console.log(respuesta);
-          $.each(respuesta, function(i, item) {
-            $("#tablatalen").append("<tr><td>"+item.documento+
-              "</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
-          });
-          $("#vert").modal();
-        }
-      });
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [0,1,2,3,4,17,5,6,7,8,9,10,11,12,13,14,15,16,17]
+                }
+            },
 
-    }
+
+        ],
+        "columnDefs": [
+            {
+                "targets": [16,15,14,13,12,11,10,9,8,7,5],
+                "visible": false,
+                "searchable": false
+            }
+
+        ],
+        "bStateSave": true,
+    "iCookieDuration":60
+
+
+    } );
+} );
+  function vert(id){
+    $.ajax({
+      dataType:'json',
+      type:'post',
+      url:uri+"proyecto/detalletalen/"+id
+    }).done(function(respuesta){
+      $("#tablatalen").empty()
+      if (respuesta != null ) {
+        console.log(respuesta);
+        $.each(respuesta, function(i, item) {
+          $("#tablatalen").append("<tr><td>"+item.documento+
+            "</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
+        });
+        $("#vert").modal();
+      } else {
+        swal('Ups!!', 'Ha ocurrido un error', 'warning')
+      }
+    });
+
+  };
+
+
+
+
   </script>

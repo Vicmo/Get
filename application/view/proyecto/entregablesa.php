@@ -19,22 +19,15 @@
             <div class="x_title">
              <ul class="tab-content">
                <div id="home" class="tab-pane fade in active">
-
                 <br>
-
                 <br>
-
-
                 <div class="clearfix" ></div>
-
                 <div class="x_content" >
                   <br />
-
                   <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                   action="<?= URL?>proyecto/revisadofinal"  method="POST">
 
-
-                  <input value="<?= $datos['gestor'];?>"  name="gestortxt"  id="gestortxt" type="hidden">
+                  <input value="<?= $datos['idgestor'];?>"  name="gestortxt"  id="gestortxt" type="hidden">
                   <input value="<?= $datos['linea'];?>"  id="lineatxt" type="hidden">
                   <input value="<?= $datos['idproyecto'];?>"  name="txtidproyecto"  type="hidden">
                   <input value=""  id="a" type="hidden">
@@ -49,87 +42,44 @@
                   <input value=""  id="j" type="hidden">
                   <input value=""  id="k" type="hidden">
 
-
-
-
-
                   <div class="item form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">ID<span class="required">*</span>
                     </label>
                     <div class="control-group">
                       <div class="controls">
                         <div class="col-md-3 ">
-
                           <input  name="txtid" required="" disabled="" value="<?= $datos['id'];?>" id="txtid"  class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                     </div>
 
-
-
-
                     <div class="item form-group">
-
                       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Nombre<span class="required">*</span>
                       </label>
-
                       <div class="col-md-3 col-sm-3 col-xs-3">
                        <input name="txtnombre" value="<?= $datos['nombre'];?>" disabled onkeypress="return validas(event)" id="txtnombre" required class="form-control col-md-7 col-xs-12">
-
                      </div>
                    </div>
-
-
-
-
-
                  </div>
-
-
-
-                 <div class="item form-group">
                   <div class="item form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-3" >Gestor<span class="required">*</span>
                     </label>
-
-
                     <div class="col-md-3 col-sm-3 col-xs-3">
                       <select id="txtgestor" class="form-control" name="txtgestor" required disabled="">
-
-
                       </select>
                     </div>
-
-
                     <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Linea<span class="required">*</span>
                     </label>
-
                     <div class="col-md-3 col-sm-3 col-xs-3">
-
-                     <input  name="" id="txtlinea" disabled="" class="form-control col-md-7 col-xs-12" >
+                     <input  name="txtlinea" id="txtlinea" disabled="" class="form-control col-md-7 col-xs-12" >
                    </div>
-
-
                  </div>
-               </div>
-
-
-               <div class="item form-group">
-                 <div class="item form-group">
-                   <div class="item form-group">
-                    <div class="item form-group">
-
-                    </div>
-                  </div>
-                </div>
-
-
                 <hr>
                 <h4>Entregables Fase Inicio</h4>
                 <div class="item form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-3" >Acta de confidencialidad <div class="icheckbox_flat-green disabled"><input type="checkbox"  disabled="disabled" id="inicioacta"  class="flat"></div> </label>
                   <label class="control-label col-md-2 col-sm-3 col-xs-3" >Estado del arte del proyecto <div class="icheckbox_flat-green disabled"><input type="checkbox"  disabled="disabled" id="tecnicap"  class="flat"></div> </label>
-                  <label class="control-label col-md-2 col-sm-3 col-xs-3" >Acuerdo inicial de confidencialidad de idea ó Aval por parte de la empresa (o grupo de investigación) <div class="icheckbox_flat-green disabled"><input type="checkbox"  disabled="disabled" id="avalgrupo"  class="flat"></div> </label>
+                  <label class="control-label col-md-4 col-sm-3 col-xs-3" >Acuerdo inicial de confidencialidad de idea ó Aval por parte de la empresa/grupo de investigación <div class="icheckbox_flat-green disabled"><input type="checkbox"  disabled="disabled" id="avalgrupo"  class="flat"></div> </label>
                   <label class="control-label col-md-2 col-sm-3 col-xs-3" >Manual de uso de Infraestructura <div class="icheckbox_flat-green disabled"><input type="checkbox"  disabled="disabled" id="manualuso"  class="flat"></div> </label>
                 </div>
                 <hr>
@@ -161,35 +111,22 @@
                     Aprobado
                     <input type="radio" class="flat" name="txtrevisado"  id="txtrevisadoc" value="No aprobado"  />
                     No aprobado
-
                   </div>
                   <hr>
                   <br>
-
-
-                  <div class="item form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Link Drive<span class="required">*</span>
                     </label>
                     <div class="control-group">
-
                       <a type="button"  target="_blank" href="https://goo.gl/xQL476 " class="btn btn-warning">Ir</a>
                     </div>
-                  </div>
-
                   <br>
                   <div class="form-group">
-
-
-
-
-
                    <center><button type="button" id="modificar" class="btn btn-success">Modificar</button>
 
-                    <a href="<?php echo URL; ?>proyecto/index/<?php echo date("Y"); ?>" id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
+                    <a href="<?php echo URL; ?>proyecto/index/<?php echo $idnodo; ?>" id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
 
                   </div>
 
-                </div>
               </div>
             </div>
 
@@ -215,27 +152,28 @@
 <script type="text/javascript">
 
 
-  var g = $("#gestortxt").val();
-  $.ajax({
-    dataType:'json',
-    type:'post',
-    url:uri+"gestor/consultalinea/"+g
-  }).done(function(respons) {
-    $("#txtlinea").val(respons.nombre);
-  });
+var g = $("#gestortxt").val();
+$.ajax({
+  dataType:'json',
+  type:'post',
+  url:uri+"gestor/consultalinea/"+g
+}).done(function(respons) {
+  // console.log(respons);
+  $("#txtlinea").val(respons.nombre);
+});
 
 
-  var l = $("#lineatxt").val();
-  $.ajax({
-    dataType:'json',
-    type:'post',
-    url:uri+"proyecto/consultagestorl/"+l
-  }).done(function(response) {
-    $.each(response, function(i, item) {
-      $("#txtgestor").append('<option value="'+item.documento+'">'+item.nombres+" "+item.apellidos+'</option>')
-    });
-    $("#txtgestor").val("<?= $datos['gestor'];?>");
+var l = $("#lineatxt").val();
+$.ajax({
+  dataType:'json',
+  type:'post',
+  url:uri+"proyecto/consultagestorl/"+l
+}).done(function(response) {
+  $.each(response, function(i, item) {
+    $("#txtgestor").append('<option value="'+item.idgestor+'">'+item.nombres+" "+item.apellidos+'</option>')
   });
+  $("#txtgestor").val("<?= $datos['idgestor'];?>");
+});
 
 
 </script>
@@ -248,12 +186,12 @@
   $('#inicioacta').prop('checked',true);
 }
  $("#j").val("<?= $datos['avalgrupo'];?>");
- var a = $("#a").val();
+ var a = $("#j").val();
  if (a == "Si") {
   $('#avalgrupo').prop('checked',true);
 }
  $("#k").val("<?= $datos['manualuso'];?>");
- var a = $("#a").val();
+ var a = $("#k").val();
  if (a == "Si") {
   $('#manualuso').prop('checked',true);
 }

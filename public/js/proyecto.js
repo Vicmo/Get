@@ -1,3 +1,24 @@
+// function vert(id){
+//   $.ajax({
+//     dataType:'json',
+//     type:'post',
+//     url:uri+"proyecto/detalletalen/"+id
+//   }).done(function(respuesta){
+//     $("#tablatalen").empty()
+//     if (respuesta != null ) {
+//       console.log(respuesta);
+//       $.each(respuesta, function(i, item) {
+//         $("#tablatalen").append("<tr><td>"+item.documento+
+//           "</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
+//       });
+//       $("#vert").modal();
+//     } else {
+//       swal('Ups!!', 'Ha ocurrido un error', 'warning')
+//     }
+//   });
+//
+// };
+
 function ver(id){
  $.ajax({
    dataType:'json',
@@ -15,12 +36,14 @@ function ver(id){
     var fechacierre = "No aplica";
   }else{
     var fechacierre = respuesta.fechacierre;
-  }
-  
+  };
+
+
+
    $("#tablap").append(
    	"<tr><td>"+'<b>ID proyecto:</b>'+" "+respuesta.id +"<tr><td>"+
    	"<tr><td>"+'<b>Nombre proyecto: </b>'+" "+respuesta.nombre +"<tr><td>" +
-   	"<tr><td>"+'<b>Descripción proyecto: </b>'+" "+respuesta.descripcion+"<tr><td>"+ 
+   	"<tr><td>"+'<b>Descripción proyecto: </b>'+" "+respuesta.descripcion+"<tr><td>"+
    	"<tr><td>"+'<b>Fecha de creación: </b>'+" "+respuesta.fechacreacion +"<tr><td>"+
    	"<tr><td>"+'<b>Nit: </b>'+" "+respuesta.nit +"<tr><td>"+
    	"<tr><td>"+'<b>Razón social:</b>'+" "+respuesta.razonsocial +"<tr><td>"+
@@ -34,11 +57,11 @@ function ver(id){
    	"<tr><td>"+'<b>Proyecto articulado con Tecnoacademia:</b>'+" "+respuesta.pro_art_tecnoaca +"<tr><td>"+
    	"<tr><td>"+'<b>Aprendiz con apoyo de sostenimiento: </b>'+" "+respuesta.apre_apoyo +"<tr><td>"+
    	"<tr><td>"+'<b>Aprendiz SIN apoyo de sostenimiento: </b>'+" "+respuesta.apre_sinapoyo +"<tr><td>"+
-   	"<tr><td>"+'<b>Articulado con CT+i: </b>'+" "+respuesta.arti_cti +"<tr><td>"+
+   	"<tr><td>"+'<b>Articulado con CT+i: </b>'+" "+respuesta.art_cti +"<tr><td>"+
    	"<tr><td>"+'<b>Nombre del actor CT+i</b>'+" "+respuesta.nom_act_cti +"<tr><td>"+
    	"<tr><td>"+'<b>Dirigido a área de emprendimiento SENA: </b>'+" "+respuesta.diri_ar_emp +"<tr><td>"+
    	"<tr><td>"+'<b>Recibido a través del área de emprendimiento SENA: </b>'+" "+respuesta.reci_ar_emp +"<tr><td>"+
-   	"<tr><td>"+'<b>Dinero de regalías: </b>'+" "+respuesta.dine_rega +"<tr><td>"+
+   	"<tr><td>"+'<b>Dinero de regalías: </b>'+" "+respuesta.dine_reg +"<tr><td>"+
    	"<tr><td>"+'<b>Acompañamiento proceso de patente:</b>'+" "+respuesta.aco_pro_pate +"<tr><td>"+
    	"<tr><td>"+'<b>Patente publicada: </b>'+" "+respuesta.pata_publi +"<tr><td>"+
  "<tr><td>"+'<b>ID patente: </b>'+" "+pate +"<tr><td>"+
@@ -59,8 +82,6 @@ function ver(id){
 });
 
 }
-
-
 
   function validaid(){
     var id = $("#txtid").val();
@@ -87,14 +108,14 @@ function ver(id){
   $("#txtgestor").val(x);
   var g = $("#txtgestor").val();
   $.ajax({
-    dataType:'json',  
+    dataType:'json',
     type:'post',
     url:uri+"gestor/consultalinea/"+g
   }).done(function(respons) {
     $("#txtlinea").val(respons.nombre);
     $("#txtlineaa").val(respons.id);
     var id = respons.id;
-   
+
         $.ajax({
           dataType:'json',
           type:'post',
@@ -105,7 +126,7 @@ function ver(id){
           });
 
         });
-        
+
       });
    $("#txtfoco").prop("disabled", false);
 
@@ -148,13 +169,13 @@ function ver(id){
     $("#detallet").append(html);
 
         $.ajax({
-          dataType:'json',  
+          dataType:'json',
           type:'post',
           url:uri+"talento/slctpro"
         }).done(function(respon) {
           limpiarl()
           $.each(respon, function(i, item) {
-       
+
            $("#txttalento").append('<option value="'+item.documento+'">'+item.nombres+" "+item.apellidos+" / "+item.documento+'</option>')
           });
 
@@ -170,16 +191,16 @@ function ver(id){
     var a = document.getElementsByName("txttalento[]");
     for (x=0;x<a.length;x++){
       if(slt == a[x].value){
-     
+
         swal("Ups!!", "El talento seleccionado ya esta registrado", "warning");
            $.ajax({
-          dataType:'json',  
+          dataType:'json',
           type:'post',
           url:uri+"talento/slctpro"
         }).done(function(respon) {
           limpiarl()
           $.each(respon, function(i, item) {
-     
+
            $("#txttalento").append('<option value="'+item.documento+'">'+item.nombres+" "+item.apellidos+" / "+item.documento+'</option>')
           });
 
@@ -188,17 +209,17 @@ function ver(id){
 
       }
     }
-     var tl = $("#txtcedulalider").val();            
+     var tl = $("#txtcedulalider").val();
     if (slt == tl) {
       swal("Ups!!", "El talento seleccionado ya esta registrado como talento líder", "warning");
            $.ajax({
-          dataType:'json',  
+          dataType:'json',
           type:'post',
           url:uri+"talento/slctpro"
         }).done(function(respon) {
           limpiarl()
           $.each(respon, function(i, item) {
-       
+
            $("#txttalento").append('<option value="'+item.documento+'">'+item.nombres+" "+item.apellidos+" / "+item.documento+'</option>')
           });
 
@@ -208,13 +229,13 @@ function ver(id){
   }
 
   function unicoo(){
-    var tl = $("#txtcedulalider").val(); 
+    var tl = $("#txtcedulalider").val();
     var a = document.getElementsByName("txttalento[]");
     for (x=0;x<a.length;x++){
       if(tl == a[x].value){
         swal("Ups!!", "El talento lider seleccionado ya esta registrado", "warning");
         $.ajax({
-          dataType:'json',  
+          dataType:'json',
           type:'post',
           url:uri+"talento/slctpro"
         }).done(function(respon) {
@@ -257,5 +278,3 @@ function ver(id){
  });
 
  }
-
-   

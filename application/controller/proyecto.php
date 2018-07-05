@@ -10,7 +10,7 @@ class proyecto extends Controller
     $this->mdlmodel = $this->loadModel("mdlproyecto");
   }
 
-	public function index($ano,$idnodo)
+	public function index($idnodo)
 	{
     // $ultima = $this->mdlmodel->consultaultima();
     // $gestor = $this->mdlmodel->consultagestor();
@@ -19,7 +19,7 @@ class proyecto extends Controller
     // $estadopro = $this->mdlmodel->consultaestadoproyecto();
     // $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
     // $talentolider = $this->mdlmodel->consultalider();
-    $this->mdlmodel->__SET("ano", $ano);
+    // $this->mdlmodel->__SET("ano", $ano);
     $this->mdlmodel->__SET("idnodo", $idnodo);
     $proyecto = $this->mdlmodel->consultaproyecto();
 
@@ -148,7 +148,7 @@ class proyecto extends Controller
 
 
 
-   public function modificarentregables(){
+	 public function modificarentregables(){
 
      $documento= $_POST["gestortxt"];
     $this->mdlmodel->__SET("id", $_POST["txtidproyecto"]);
@@ -162,8 +162,13 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("video", $_POST["campovideo"]);
     $this->mdlmodel->__SET("actacierre", $_POST["campoacta"]);
     $this->mdlmodel->__SET("link", $_POST["txtlink"]);
+    $this->mdlmodel->__SET("manualuso", $_POST["campomanualuso"]);
+    $this->mdlmodel->__SET("avalgrupo", $_POST["campoavalgrupo"]);
+		// var_dump( $_POST["campoavalgrupo"]);
+		// exit;
     $very= $this->mdlmodel->modificarentregables();
     header('location: ' . URL . 'proyecto/gestor/'.$documento."/".date("Y").'#menu2');
+
    }
 
    public function modificaradmin(){
@@ -172,7 +177,7 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("id", $_POST["txtidproyecto"]);
     $this->mdlmodel->__SET("gestor", $_POST["txtgestor"]);
     $very= $this->mdlmodel->modificara();
-    header('location: ' . URL . 'proyecto/index/'.date("Y"));
+    header('location: ' . URL . 'proyecto/index/'.$_POST["txtidnodo"]);
    }
 
     public function revisadofinal(){
@@ -182,7 +187,7 @@ class proyecto extends Controller
     $this->mdlmodel->__SET("revisadofinal", $_POST["txtrevisado"]);
     $very= $this->mdlmodel->revisadofinal();
 
-    header('location: ' . URL . 'proyecto/index/'.date("Y"));
+    header('location: ' . URL . 'proyecto/index/'.$_POST["txtidnodo"]);
    }
 
     public function verp($idproyecto)
@@ -206,8 +211,7 @@ class proyecto extends Controller
          echo json_encode($datos);
     }
 
-          public function detalletalen($idproyecto)
-    {
+          public function detalletalen($idproyecto){
         $this->mdlmodel->__SET("idproyecto", $idproyecto);
         $datos = $this->mdlmodel->consultadetalletalen();
         echo json_encode($datos);
@@ -254,6 +258,8 @@ class proyecto extends Controller
 
     }
 
+
+ #--------------------------Metodo para visualizar los entregables del proyecto (lo hace el dinamizador)---------------------------#
      public function entregablesa($idproyecto)
     {
       $this->mdlmodel->__SET("idproyecto", $idproyecto);
@@ -263,16 +269,18 @@ class proyecto extends Controller
 
     }
 
+
+ #--------------------------Metodo para editar el gestor de un proyecto (lo hace el dinamizador)---------------------------#
         public function edit2($idproyecto)
     {
       $this->mdlmodel->__SET("idproyecto", $idproyecto);
       $datos = $this->mdlmodel->verp();
-      $gestor = $this->mdlmodel->consultagestor();
-      $sector = $this->mdlmodel->consultasector();
-      $foco = $this->mdlmodel->consultafoco();
-      $estadopro = $this->mdlmodel->consultaestadoproyectoo();
-      $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
-      $talentolider = $this->mdlmodel->consultalider();
+      // $gestor = $this->mdlmodel->consultagestor();
+      // $sector = $this->mdlmodel->consultasector();
+      // $foco = $this->mdlmodel->consultafoco();
+      // $estadopro = $this->mdlmodel->consultaestadoproyectoo();
+      // $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
+      // $talentolider = $this->mdlmodel->consultalider();
 
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/proyecto/modificaradmin.php';

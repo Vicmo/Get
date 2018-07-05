@@ -26,11 +26,11 @@
 
 
               <div class="clearfix" ></div>
-              
+
               <div class="x_content" >
                 <br />
 
-                <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left" 
+                <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                 action="<?= URL?>proyecto/modificarentregables"  method="POST">
 
 
@@ -47,6 +47,8 @@
                 <input value=""  id="g" type="hidden">
                 <input value=""  id="h" type="hidden">
                 <input value=""  id="i" type="hidden">
+                <input value=""  id="j" type="hidden">
+                <input value=""  id="k" type="hidden">
 
                 <input value=""  id="campoactainicio" name="campoactainicio" type="hidden">
                 <input value=""  id="campopropuesta" name="campopropuesta" type="hidden">
@@ -57,9 +59,11 @@
                 <input value=""  id="campoficha" name="campoficha" type="hidden">
                 <input value=""  id="campovideo" name="campovideo" type="hidden">
                 <input value=""  id="campoacta" name="campoacta" type="hidden">
+                <input value=""  id="campomanualuso" name="campomanualuso" type="hidden">
+                <input value=""  id="campoavalgrupo" name="campoavalgrupo" type="hidden">
                  <input value="<?php echo date("Y"); ?>" id="txtano" type="hidden">
 
-                
+
 
 
 
@@ -67,7 +71,7 @@
 
                 <div class="item form-group">
                   <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">ID<span class="required">*</span>
-                  </label>  
+                  </label>
                   <div class="control-group">
                     <div class="controls">
                       <div class="col-md-3 ">
@@ -145,6 +149,9 @@
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-3" >Acta de confidencialidad <div class="icheckbox_flat-green"><input type="checkbox"  value="" name="inicioacta" id="inicioacta" class="flat"></div> </label>
                 <label class="control-label col-md-2 col-sm-3 col-xs-3" >Estado del arte del proyecto <div class="icheckbox_flat-green"><input type="checkbox" value="" id="tecnicap" name="tecnicap" class="flat"></div> </label>
+                <label class="control-label col-md-2 col-sm-3 col-xs-3" >Acuerdo inicial de confidencialidad de idea ó Aval por parte de la empresa (o grupo de investigación) <div class="icheckbox_flat-green disabled"><input type="checkbox"  id="avalgrupo" name="avalgrupo" class="flat"></div> </label>
+                <label class="control-label col-md-2 col-sm-3 col-xs-3" >Manual de uso de Infraestructura <div class="icheckbox_flat-green disabled"><input type="checkbox"  id="manualuso" name="manualuso"  class="flat"></div> </label>
+
               </div>
               <hr>
               <h4>Entregables Fase Planeación</h4>
@@ -166,28 +173,28 @@
                 </div>
                 <hr>
                 <br>
-                
 
-              
+
+
                       <input type="hidden" name="txtlink" required="" value="<?= $datos['link'];?>" id="txtlink"  class="form-control col-md-8 col-xs-12">
-             
+
 
                 <h4>Revisado Final</h4>
                 <div class="item form-group">
-                  <input type="radio" class="flat disabled" disabled=""  name="txtrevisado"  id="txtrevisadoa" value="Por evaluar"  /> 
+                  <input type="radio" class="flat disabled" disabled=""  name="txtrevisado"  id="txtrevisadoa" value="Por evaluar"  />
                   Por evaluar
-                  <input type="radio" class="flat" name="txtrevisado" disabled id="txtrevisadob" value="Aprobado"  /> 
+                  <input type="radio" class="flat" name="txtrevisado" disabled id="txtrevisadob" value="Aprobado"  />
                   Aprobado
-                  <input type="radio" class="flat" name="txtrevisado" disabled id="txtrevisadoc" value="No aprobado"  /> 
+                  <input type="radio" class="flat" name="txtrevisado" disabled id="txtrevisadoc" value="No aprobado"  />
                   No aprobado
-                  
+
                 </div>
                 <hr>
-                <br>  
+                <br>
 
                    <div class="item form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Link Drive<span class="required">*</span>
-                    </label>  
+                    </label>
                     <div class="control-group">
 
                       <a type="button"  target="_blank" href="https://goo.gl/xQL476" class="btn btn-warning">Ir</a>
@@ -200,7 +207,7 @@
 
                  <center><button type="button" id="modificar" class="btn btn-success">Modificar</button>
 
-                   <a  id="cancelar" class="btn btn-danger" type="button">Cancelar</a>  
+                   <a  id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
 
                  </div>
 
@@ -232,7 +239,7 @@
 
   var g = $("#gestortxt").val();
   $.ajax({
-    dataType:'json',  
+    dataType:'json',
     type:'post',
     url:uri+"gestor/consultalinea/"+g
   }).done(function(respons) {
@@ -242,7 +249,7 @@
 
   var l = $("#lineatxt").val();
   $.ajax({
-    dataType:'json',  
+    dataType:'json',
     type:'post',
     url:uri+"proyecto/consultagestorl/"+l
   }).done(function(response) {
@@ -250,7 +257,7 @@
       $("#txtgestor").append('<option value="'+item.documento+'">'+item.nombres+" "+item.apellidos+'</option>')
     });
     $("#txtgestor").val("<?= $datos['gestor'];?>");
-  }); 
+  });
 
 
 </script>
@@ -314,6 +321,16 @@ var i = $("#i").val();
 if (i == "Si") {
   $('#cierreacta').prop('checked',true);
 }
+$("#j").val("<?= $datos['manualuso'];?>");
+var i = $("#i").val();
+if (i == "Si") {
+  $('#manualuso').prop('checked',true);
+}
+$("#k").val("<?= $datos['avalgrupo'];?>");
+var i = $("#i").val();
+if (i == "Si") {
+  $('#avalgrupo').prop('checked',true);
+}
 
 $('#modificar').on('click',function(e){
  e.preventDefault();
@@ -326,6 +343,17 @@ $('#modificar').on('click',function(e){
     $("#campoactainicio").val("Si");
   }else{
     $("#campoactainicio").val("No");
+  }
+
+   if ($('#avalgrupo').prop('checked') == true) {
+    $("#campoavalgrupo").val("Si");
+  }else{
+    $("#campoavalgrupo").val("No");
+  }
+   if ($('#manualuso').prop('checked') == true) {
+    $("#campomanualuso").val("Si");
+  }else{
+    $("#campomanualuso").val("No");
   }
 
   if ($('#tecnicap').prop('checked') == true) {
@@ -372,7 +400,7 @@ $('#modificar').on('click',function(e){
 
   swal({
     title: "¿Desea modificar el registro?",
-    type: "warning",  
+    type: "warning",
     showCancelButton: true,
     confirmButtonColor: "#57D9D2",
     confirmButtonText: "Si",

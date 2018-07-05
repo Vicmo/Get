@@ -175,25 +175,27 @@ class mdlproyecto
    }
 
 
-  public function modificarentregables()
-   {
+   public function modificarentregables()
+    {
 
-       $sql = "CALL modificarentregables(?,?,?,?,?,?,?,?,?,?,?)";
-       $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->id);
-       $stm->bindParam(2, $this->actainicio);
-       $stm->bindParam(3, $this->propuesta);
-       $stm->bindParam(4, $this->bookplaneacion);
-       $stm->bindParam(5, $this->cronograma);
-       $stm->bindParam(6, $this->bookejecucion);
-       $stm->bindParam(7, $this->lecciones);
-       $stm->bindParam(8, $this->ficha);
-       $stm->bindParam(9, $this->video);
-       $stm->bindParam(10, $this->actacierre);
-       $stm->bindParam(11, $this->link);
-       $stm->execute();
+        $sql = "CALL modificarentregables(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(1, $this->id);
+        $stm->bindParam(2, $this->actainicio);
+        $stm->bindParam(3, $this->propuesta);
+        $stm->bindParam(4, $this->bookplaneacion);
+        $stm->bindParam(5, $this->cronograma);
+        $stm->bindParam(6, $this->bookejecucion);
+        $stm->bindParam(7, $this->lecciones);
+        $stm->bindParam(8, $this->ficha);
+        $stm->bindParam(9, $this->video);
+        $stm->bindParam(10, $this->actacierre);
+        $stm->bindParam(11, $this->link);
+        $stm->bindParam(12, $this->manualuso);
+        $stm->bindParam(13, $this->avalgrupo);
+        $stm->execute();
 
-   }
+    }
 
 
   public function modificara()

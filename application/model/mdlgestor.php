@@ -117,7 +117,7 @@ class mdlgestor
 
            $sql = "CALL consultalinea(?)";
            $stm = $this->db->prepare($sql);
-           $stm->bindParam(1, $this->documento);
+           $stm->bindParam(1, $this->idgestor);
            $stm->execute();
            return $stm->fetch(PDO::FETCH_ASSOC);
 
