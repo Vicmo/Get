@@ -28,17 +28,23 @@ class talento extends Controller
 
     }
 
+################################### Inicio método admin ############################
 
-  public function admin($ano)
+ #----------------------Método que lista todos los talentos por nodo (lo ve el dinamizador del nodo)----------------------#
+  public function admin($idnodo)
   {
-        $this->mdlmodel->__SET("ano", $ano);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $consultatalento = $this->mdlmodel->reportestalentosadmin();
-         $linea = $this->mdlgestor->consultalineaa();
-           $gestor = $this->mdlgestor->consultargestor();
-    require APP . 'view/_templates/headeradmin.php';
-    require APP . 'view/talento/admin.php';
+        $linea = $this->mdlgestor->consultalineaa();
+				$this->mdlgestor->__SET("idnodo", $idnodo);
+        $gestor = $this->mdlgestor->consultargestor();
+				require APP . 'view/_templates/headeradmin.php';
+				require APP . 'view/talento/admin.php';
 
     }
+
+################################### Fin método admin ############################
+
 
 
 public function registrar()
@@ -77,22 +83,50 @@ public function registrar()
 
    }
 
-
-
-public function ver($documento)
+##################################################################################
+#																																								#
+#															Inicio método ver																	#
+#																																								#
+##################################################################################
+#---------------- Ver el detalles del talento según el id -----------------------#
+public function ver($idpersona)
     {
-         $this->mdlmodel->__SET("documento", $documento);
+         $this->mdlmodel->__SET("idpersona", $idpersona);
        $datos = $this->mdlmodel->ver();
          echo json_encode($datos);
     }
 
+##################################################################################
+#																																								#
+#														  	Fin método ver																	#
+#																																								#
+##################################################################################
 
-public function reporte($ano)
+####################################------------------------------------------------------------###################################
+
+##################################################################################
+#																																								#
+#															Inicio método reporte															#
+#																																								#
+##################################################################################
+#----------------------------- Método para mostrar los talentos filtrados por año -----------------------------#
+public function reporte($ano,$nodo)
     {
-         $this->mdlmodel->__SET("ano", $ano);
-       $datos = $this->mdlmodel->reportestalentosadmin();
-         echo json_encode($datos);
+
+      $this->mdlmodel->__SET("ano", $ano);
+      $this->mdlmodel->__SET("idnodo", $nodo);
+      $datos = $this->mdlmodel->reportestalentosadmin();
+      echo json_encode($datos);
+
     }
+
+##################################################################################
+#																																								#
+#															Fin método reporte																#
+#																																								#
+##################################################################################
+
+
 
     public function slctpro()
     {

@@ -12,7 +12,6 @@
             </div>
           </div>
         </div>
-
         <div class="clearfix"></div>
         <div class="row" >
           <div class="col-md-12">
@@ -45,17 +44,11 @@
                     <th>Entregables</th>
                   </tr>
                 </thead>
-
-
                 <tbody>
                  <?php foreach ($proyecto as $value) { ?>
                  <tr>
-
                   <div class="item form-group">
-
                   </div>
-
-
                   <td><?= $value["codigoproyecto"] ?></td>
                   <td style="width: 15%"><?= $value["nombre"] ?></td>
 
@@ -106,18 +99,10 @@
                 </tr>
                 <?php } ?>
               </tbody>
-
-
             </table>
-
-
-
-
-
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-
             <div id="ver" class="modal fade" role="dialog" >
              <div class="modal-dialog modal-ms" >
                <div class="modal-content">
@@ -135,13 +120,9 @@
                      </table>
                    </div>
                  </div>
-
                </div>
-
              </div>
            </div>
-
-
            <div id="vert" class="modal fade" role="dialog" >
             <div class="modal-dialog modal-sm" style="width: 700px">
               <div class="modal-content">
@@ -155,6 +136,7 @@
                       <thead>
                         <tr class="headings">
                           <th class="column-title">Documento</th>
+                          <th class="column-title">Tipo de Talento</th>
                           <th class="column-title">Nombre</th>
                            <th class="column-title">Correo</th>
                            <th class="column-title">Celular</th>
@@ -165,16 +147,10 @@
                     </table>
                   </div>
                 </div>
-
               </div>
-
             </div>
           </div>
-
         </div>
-
-
-
       </div>
     </div>
   </div>
@@ -226,8 +202,7 @@
       if (respuesta != null ) {
         console.log(respuesta);
         $.each(respuesta, function(i, item) {
-          $("#tablatalen").append("<tr><td>"+item.documento+
-            "</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
+          $("#tablatalen").append("<tr><td>"+item.documento+"</td><td>"+item.nombretipotalento+"</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
         });
         $("#vert").modal();
       } else {

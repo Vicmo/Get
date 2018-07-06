@@ -3,7 +3,7 @@
 
 class mdlreportes
 {
- 
+
     private $db;
     private $fi;
     private $ff;
@@ -19,7 +19,7 @@ class mdlreportes
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -103,37 +103,59 @@ class mdlreportes
 
    }
 
+############################## Inicio método reportetalentos ##############################
+
+#-------------- Ejecuta el procedimiento almacenado reportetalentos para visualizar los talentos por nodo (Gráfica) --------------#
       public function reportetalentos()
    {
-       $sql = "CALL reportetalentos(?)";
+       $sql = "CALL reportetalentos(?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->ano);
+       $stm->bindParam(2, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
+
+############################## Fin método reportetalentos ##############################
+
+
+############################## Inicio método reportetalentos ##############################
+
+#-------------- Ejecuta el procedimiento almacenado reportetalentosl para visualizar los talentos por nodo, linea y año (Gráfica) --------------#
 
        public function reportetalentoslinea()
    {
-       $sql = "CALL reportetalentosl(?,?)";
+       $sql = "CALL reportetalentosl(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->ano);
        $stm->bindParam(2, $this->linea);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
 
-         public function reportetalentosgestor()
-   {
-       $sql = "CALL reportetalentosg(?,?)";
+############################## Fin método reportetalentos ##############################
+
+
+############################## Inicio método reportetalentosgestor ##############################
+
+#-------------- Ejecuta el procedimiento almacenado reportetalentosg para visualizar los talentos por nodo, gestor a cargo y año (Gráfica) --------------#
+
+    public function reportetalentosgestor(){
+
+       $sql = "CALL reportetalentosg(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->ano);
        $stm->bindParam(2, $this->gestor);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
+   
+############################## Fin método reportetalentosgestor ##############################
 
        public function reportedepreciacionlinea()
    {
@@ -288,8 +310,7 @@ class mdlreportes
 
    }
 
-  
 
-   
+
+
 }
-       

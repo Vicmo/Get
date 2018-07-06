@@ -29,7 +29,8 @@
 
                   <input value="<?= $datos['idgestor'];?>"  name="gestortxt"  id="gestortxt" type="hidden">
                   <input value="<?= $datos['linea'];?>"  id="lineatxt" type="hidden">
-                  <input value="<?= $datos['idproyecto'];?>"  name="txtidproyecto"  type="hidden">
+                  <input value="<?= $idnodo ?>" name="txtidnodo"  type="hidden">
+                  <input value="<?= $datos["idproyecto"] ?>" name="txtidproyecto"  type="hidden">
                   <input value=""  id="a" type="hidden">
                   <input value=""  id="b" type="hidden">
                   <input value=""  id="c" type="hidden">
@@ -52,7 +53,6 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="item form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Nombre<span class="required">*</span>
                       </label>

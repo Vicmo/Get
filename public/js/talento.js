@@ -1,11 +1,14 @@
-function ver(documento){
+/*--------------------------------------------- Inicio función ver ------------------------------------------------------*/
+
+//------------------------------ Ajax para ver los detalles del talento -----------------------------//
+function ver(id){
   $.ajax({
     dataType:'json',
     type:'post',
-    url:uri+"talento/ver/"+documento
+    url:uri+"talento/ver/"+id
 }).done(function(respuesta){
     $("#tablad").empty();
-    $("#tablad").append("<tr><td>"+'<b>Tipo documento: </b>'+respuesta.tipodocumento+"<tr><td> " + 
+    $("#tablad").append("<tr><td>"+'<b>Tipo documento: </b>'+respuesta.tipodocumento+"<tr><td> " +
        "<tr><td>"+'<b>Documento: </b>'+respuesta.documento+"<tr><td> " +
        "<tr><td>"+'<b>Nombres: </b>'+respuesta.nombres+"<tr><td> " +
        "<tr><td>"+'<b>Apellidos: </b>'+respuesta.apellidos+"<tr><td> " +
@@ -15,19 +18,18 @@ function ver(documento){
        "<tr><td>"+'<b>Tipo de talento: </b>'+respuesta.tipotalento+"<tr><td> " +
        "<tr><td>"+'<b>Ocupación: </b>'+respuesta.ocupacion+"<tr><td> " +
        "<tr><td>"+'<b>Descripción Ocupación: </b>'+respuesta.des_ocu+"<tr><td> " +
-       "<tr><td>"+'<b>Numero Celular: </b>'+respuesta.numerocelular+"<tr><td> " +
-       "<tr><td>"+'<b>Numero Fijo: </b>'+respuesta.numerofijo+"<tr><td> " +
+       "<tr><td>"+'<b>Contacto: </b>'+respuesta.contacto+"<tr><td> " +
        "<tr><td>"+'<b>Ciudad: </b>'+respuesta.ciudad+"<tr><td> " +
        "<tr><td>"+'<b>Dirección: </b>'+respuesta.direccion+"<tr><td> " +
        "<tr><td>"+'<b>Estrato: </b>'+respuesta.estrato+"<tr><td> " +
        "<tr><td>"+'<b>Institución: </b>'+respuesta.institucion+"<tr><td>"+
        "<tr><td>"+'<b>Nivel Académico: </b>'+respuesta.nivelacademico+"<tr><td> " +
        "<tr><td>"+'<b>Título Obtenido: </b>'+respuesta.titulobtenido+"<tr><td> " +
-       "<tr><td>"+'<b>Año Terminación: </b>'+respuesta.anoterminacion+"<tr><td>");
+       "<tr><td>"+'<b>Fecha Terminación: </b>'+respuesta.fechaterminado+"<tr><td>");
     $("#ver").modal();
-
 });
 }
+/*--------------------------------------------- Final función ver ------------------------------------------------------*/
 
 $('#registrar').on('click',function(e){
     e.preventDefault();
@@ -38,7 +40,7 @@ $('#registrar').on('click',function(e){
 
     if ($("#txttipodocumento").val() && $("#txtdocumeto").val() && $("#txtnombre").val() && $("#txtapellidos").val()
         && $("#txtcorreo").val() && $("#txttipotalento").val() && $("#txtocupacion").val() && $("#txtnum_cel").val() && $("#txtciudad").val()
-        && $("#txtestrato").val() && $("#txtinstucion").val() && $("#txtnivel_aca").val() && $("#txttitu_obte").val() 
+        && $("#txtestrato").val() && $("#txtinstucion").val() && $("#txtnivel_aca").val() && $("#txttitu_obte").val()
         && $("#txtaño_termi").val()) {
 
         if(d.length == 10){
@@ -47,7 +49,7 @@ $('#registrar').on('click',function(e){
 
              swal({
                 title: "¿Desea guardar el registro?",
-                type: "warning",  
+                type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#57D9D2",
                 confirmButtonText: "Si",

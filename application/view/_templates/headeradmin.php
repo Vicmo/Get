@@ -54,7 +54,7 @@ if ($_SESSION["rol"] == 'Dinamizador') {
              <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos/index/<?php echo $idnodo ?>"><i class="fa fa-home"></i>Costos Administrativos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?php echo date("Y"); ?>"><i class="fa fa-user"></i>Talentos</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?= $idnodo ?>"><i class="fa fa-user"></i>Talentos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>foco"><i class="fa fa-bell-o"></i>Focos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio"><i class="fa fa-flask"></i>Laboratorios</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>grupos/indexad/"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
@@ -161,22 +161,22 @@ if ($_SESSION["rol"] == 'Dinamizador') {
 
 
 
-  $(document).ready(function() {
-    $('#reportesadmint').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [0,1,2,3,4,5,6]
-                }
-            },
-
-
-        ]
-    } );
-} );
+//   $(document).ready(function() {
+//     $('#reportesadmint').DataTable( {
+//         dom: 'Bfrtip',
+//         buttons: [
+//
+//             {
+//                 extend: 'excelHtml5',
+//                 exportOptions: {
+//                     columns: [0,1,2,3,4,5,6]
+//                 }
+//             },
+//
+//
+//         ]
+//     } );
+// } );
 
   $(document).ready(function() {
     $('#reportepinscritos').DataTable( {

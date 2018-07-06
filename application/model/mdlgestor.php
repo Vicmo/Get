@@ -41,15 +41,23 @@ class mdlgestor
 
          }
 
+
+########################### Inicio método consultargestor ###########################
+
+/*------------------------ Método para mostrar los gestores por nodo -----------------------*/
+
          public function consultargestor(){
 
            $sql = "CALL consultargestor(?)";
            $stm = $this->db->prepare($sql);
-           $stm->bindParam(1, $this->nodo);
+           $stm->bindParam(1, $this->idnodo);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
 
          }
+
+############################ Fin método consultargestor ############################
+
 
          public function registrar(){
 

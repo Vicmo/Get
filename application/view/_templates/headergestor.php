@@ -53,12 +53,12 @@
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
              <li><a style="background: #238276" href="<?php echo URL; ?>talento/index/<?php echo $persona ?>"><i class="fa fa-users"></i>Talentos</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/gestor/<?php echo $documento ?>/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>usoinfraestructura/index/<?php echo $documento ?>"><i class="fa fa-building"></i>Uso de Infraestructura</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>edt/index/<?php echo $documento ?>"><i class="fa fa-institution"></i>EDT</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>grupos/index/<?php echo $documento ?>"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>vigilancia/index/<?php echo $documento ?>"><i class="fa fa-binoculars"></i>Vigilancia Tecnológica</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>costos/gestor/<?php echo $documento ?>/<?php echo date("Y"); ?>"><i class="fa fa-usd"></i>Costos</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/gestor/<?php echo $persona ?>/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>usoinfraestructura/index/<?php echo $persona ?>"><i class="fa fa-building"></i>Uso de Infraestructura</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>edt/index/<?php echo $persona ?>"><i class="fa fa-institution"></i>EDT</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>grupos/index/<?php echo $persona ?>"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>vigilancia/index/<?php echo $persona ?>"><i class="fa fa-binoculars"></i>Vigilancia Tecnológica</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>costos/gestor/<?php echo $persona ?>/<?php echo date("Y"); ?>"><i class="fa fa-usd"></i>Costos</a></li>
            </ul>
          </div>
        </div>

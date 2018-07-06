@@ -10,42 +10,61 @@ class reportes extends Controller
      $this->mdlmodel = $this->loadModel("mdlreportes");
        $this->mdlgestor = $this->loadModel("mdlgestor");
 
-   
+
   }
-	
+
 	public function index()
 	{
          $linea = $this->mdlgestor->consultalineaa();
            $gestor = $this->mdlgestor->consultargestor();
 		require APP . 'view/_templates/headeradmin.php';
 		require APP . 'view/reportes/index.php';
-     
+
     }
 
 
+#################### Inicio método reportetalentos ############################
 
-            public function reportetalentos($ano)
+#------------- Método para ver los talentos por nodo (Gráfica) -------------#
+    public function reportetalentos($ano,$idnodo)
     {
         $this->mdlmodel->__SET("ano", $ano);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportetalentos();
         echo json_encode($datos);
     }
 
-               public function reportetalentoslinea($ano,$linea)
+###################### Fin método reportetalentos ##############################
+
+#################### Inicio método reportetalentoslinea ############################
+
+#------------- Método para ver los talentos por nodo, línea y año (Gráfica) -------------#
+    public function reportetalentoslinea($ano,$linea,$idnodo)
     {
         $this->mdlmodel->__SET("ano", $ano);
         $this->mdlmodel->__SET("linea", $linea);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportetalentoslinea();
         echo json_encode($datos);
     }
 
-                  public function reportetalentosgestor($ano,$gestor)
+###################### Fin método reportetalentoslinea ##############################
+
+
+
+#################### Inicio método reportetalentosgestor ############################
+
+#------------- Método para ver los talentos por nodo, gestor a cargo y año (Gráfica) -------------#
+
+    public function reportetalentosgestor($ano,$gestor,$idnodo)
     {
         $this->mdlmodel->__SET("ano", $ano);
         $this->mdlmodel->__SET("gestor", $gestor);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportetalentosgestor();
         echo json_encode($datos);
     }
+###################### Fin método reportetalentosgestor ##############################
 
 
     	 public function reportemantenimientolinea($fi,$ff,$l)
@@ -213,6 +232,3 @@ class reportes extends Controller
 
 
 }
-
-
-

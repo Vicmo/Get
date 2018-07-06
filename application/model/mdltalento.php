@@ -121,15 +121,28 @@ class mdltalento
 
    }
 
-   public function ver()
-   {
+
+   ##################################################################################
+   #																																								#
+   #															Inicio método ver																	#
+   #																																								#
+   ##################################################################################
+   #---------------- Ejecuta el procedimiento almacenado para ver el detalle del talento según el id -----------------------#
+   public function ver(){
+
        $sql = "CALL vertalento(?)";
        $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->documento);
+       $stm->bindParam(1, $this->idpersona);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
    }
+
+  ##################################################################################
+  #																																								#
+  #														  	Fin método ver																	#
+  #																																								#
+  ##################################################################################
 
       public function consultatalentog()
    {
@@ -141,15 +154,41 @@ class mdltalento
 
    }
 
+
+   #              Inicio método reportetalentosadmin              #
+
+   #--------------------- Muestra todos los talentos por nodo ---------------------#
+
    public function reportestalentosadmin()
    {
+
        $sql = "CALL reportestalentosadmin(?)";
        $stm = $this->db->prepare($sql);
-       $stm->bindParam(1, $this->ano);
+       $stm->bindParam(1, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
+
+   #              Fin método reporte talentos admin              #
+
+
+   #              Inicio método reportetalentosadminpora           #
+   #--------------------- Muestra todos los talentos filtrados por año y por nodo ---------------------#
+
+   public function reportestalentosadminpora()
+   {
+       $sql = "CALL reportestalentosadminpora(?,?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->ano);
+       $stm->bindParam(2, $this->idnodo);
+       $stm->execute();
+       return $stm->fetchAll(PDO::FETCH_ASSOC);
+
+   }
+
+   #              Fin método reportetalentosadminpora              #
+
 
       public function correo()
    {
