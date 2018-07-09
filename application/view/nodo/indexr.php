@@ -15,32 +15,24 @@
               <div id="home" class="tab-pane fade in active">
                 <br>
                 <h2><small>Los elementos con (*) son obligatorios</small></h2>
-
                 <div class="clearfix" ></div>
-
                 <div class="x_content" >
                   <br />
-
                   <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                   action="<?= URL?>nodo/registrar"  method="POST">
-
                   <input type="hidden" name="" value="<?php echo $idnodo ?>">
-
-
                     <div class="item form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="">Nombre<span class="required">*</span>
                       </label>
                       <div class="col-md-3 col-sm-3 col-xs-3">
                         <input required name="txtnombre"  id="txtnombre" class="form-control col-md-7 col-xs-12" >
                       </div>
-
                       <label class="control-label col-md-2 col-sm-3 col-xs-3">Direccion<span class="required"></span>
                       </label>
                           <div class="col-md-3 ">
                             <input  name="txtdireccion" id="txtdireccion"  class="form-control col-md-7 col-xs-12">
                           </div>
                    </div>
-
                     <div class="item form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-3" >Departamento<span class="required">*</span>
                       </label>
@@ -52,7 +44,6 @@
                          <?php endforeach; ?>
                        </select>
                      </div>
-
                      <label class="control-label col-md-2 col-sm-3 col-xs-3" >Ciudad<span class="required">*</span>
                      </label>
                      <div class="col-md-3 col-sm-3 col-xs-3">
@@ -61,7 +52,6 @@
                       </select>
                     </div>
                   </div>
-
                  <div class="form-group">
                    <center><button type="button" name="registrar" id="registrar" class="btn btn-success">Registrar</button>
                    </div>
@@ -75,6 +65,7 @@
                   <th>Nombre</th>
                   <th>Ubicación</th>
                   <th>Dirección</th>
+                  <th>Líneas</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -88,6 +79,10 @@
                 <td>Tecnoparque nodo <?= $value["nombrenodo"] ?></td>
                 <td><?= $value["nombre_ciudad"] ?></td>
                 <td><?= $value["direccion"] ?></td>
+                <td>
+                  <a class="btn btn-primary btn-xs" onclick="metodos.getLineasNodo(<?= $value['idnodo']?>)">
+                   <i class="fa fa-list"></i> Líneas</a>
+                </td>
                 <td>
                   <a href="<?php echo URL ;?>nodo/edit/<?= $value["idnodo"] ?>/<?= $value["iddepartamento"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
                 </td>
@@ -128,9 +123,38 @@
 </div>
 </div>
 </div>
+<div class="x_content">
+  <div id="verlineasnodo" class="modal fade" role="dialog" >
+   <div class="modal-dialog" >
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">X</button>
+         <center><h4 class="modal-title">Líneas Tecnológicas del nodo</h4></center>
+       </div>
+       <div class="modal-body">
+         <div class="table-responsive">
+           <table class="table table-striped jambo_table bulk_action">
+             <thead>
+               <tr class="headings">
+                 <th class="column-title">Línea Tecnológica</th>
+               </tr>
+             </thead>
+             <tbody id="tablalineasnodo">
+             </tbody>
+           </table>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
 
 <script type="text/javascript">
+/*-------------------- Inicio de las funciones/métodos --------------------*/
   var metodos = {
+  /*-------------------- Inicio método getCiudad por iddepartamento --------------------*/
+
+    /*###################  Inicio del combo dependiente para la ciudad   ###################*/
         getCiudad:function(e){
         let id = $(e).val();
         $.ajax({
@@ -144,9 +168,45 @@
                   $('#txtciudad').append('<option  value="'+e.idciudad+'">'+e.ciudad+'</option>');
             })
         });
+    },
+    /*-------------------- Fin método getCiudad por iddepartamento --------------------*/
+
+    /*###################   Fin del combo dependiente para la ciudad   ###################*/
+
+    /*-------------------- Inicio método getLineasNodo por idnodo --------------------*/
+
+    /*################### Inicio del modal que consulta las líneas tecnológicas por nodo ###################*/
+
+    getLineasNodo:function(id){
+      // let id = $('#lineasNodo').val();
+      console.log(id);
+      $.ajax({
+        dataType: 'json',
+        type: 'post',
+        url:uri+'/nodo/lineasNodo/'+id
+      }).done(function(response){
+        $("#tablalineasnodo").empty()
+        if (response != null ) {
+          $.each(response, function(i, item) {
+            $("#tablalineasnodo").append("<tr><td>"+item.nombre+"</td></tr>");
+          });
+          $("#verlineasnodo").modal();
+        } else {
+          swal('Ups!!', 'Ha ocurrido un error', 'warning')
+        }
+      })
     }
   }
 
+  /*-------------------- Fin método getLineasNodo por idnodo --------------------*/
+
+  /*################### Fin del modal que consulta las líneas tecnológicas por nodo ###################*/
+
+
+/*-------------------- Fin de las funciones/métodos --------------------*/
+
+
+/*############ Confirmación de envío de formulario ############*/
   $('#registrar').on('click',function(e){
      e.preventDefault();
      var form = $(this).parents('form');

@@ -25,11 +25,35 @@ function ver(id){
        "<tr><td>"+'<b>Institución: </b>'+respuesta.institucion+"<tr><td>"+
        "<tr><td>"+'<b>Nivel Académico: </b>'+respuesta.nivelacademico+"<tr><td> " +
        "<tr><td>"+'<b>Título Obtenido: </b>'+respuesta.titulobtenido+"<tr><td> " +
-       "<tr><td>"+'<b>Fecha Terminación: </b>'+respuesta.fechaterminado+"<tr><td>");
+       "<tr><td>"+'<b>Fecha Terminación de Estudios: </b>'+respuesta.fechaterminado+"<tr><td>");
     $("#ver").modal();
 });
 }
 /*--------------------------------------------- Final función ver ------------------------------------------------------*/
+
+
+
+/*--------------------------------------------- Inicio función verproyectotalento ------------------------------------------------------*/
+
+/*######################## Ajax para ver los proyectos que tiene asociado el talento ########################*/
+function verproyectotalento(id){
+  $.ajax({
+    dataType:'json',
+    type:'post',
+    url:uri+"talento/verproyectotalento/"+id
+}).done(function(respuesta){
+  $("#tablaproyectotalento").empty()
+  if (respuesta != null ) {
+    $.each(respuesta, function(i, item) {
+      $("#tablaproyectotalento").append("<tr><td>"+item.codigoproyecto+"</td><td>"+item.nombre+"</td><td>"+item.linea+"</td><td>"+item.nombresg+" "+item.apellidosg+"</td><td>"+item.estado+"</td><td>"+item.revisadofinal+"</td><td>"+item.fechacierre+"</td></tr>");
+    });
+    $("#verproyectostalento").modal();
+  } else {
+    swal('Ups!!', 'Ha ocurrido un error', 'warning')
+  }
+});
+}
+/*--------------------------------------------- Final función verproyectotalento ------------------------------------------------------*/
 
 $('#registrar').on('click',function(e){
     e.preventDefault();

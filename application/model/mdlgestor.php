@@ -11,7 +11,7 @@ class mdlgestor
     private $correo;
     private $linea;
     private $salario;
-    private $nodo;
+    private $idnodo;
 
     public function __SET($attr, $val){
 
@@ -31,18 +31,22 @@ class mdlgestor
         }
     }
 
+    ########################### Inicio método lineasnodo ###########################
 
-       public function consultalineaa(){
+      /*------------------------ Ejecuta procedimiento almacenado para mostrar las línas tecnológicas	por nodo -----------------------*/
+       public function lineasnodo(){
 
-           $sql = "CALL consultalineaa";
+           $sql = "CALL lineasnodo(?)";
            $stm = $this->db->prepare($sql);
+           $stm->bindParam(1, $this->idnodo);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
 
          }
+         ############################ Fin método lineasnodo ############################
 
 
-########################### Inicio método consultargestor ###########################
+         ########################### Inicio método consultargestor ###########################
 
 /*------------------------ Método para mostrar los gestores por nodo -----------------------*/
 

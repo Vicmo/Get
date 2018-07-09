@@ -4,22 +4,19 @@ class gestor extends Controller
 {
 
 	private $mdlmodel = null;
-
+	private $mdlcuentas = null;
+	private $objeto = null;
   function __construct(){
-
-    $this->mdlmodel = $this->loadModel("mdlgestor");
-     $this->mdlcuentas = $this->loadModel("mdlcuentas");
-
+    	$this->mdlmodel = $this->loadModel("mdlgestor");
+     	$this->mdlcuentas = $this->loadModel("mdlcuentas");
   }
 
 	public function index($idnodo){
-
-	    $linea = $this->mdlmodel->consultalineaa();
-			$this->mdlmodel->__SET("nodo", $idnodo);
-			$consultargestor = $this->mdlmodel->consultargestor();
-			require APP . 'view/_templates/headeradmin.php';
-     	require APP . 'view/gestor/index.php';
-
+				$this->mdlmodel->__SET("idnodo", $idnodo);
+				$linea = $this->mdlmodel->lineasnodo();
+				$consultargestor = $this->mdlmodel->consultargestor();
+				require APP . 'view/_templates/headeradmin.php';
+				require APP . 'view/gestor/index.php';
 	}
 
 	public function registrar(){
@@ -46,10 +43,11 @@ class gestor extends Controller
 
    }
 
- public function edit($idpersona){
+ public function edit($idpersona,$idnodo){
 
       $this->mdlmodel->__SET("idpersona", $idpersona);
-      $linea = $this->mdlmodel->consultalineaa();
+      $this->mdlmodel->__SET("idnodo", $idnodo);
+      $linea = $this->mdlmodel->lineasnodo();
       $datos = $this->mdlmodel->verg();
       $consultargestor = $this->mdlmodel->consultargestor();
      require APP . 'view/_templates/headeradmin.php';

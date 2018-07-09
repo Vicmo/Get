@@ -55,8 +55,8 @@ if ($_SESSION["rol"] == 'Dinamizador') {
              <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?= $idnodo ?>"><i class="fa fa-user"></i>Talentos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>foco"><i class="fa fa-bell-o"></i>Focos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio"><i class="fa fa-flask"></i>Laboratorios</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>foco/dinamizador/<?= $idnodo  ?>"><i class="fa fa-bell-o"></i>Focos</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio/index/<?= $idnodo ?>"><i class="fa fa-flask"></i>Laboratorios</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>grupos/indexad/"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>depreciacion/index"><i class="fa fa-bolt"></i>Depreciación</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>mantenimiento"><i class="fa fa-legal"></i>Mantenimiento</a></li>

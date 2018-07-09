@@ -40,6 +40,17 @@ class nodo extends Controller
     echo json_encode($datos);
   }
 
+  ################ Inicio método lineasNodo ################
+
+  /*-------------------- Petición Ajax para mostrar las líneas tecnológicas del nodo --------------------*/
+
+  public function lineasNodo($idnodo){
+    $this->mdlmodel->__SET("idnodo", $idnodo);
+    $datos = $this->mdlmodel->lineasNodo();
+    echo json_encode($datos);
+  }
+  ################ Inicio método lineasNodo ################
+
 
   public function registrar(){
     $this->mdlmodel->__SET("nombre", ucwords($_POST["txtnombre"]));

@@ -52,6 +52,20 @@ class mdlnodo
            return $stm->fetch(PDO::FETCH_ASSOC);
          }
 
+  ################ Inicio método lineasNodo ################
+  /*-------------------- Ejecuta el procedimiento almacenado que muestra las líneas tecnológicas del nodo --------------------*/
+
+         // public function lineasNodo(){
+         //   $sql = "CALL lineasnodo(?)";
+         //   $stm = $this->db->prepare($sql);
+         //   $stm->bindParam(1, $this->idnodo);
+         //   $stm->execute();
+         //   return $stm->fetchAll(PDO::FETCH_ASSOC);
+         // }
+
+  ################ Fin método lineasNodo ################
+
+
          public function consultadepto(){
            $sql = "CALL consultadepto";
            $stm = $this->db->prepare($sql);

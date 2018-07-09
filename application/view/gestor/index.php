@@ -127,7 +127,7 @@
                   <td><?= $value["contacto"] ?></td>
                 <?php } ?>
                 <td>
-                  <a href="<?php echo URL ;?>gestor/edit/<?= $value["idpersona"] ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Editar</a>
+                  <a href="<?php echo URL ;?>gestor/edit/<?= $value["idpersona"] ?>/<?= $idnodo ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>Editar</a>
                 </td>
                 <td>
                   <a  onclick="cambiarestadog(<?= $value["idpersona"] ?>, 0)" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Eliminar</a>

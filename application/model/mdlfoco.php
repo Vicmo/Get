@@ -3,12 +3,13 @@
 
 class mdlfoco
 {
- 
+
     private $db;
     private $idfoco;
     private $nombre;
     private $linea;
- 
+    private $idnodo;
+
 
     public function __SET($attr, $val){
 
@@ -19,7 +20,7 @@ class mdlfoco
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -32,8 +33,9 @@ class mdlfoco
 
     public function consultar()
     {
-      $sql = "CALL consultarfoco";
+      $sql = "CALL consultarfoco(?)";
      $stm = $this->db->prepare($sql);
+     $stm->bindParam(1, $this->idnodo);
      $stm->execute();
      return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -58,7 +60,7 @@ class mdlfoco
         $stm->bindParam(2, $this->nombre);
         $stm->bindParam(3, $this->linea);
         return $stm->execute();
-     
+
     }
 
 
@@ -73,6 +75,5 @@ class mdlfoco
 
    }
 
-  
+
 }
-       

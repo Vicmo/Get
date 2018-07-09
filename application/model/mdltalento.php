@@ -123,9 +123,7 @@ class mdltalento
 
 
    ##################################################################################
-   #																																								#
    #															Inicio método ver																	#
-   #																																								#
    ##################################################################################
    #---------------- Ejecuta el procedimiento almacenado para ver el detalle del talento según el id -----------------------#
    public function ver(){
@@ -139,9 +137,26 @@ class mdltalento
    }
 
   ##################################################################################
-  #																																								#
   #														  	Fin método ver																	#
-  #																																								#
+  ##################################################################################
+
+
+   ##################################################################################
+   #															Inicio método verproyectotalento																	#
+   ##################################################################################
+   #---------------- Ejecuta el procedimiento almacenado para ver el detalle del talento según el id -----------------------#
+   public function verproyectotalento(){
+
+       $sql = "CALL verproyectotalento(?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->idpersona);
+       $stm->execute();
+       return $stm->fetchAll(PDO::FETCH_ASSOC);
+
+   }
+
+  ##################################################################################
+  #														  	Fin método verproyectotalento										#
   ##################################################################################
 
       public function consultatalentog()
@@ -155,7 +170,7 @@ class mdltalento
    }
 
 
-   #              Inicio método reportetalentosadmin              #
+   ################ Inicio método reportetalentosadmin ################
 
    #--------------------- Muestra todos los talentos por nodo ---------------------#
 
@@ -170,10 +185,10 @@ class mdltalento
 
    }
 
-   #              Fin método reporte talentos admin              #
+   ################ Fin método reporte talentos admin ################
 
 
-   #              Inicio método reportetalentosadminpora           #
+   ################ Inicio método reportetalentosadminpora ################
    #--------------------- Muestra todos los talentos filtrados por año y por nodo ---------------------#
 
    public function reportestalentosadminpora()

@@ -23,7 +23,7 @@
         <div class="row" >
           <div class="col-md-12">
             <div class="x_panel" >
-              <ul class="nav nav-tabs">
+              <ul class="nav nav-tabs bar_tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Consultar Talentos</a></li>
                 <li><a data-toggle="tab" href="#menu2">Exportar</a></li>
                 <li><a data-toggle="tab" href="#menu1">Reportes</a></li>
@@ -42,6 +42,7 @@
                       <th>Correo</th>
                       <th>Celular</th>
                       <th>Fecha de cierre del proyecto</th>
+                      <th>Proyectos</th>
                       <th>Detalles</th>
                     </tr>
                   </thead>
@@ -59,7 +60,11 @@
                     <td><?= $value["contacto"] ?></td>
                     <td><?= $value["fechacierre"] ?></td>
                     <td>
-                     <a class="btn btn-primary btn-xs"  onclick="ver(<?= $value['idpersona']?>)">
+                      <a class="btn btn-info btn-xs" onclick="verproyectotalento(<?= $value['idpersona']?>)">
+                        <i class="fa fa-file-archive-o"></i> Proyectos</a>
+                      </td>
+                    <td>
+                     <a class="btn btn-primary btn-xs" onclick="ver(<?= $value['idpersona']?>)">
                       <i class="fa fa-folder"></i> Detalles</a>
                     </td>
                   </tr>
@@ -242,7 +247,6 @@
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-
       <div id="ver" class="modal fade" role="dialog" >
        <div class="modal-dialog modal-sm" >
          <div class="modal-content">
@@ -256,6 +260,37 @@
                  <thead>
                  </thead>
                  <tbody id="tablad">
+                 </tbody>
+               </table>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+    <div class="x_content">
+      <div id="verproyectostalento" class="modal fade" role="dialog" >
+       <div class="modal-dialog" >
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">X</button>
+             <center><h4 class="modal-title">Proyectos asociados al talento.</h4></center>
+           </div>
+           <div class="modal-body">
+             <div class="table-responsive">
+               <table class="table table-striped jambo_table bulk_action">
+                 <thead>
+                   <tr class="headings">
+                     <th class="column-title">Código de Proyecto</th>
+                     <th class="column-title">Nombre del Proyecto</th>
+                     <th class="column-title">Línea</th>
+                     <th class="column-title">Gestor</th>
+                     <th class="column-title">Estado</th>
+                     <th class="column-title">Fecha de Cierre</th>
+                     <th class="column-title">Revisado Final</th>
+                   </tr>
+                 </thead>
+                 <tbody id="tablaproyectotalento">
                  </tbody>
                </table>
              </div>

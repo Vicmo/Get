@@ -10,6 +10,7 @@ class talento extends Controller
     $this->mdlmodel = $this->loadModel("mdltalento");
     $this->mdlcuentas = $this->loadModel("mdlcuentas");
      $this->mdlgestor = $this->loadModel("mdlgestor");
+     // $this->mdlproyecto = $this->loadModel("mdlproyecto");
   }
 
 	public function index($persona)
@@ -28,6 +29,7 @@ class talento extends Controller
 
     }
 
+
 ################################### Inicio método admin ############################
 
  #----------------------Método que lista todos los talentos por nodo (lo ve el dinamizador del nodo)----------------------#
@@ -35,8 +37,8 @@ class talento extends Controller
   {
         $this->mdlmodel->__SET("idnodo", $idnodo);
         $consultatalento = $this->mdlmodel->reportestalentosadmin();
-        $linea = $this->mdlgestor->consultalineaa();
 				$this->mdlgestor->__SET("idnodo", $idnodo);
+				$linea = $this->mdlgestor->lineasnodo();
         $gestor = $this->mdlgestor->consultargestor();
 				require APP . 'view/_templates/headeradmin.php';
 				require APP . 'view/talento/admin.php';
@@ -44,6 +46,19 @@ class talento extends Controller
     }
 
 ################################### Fin método admin ############################
+
+
+################################### Inicio método verproyectotalento ############################
+
+ #----------------------Método que lista todos los proyectos asociado al talento por Ajax----------------------#
+		  public function verproyectotalento($idpersona)
+		  {
+				$this->mdlmodel->__SET("idpersona", $idpersona);
+				$datos = $this->mdlmodel->verproyectotalento();
+				echo json_encode($datos);
+		    }
+
+################################### Fin método verproyectotalento ############################
 
 
 

@@ -200,7 +200,7 @@
     }).done(function(respuesta){
       $("#tablatalen").empty()
       if (respuesta != null ) {
-        console.log(respuesta);
+        // console.log(respuesta);
         $.each(respuesta, function(i, item) {
           $("#tablatalen").append("<tr><td>"+item.documento+"</td><td>"+item.nombretipotalento+"</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
         });

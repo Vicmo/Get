@@ -95,6 +95,8 @@ class home extends Controller
   }
 
 
+
+
   public function salir(){
     session_start();
     unset($_SESSION["nombres"]);
