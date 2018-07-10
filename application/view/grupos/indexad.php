@@ -1,8 +1,7 @@
 <script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
-<body style="background: #238276">
+<body style="background: #EDEDED">
   <title>Tecnoparque  | Grupos de Investigación</title>
   <div class="right_col" role="main" >
-    <div class="">
       <div class="page-title">
         <div class="title_left">
         </div>
@@ -11,8 +10,9 @@
           </div>
         </div>
       </div>
-
       <div class="clearfix"></div>
+      <div class="x_panel">
+        <div class="x_content">
       <div class="row" >
         <div class="col-md-12">
            <table class="table table-striped jambo_table bulk_action" id="tabla">
@@ -25,8 +25,7 @@
                 <th>Institución</th>
                 <th>Clasificación</th>
                 <th>Tipo articulación</th>
-                <th>Observaciones</th>          
-
+                <th>Observaciones</th>
               </tr>
             </thead>
             <tbody>
@@ -45,17 +44,6 @@
         </table>
         </div>
     </div>
-    <div class="clearfix"></div>
   </div>
-
 </div>
 </div>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-</div>
-

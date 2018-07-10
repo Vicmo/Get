@@ -73,7 +73,6 @@
                     <th>Linea</th>
                     <th>Costo Administrativo</th>
                     <th>Editar</th>
-                    <th>Inhabilitar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -86,9 +85,6 @@
                   <td><?= $value["participacioncostos"]?>%</td>
                   <td>
                     <a href="<?php echo URL ;?>laboratorio/edit/<?= $value["idlaboratorio"] ?>/<?= $idnodo ?>" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
-                  </td>
-                  <td>
-                    <a  onclick="inhabilitarlab(<?= $value["idlaboratorio"] ?>, 0)" class="btn btn-warning btn-xs"><i class="fa fa-exclamation"></i> Inhabilitar</a>
                   </td>
                 </tr>
                 <?php } ?>

@@ -11,13 +11,22 @@ class costos extends Controller
 
   }
 
-    public function index()
+######################################## Inicio método index ########################################
+
+	/*-------------------------------- Consulta los proyectos por nodo --------------------------------*/
+    public function index($idnodo)
     {
-    $proyecto = $this->mdlmodel->consultaproyectoc();
+
+				$this->mdlproyecto->__SET('idnodo', $idnodo);
+    		$proyecto = $this->mdlproyecto->consultaproyecto();
         require APP . 'view/_templates/headeradmin.php';
         require APP . 'view/costos/index.php';
+				require APP . 'view/_footer/footerdinamizador.php';
 
     }
+
+######################################## Fin método index ########################################
+
 
     public function gestor($documento, $ano){
     $this->mdlmodel->__SET("documento", $documento);

@@ -2,7 +2,7 @@
 
 class mdlmantenimiento
 {
- 
+
     private $db;
     private $idmantenimiento;
     private $laboratorio;
@@ -21,7 +21,7 @@ class mdlmantenimiento
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -30,22 +30,19 @@ class mdlmantenimiento
         }
     }
 
+############################## Inicio método consultamantenimiento ##############################
 
-       public function consultalaboratorioo()
-       {
-           $sql = "CALL consultalaboratorioo";
-           $stm = $this->db->prepare($sql);
-           $stm->execute();
-           return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }   
+  /*--------------- Ejecuta el procedimiento almacenado que consulta los mantenimiento a los laboratorios por nodo -----------------*/
 
         public function consultamantenimiento()
        {
-           $sql = "CALL consultamantenimiento";
+           $sql = "CALL consultamantenimiento(?)";
            $stm = $this->db->prepare($sql);
+           $stm->bindParam(1, $this->idnodo);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }  
+         }
+############################## Fin método consultamantenimiento ##############################
 
          public function uno()
        {
@@ -56,6 +53,11 @@ class mdlmantenimiento
        return $stm->fetch(PDO::FETCH_ASSOC);
 
    }
+
+############################## Inicio método registrar ##############################
+
+ /*--------------- Ejecuta el procedimiento almacenado registrarmantenimiento registra un nuevo mantenimiento (por nodo) -----------------*/
+
  public function registrar()
    {
 
@@ -65,11 +67,18 @@ class mdlmantenimiento
        $stm->bindParam(2, $this->item);
        $stm->bindParam(3, $this->precio);
        $stm->bindParam(4, $this->vidautil);
-       $stm->bindParam(5, $this->anoum);     
+       $stm->bindParam(5, $this->anoum);
        $stm->bindParam(6, $this->horauso);
        $stm->execute();
 
    }
+############################## Fin método registrar ##############################
+
+
+############################## Inicio método modificar ##############################
+
+  /*--------------- Ejecuta el procedimiento almacenado modificarmantenimiento que modifica los datos del mantenimiento -----------------*/
+
    public function modificar()
    {
 
@@ -80,10 +89,11 @@ class mdlmantenimiento
        $stm->bindParam(3, $this->item);
        $stm->bindParam(4, $this->precio);
        $stm->bindParam(5, $this->vidautil);
-       $stm->bindParam(6, $this->anoum);     
+       $stm->bindParam(6, $this->anoum);
        $stm->bindParam(7, $this->horauso);
        $stm->execute();
 
-   } 
+   }
+############################## Fin método modificar ##############################
+
 }
-       

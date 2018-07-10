@@ -267,6 +267,7 @@ class mdlproyecto
    return $stm->fetchAll(PDO::FETCH_ASSOC);
   }
 
+
      public function verp()
    {
        $sql = "CALL verproyecto(?)";

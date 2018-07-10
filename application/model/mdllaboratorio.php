@@ -113,4 +113,13 @@ class mdllaboratorio
 
    }
    ############################## Fin método inhabilitarlab ##############################
+
+   public function consultalaboratorioo()
+   {
+       $sql = "CALL consultalaboratorioo(?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->idnodo);
+       $stm->execute();
+       return $stm->fetchAll(PDO::FETCH_ASSOC);
+     }
 }

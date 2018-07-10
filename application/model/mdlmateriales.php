@@ -3,7 +3,7 @@
 
 class mdlmateriales
 {
- 
+
     private $db;
     private $id;
     private $laboratorio;
@@ -13,7 +13,8 @@ class mdlmateriales
     private $anoc;
     private $horas;
     private $precio;
- 
+    private $idnodo;
+
 
     public function __SET($attr, $val){
 
@@ -24,7 +25,7 @@ class mdlmateriales
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -34,47 +35,53 @@ class mdlmateriales
     }
 
 
+########################## Inicio método consultar ##########################
 
+  /*------------------- Consulta todos los materiales por nodo ----------------------*/
     public function consultar()
     {
-      $sql = "CALL consultarmaterial";
+
+      $sql = "CALL consultarmaterial(?)";
      $stm = $this->db->prepare($sql);
+     $stm->bindParam(1, $this->idnodo);
      $stm->execute();
      return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
+########################## Fin método consultar ##########################
 
-  public function consultarlabo()
+
+########################## Inicio método consultartipomaterial ##########################
+
+  /*------------------- Consulta los tipos de material ----------------------*/
+
+  public function consultartipomaterial()
     {
-      $sql = "CALL consultalabo";
+      $sql = "CALL consultatipomaterial";
      $stm = $this->db->prepare($sql);
      $stm->execute();
      return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
+########################## Fin método consultartipomaterial ##########################
 
-   
-   
-  public function consultartp()
-    {
-      $sql = "CALL consultatp";
-     $stm = $this->db->prepare($sql);
-     $stm->execute();
-     return $stm->fetchAll(PDO::FETCH_ASSOC);
+########################## Inicio método uno ##########################
 
-   }
-
-
+  /*------------------- Muestra el material según su idmaterial ----------------------*/
 
    public function uno()
    {
-       $sql = "CALL consultaunomat(?)";
+       $sql = "CALL vermaterial(?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->id);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
    }
+########################## Fin método uno ##########################
+
+########################## Inicio método modificar ##########################
+/*------------------- Ejecuta el procedimiento almacenado que modifica el material según el idmaterial ----------------------*/
 
      public function modificar()
     {
@@ -90,9 +97,14 @@ class mdlmateriales
       $stm->bindParam(7, $this->horas);
       $stm->bindParam(8, $this->precio);
       return $stm->execute();
-     
-    }
 
+    }
+########################## Fin método modificar ##########################
+
+
+########################## Inicio método registrar ##########################
+
+  /*------------------- Consulta los tipos de material ----------------------*/
 
      public function registrar()
    {
@@ -109,7 +121,7 @@ class mdlmateriales
        return $stm->execute();
 
    }
+########################## Fin método registrar ##########################
 
-  
+
 }
-       

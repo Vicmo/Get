@@ -3,7 +3,7 @@
 
 class mdlgrupos
 {
- 
+
     private $db;
     private $id;
     private $gestor;
@@ -14,6 +14,7 @@ class mdlgrupos
     private $fecha;
     private $observaciones;
     private $idgrupo;
+    private $idnodo;
 
     public function __SET($attr, $val){
 
@@ -24,7 +25,7 @@ class mdlgrupos
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -58,12 +59,12 @@ class mdlgrupos
         return $stm->fetchAll(PDO::FETCH_ASSOC);
 
     }
-    
+
          public function consultaad()
     {
-        $sql = "CALL consultagruposad()";
+        $sql = "CALL consultagruposad(?)";
         $stm = $this->db->prepare($sql);
-        // $stm->bindParam(1, $this->gestor);
+        $stm->bindParam(1, $this->idnodo);
         $stm->execute();
         return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -95,4 +96,3 @@ class mdlgrupos
 
    }
 }
-       

@@ -7,29 +7,48 @@ class materiales extends Controller
 
   function __construct(){
     $this->mdlmodel = $this->loadModel("mdlmateriales");
+    $this->mdllaboratorio = $this->loadModel("mdllaboratorio");
   }
 
-	public function index()
+######################################## Inicio método index ########################################
+
+/*-------- Método que muestra los materiales del nodo --------*/
+	public function index($idnodo)
 	{
-  $labo = $this->mdlmodel->consultarlabo();
-	$consultar = $this->mdlmodel->consultar();
-  $tipo = $this->mdlmodel->consultartp();
-	require APP . 'view/_templates/headeradmin.php';
-  require APP . 'view/materiales/index.php';
+		$this->mdllaboratorio->__SET("idnodo", $idnodo);
+		$this->mdlmodel->__SET("idnodo", $idnodo);
+	  $labo = $this->mdllaboratorio->consultalaboratorioo();
+		$consultar = $this->mdlmodel->consultar();
+	  $tipo = $this->mdlmodel->consultartipomaterial();
+		require APP . 'view/_templates/headeradmin.php';
+	  require APP . 'view/materiales/index.php';
+		require APP . 'view/_footer/footerdinamizador.php';
 
 	}
+######################################## Fin método index ########################################
 
 
- public function edit($id)
-    {
-      $labo = $this->mdlmodel->consultarlabo();
-      $tipo = $this->mdlmodel->consultartp();
-      $this->mdlmodel->__SET("id", $id);
-      $datos = $this->mdlmodel->uno();
-      require APP . 'view/_templates/headeradmin.php';
-      require APP . 'view/materiales/modificar.php';
+######################################## Inicio método edit ########################################
 
-    }
+	/*-------- Muestra los datos del material (dinamizador) --------*/
+
+	 public function edit($id, $idnodo)
+	    {
+				$this->mdllaboratorio->__SET('idnodo', $idnodo);
+	      $labo = $this->mdllaboratorio->consultalaboratorioo();
+	      $tipo = $this->mdlmodel->consultartipomaterial();
+	      $this->mdlmodel->__SET("id", $id);
+	      $datos = $this->mdlmodel->uno();
+	      require APP . 'view/_templates/headeradmin.php';
+	      require APP . 'view/materiales/modificar.php';
+				require APP . 'view/_footer/footerdinamizador.php';
+
+	    }
+######################################## Fin método edit ########################################
+
+######################################## Inicio método modificar ########################################
+
+	/*-------- Envía los datos del material a modificar al modelo --------*/
 
      public function modificar()
    {
@@ -43,8 +62,14 @@ class materiales extends Controller
     $this->mdlmodel->__SET("horas", $_POST["txthoras"]);
     $this->mdlmodel->__SET("precio", $_POST["txtprecio"]);
     $very= $this->mdlmodel->modificar();
-    header('location: ' . URL . 'materiales/index/#menu2');
+    header('location: ' . URL . 'materiales/index/'.$_POST["txtidnodo"].'/#menu2');
    }
+	 ######################################## Fin método modificar ########################################
+
+
+######################################## Inicio método registrar ########################################
+
+	/*-------- Envía los datos del material al modelo para ser registrados --------*/
 
     public function registrar()
    {
@@ -57,9 +82,10 @@ class materiales extends Controller
     $this->mdlmodel->__SET("horas", $_POST["txthoras"]);
     $this->mdlmodel->__SET("precio", $_POST["txtprecio"]);
     $very= $this->mdlmodel->registrar();
-       header('location: ' . URL . 'materiales');
+       header('location: ' . URL . 'materiales/index/'.$_POST["txtidnodo"]);
 
    }
+######################################## Fin método registrar ########################################
 
 
 

@@ -3,7 +3,7 @@
 
 class mdldepreciacion
 {
- 
+
     private $db;
     private $iddepreciacion;
     private $laboratorio;
@@ -14,6 +14,7 @@ class mdldepreciacion
     private $vidautil;
     private $ano;
     private $horauso;
+    private $idnodo;
 
     public function __SET($attr, $val){
 
@@ -24,7 +25,7 @@ class mdldepreciacion
             return $this->$attr;
         }
 
-    function __construct($db) 
+    function __construct($db)
     {
         try {
             $this->db = $db;
@@ -32,23 +33,15 @@ class mdldepreciacion
             exit('Database connection could not be established.');
         }
     }
-
-
-       public function consultalaboratorioo()
-       {
-           $sql = "CALL consultalaboratorioo";
-           $stm = $this->db->prepare($sql);
-           $stm->execute();
-           return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }   
-
+    
         public function consultadepreciacion()
        {
-           $sql = "CALL consultadepreciacion";
+           $sql = "CALL consultadepreciacion(?)";
            $stm = $this->db->prepare($sql);
+           $stm->bindParam(1, $this->idnodo);
            $stm->execute();
            return $stm->fetchAll(PDO::FETCH_ASSOC);
-         }  
+         }
 
          public function uno()
        {
@@ -59,6 +52,11 @@ class mdldepreciacion
        return $stm->fetch(PDO::FETCH_ASSOC);
 
    }
+
+############################## Inicio método registrar ##############################
+
+  /*------------- Ejecuta el procedimiento almacenado registrardepreciacion que registra una nueva depreciacion ---------------*/
+
  public function registrar()
    {
 
@@ -75,6 +73,13 @@ class mdldepreciacion
        $stm->execute();
 
    }
+############################## Fin método registrar ##############################
+
+
+############################## Inicio método modificar ##############################
+
+  /*------------- Ejecuta el procedimiento almacenado modificardepreciacion que modifica los datos de la depreciacion ---------------*/
+
    public function modificar()
    {
 
@@ -91,6 +96,7 @@ class mdldepreciacion
        $stm->bindParam(9, $this->horauso);
        $stm->execute();
 
-   } 
+   }
+############################## Fin método modificar ##############################
+
 }
-       

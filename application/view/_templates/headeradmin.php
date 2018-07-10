@@ -51,17 +51,17 @@ if ($_SESSION["rol"] == 'Dinamizador') {
           <div class="menu_section">
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
-             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos/index/<?php echo $idnodo ?>"><i class="fa fa-home"></i>Costos Administrativos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos/index/<?= $idnodo ?>"><i class="fa fa-home"></i>Costos Administrativos</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?= $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?= $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?= $idnodo ?>"><i class="fa fa-user"></i>Talentos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>foco/dinamizador/<?= $idnodo  ?>"><i class="fa fa-bell-o"></i>Focos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio/index/<?= $idnodo ?>"><i class="fa fa-flask"></i>Laboratorios</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>grupos/indexad/"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>depreciacion/index"><i class="fa fa-bolt"></i>Depreciación</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>mantenimiento"><i class="fa fa-legal"></i>Mantenimiento</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>materiales/index"><i class="fa fa-book"></i>Materiales de Formación</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>costos/index"><i class="fa fa-usd"></i>Costos</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>grupos/indexad/<?= $idnodo ?>"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>depreciacion/index/<?= $idnodo ?>"><i class="fa fa-bolt"></i>Depreciación</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>mantenimiento/index/<?= $idnodo ?>"><i class="fa fa-legal"></i>Mantenimiento</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>materiales/index/<?= $idnodo ?>"><i class="fa fa-book"></i>Materiales de Formación</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>costos/index/<?= $idnodo ?>"><i class="fa fa-usd"></i>Costos</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>reportes/index"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li>
            </ul>
@@ -69,13 +69,9 @@ if ($_SESSION["rol"] == 'Dinamizador') {
        </div>
      </div>
    </div>
-
-
-
    <div class="top_nav">
     <div class="nav_menu">
       <nav>
-
         <ul class="nav navbar-nav navbar-right">
           <li class="">
            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -91,148 +87,3 @@ if ($_SESSION["rol"] == 'Dinamizador') {
     </nav>
   </div>
 </div>
-
-
-<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo URL; ?>css/vendors/nprogress/nprogress.js"></script>
-<script src="<?php echo URL; ?>css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/iCheck/icheck.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/switchery/dist/switchery.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
-<script src="<?php echo URL; ?>css/alertas/dist/sweetalert-dev.js"></script>
-<script src="<?php echo URL; ?>css/build/js/custom.min.js"></script>
-<script src="<?php echo URL; ?>js/tabla.min.js"></script>
-<script src="<?php echo URL; ?>js/campos.js"></script>
-<script src="<?php echo URL; ?>css/datatable/tabla2.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-<script src="<?php echo URL; ?>js/md5.min.js"></script>
-<script src="<?php echo URL; ?>css/calendario/moment.js"></script>
-<script src="<?php echo URL; ?>css/calendario/daterangepicker.js"></script>
-<script src="<?php echo URL; ?>css/select/js.js"></script>
-
-<script src="<?php echo URL; ?>css/reportes/g1.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g2.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g3.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g4.js"></script>
-
-<script>var uri = "<?php echo URL; ?>";</script>
-<script>$(document).ready(function(){$('#tabla').DataTable();});</script>
-</script>
-</body>
-</html>
-
-<script type="text/javascript">
-//   $(document).ready(function() {
-//
-//     $('#reportesadmin').DataTable( {
-//         dom: 'Bfrtip',
-//         buttons: [
-//
-//             {
-//                 extend: 'excelHtml5',
-//                 exportOptions: {
-//                     columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-//                 }
-//             },
-//
-//
-//         ],
-//         "columnDefs": [
-//             {
-//                 "targets": [16,15,14,13,12,11,10,9,8,7,5],
-//                 "visible": false,
-//                 "searchable": false
-//             }
-//
-//         ],
-//         "bStateSave": true,
-//     "iCookieDuration":60
-//
-//
-//     } );
-// } );
-
-
-
-//   $(document).ready(function() {
-//     $('#reportesadmint').DataTable( {
-//         dom: 'Bfrtip',
-//         buttons: [
-//
-//             {
-//                 extend: 'excelHtml5',
-//                 exportOptions: {
-//                     columns: [0,1,2,3,4,5,6]
-//                 }
-//             },
-//
-//
-//         ]
-//     } );
-// } );
-
-  $(document).ready(function() {
-    $('#reportepinscritos').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                filename: 'Proyectos por Mes',
-                sheetName: 'Proyectos por mes',
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [1,2]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-  $(document).ready(function() {
-    $('#reportepfinalizado').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                filename: 'Prototipos finalizados(mes)',
-                sheetName: 'Prototipos_Finalizados',
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [1,2]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-  $(document).ready(function() {
-    $('#reporteppm').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                filename: 'Prototipos en el mercado(Cierre PMV)',
-                sheetName: 'Cierre PMV',
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [1,2]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-</script>

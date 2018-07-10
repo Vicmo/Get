@@ -12,17 +12,9 @@ class proyecto extends Controller
 
 	public function index($idnodo)
 	{
-    // $ultima = $this->mdlmodel->consultaultima();
-    // $gestor = $this->mdlmodel->consultagestor();
-    // $sector = $this->mdlmodel->consultasector();
-    // $foco = $this->mdlmodel->consultafoco();
-    // $estadopro = $this->mdlmodel->consultaestadoproyecto();
-    // $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
-    // $talentolider = $this->mdlmodel->consultalider();
-    // $this->mdlmodel->__SET("ano", $ano);
+		
     $this->mdlmodel->__SET("idnodo", $idnodo);
     $proyecto = $this->mdlmodel->consultaproyecto();
-
 		require APP . 'view/_templates/headeradmin.php';
 		require APP . 'view/proyecto/index.php';
 
