@@ -17,6 +17,7 @@ class gestor extends Controller
 				$consultargestor = $this->mdlmodel->consultargestor();
 				require APP . 'view/_templates/headeradmin.php';
 				require APP . 'view/gestor/index.php';
+				require APP . 'view/_footer/footerdinamizador.php';
 	}
 
 	public function registrar(){
@@ -52,6 +53,7 @@ class gestor extends Controller
       $consultargestor = $this->mdlmodel->consultargestor();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/gestor/modificar.php';
+		 require APP . 'view/_footer/footerdinamizador.php';
 
     }
 

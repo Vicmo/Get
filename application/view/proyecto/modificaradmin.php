@@ -1,4 +1,3 @@
-<body style="background: #EDEDED">
   <title>Tecnoparque  | Proyecto</title>
   <div class="right_col" role="main" >
     <div class="">
@@ -18,34 +17,24 @@
             <div class="x_title">
              <ul class="tab-content">
                <div id="home" class="tab-pane fade in active">
-
                 <br>
                 <h2><small>Los elementos con (*) son obligatorios</small> </h2>
                 <br>
-
-
                 <div class="clearfix" ></div>
-
                 <div class="x_content" >
                   <br />
-
                   <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                   action="<?= URL?>proyecto/modificaradmin"  method="POST">
-
-
                   <input value="<?= $datos['idgestor'];?>"  name="gestortxt"  id="gestortxt" type="hidden">
                   <input value="<?= $datos['linea'];?>"  id="lineatxt" type="hidden">
                   <input value="<?= $datos['idproyecto'];?>"  name="txtidproyecto"  type="hidden">
                   <input value="<?= $idnodo;?>"  name="txtidnodo"  type="hidden">
-
-
                   <div class="item form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">ID<span class="required">*</span>
                     </label>
                     <div class="control-group">
                       <div class="controls">
                         <div class="col-md-3 ">
-
                           <input  name="txtid" required="" disabled="" value="<?= $datos['id'];?>" id="txtid"  class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
@@ -73,36 +62,25 @@
                    </div>
                  </div>
                </div>
-
                 <div class="form-group">
                  <center><button type="button" id="modificar" class="btn btn-success">Modificar</button>
-
                   <a href="<?php echo URL; ?>proyecto/index/<?php echo $idnodo ?>" id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
-
                 </div>
-
             </div>
           </div>
-
           <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-
-
-
-
         </div>
       </div>
     </div>
   </div>
-
-
 </div>
 </div>
-</div>
-</div>
-
-
+<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
+<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
+<script src="<?php echo URL; ?>js/modificarproyectoa.js"></script>
+<script>var uri = "<?php echo URL; ?>";</script>
 <script type="text/javascript">
 
 
@@ -130,5 +108,3 @@
 
 
 </script>
-
-<script src="<?php echo URL; ?>js/modificarproyectoa.js"></script>

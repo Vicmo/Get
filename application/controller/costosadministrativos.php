@@ -7,7 +7,7 @@ class costosadministrativos extends Controller
 
   function __construct(){
     $this->mdlmodel = $this->loadModel("mdlcostosadministrativos");
-
+		$this->mdlnodo = $this->loadModel("mdlnodo");
   }
 
     // METODO DEL INDEX
@@ -17,6 +17,7 @@ class costosadministrativos extends Controller
 		$consultar = $this->mdlmodel->consultar();
 		require APP . 'view/_templates/headeradmin.php';
 	  require APP . 'view/costosadministrativos/index.php';
+		require APP . 'view/_footer/footerdinamizador.php';
 
 		}
 
@@ -27,6 +28,7 @@ class costosadministrativos extends Controller
 	      $datos = $this->mdlmodel->uno();
 	     require APP . 'view/_templates/headeradmin.php';
 	     require APP . 'view/costosadministrativos/modificar.php';
+			 require APP . 'view/_footer/footerdinamizador.php';
 
 	    }
 
@@ -41,6 +43,29 @@ class costosadministrativos extends Controller
     header('location: ' . URL . 'costosadministrativos/index/'.$_POST["idnodo"]);
 
    }
+
+	 public function indexadmin()
+  {
+      $nodos = $this->mdlnodo->consultarnodos();
+      require APP . 'view/_templates/headeradminodos.php';
+      require APP . 'view/costosadministrativos/indexadmin.php';
+			require APP . 'view/_footer/footeradminnodos.php';
+
+  }
+
+  /*=================================================================
+  =            consultar costos administrativos por nodo            =
+  =================================================================*/
+
+  public function CostosAdministrativosPorNodo($nodo ='1')
+  {
+    $this->mdlmodel->__SET("nodo", $nodo);
+    $datos = $this->mdlmodel->QueryCostosAdministrativosPorNodo();
+    echo json_encode($datos);
+  }
+
+
+  /*=====  End of consultar costos administrativos por nodo  ======*/
 
 
 

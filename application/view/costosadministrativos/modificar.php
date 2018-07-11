@@ -1,29 +1,9 @@
 <title>Tecnoparque | Costos Administrativos</title>
-<body style="background: #EDEDED">
   <div class="right_col" role="main">
-    <div class="">
-      <div class="page-title">
-
-
-      </div>
-
-      <div class="clearfix"></div>
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel">
-            <div class="x_title">
               <h2><small>Los elementos con (*) son obligatorios</small></h2>
-              <div class="clearfix" ></div>
-
-              <div class="x_content" >
-                <ul class="nav navbar-right panel_toolbox">
-
-                  <li class="dropdown">
-                  </li>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
             <div class="x_content">
               <br />
               <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"  action="<?= URL?>costosadministrativos/modificar"  method="POST">
@@ -53,7 +33,6 @@
                   </div>
                 </div>
               </div>
-
               <br>
 
 
@@ -63,7 +42,10 @@
                 <br>
                 <br>
               </form>
-              <br>
+              <br/>
+            </div>
+        </div>
 
-
+              <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+              <script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
               <script src="<?php echo URL; ?>js/costosadministrativos.js"></script>

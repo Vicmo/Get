@@ -23,6 +23,7 @@ class laboratorio extends Controller
 		$consultar = $this->mdlmodel->consultar();
 		require APP . 'view/_templates/headeradmin.php';
   	require APP . 'view/laboratorio/index.php';
+		require APP . 'view/_footer/footerdinamizador.php';
 
 	}
 ############################## Fin método index ##############################
@@ -39,6 +40,7 @@ class laboratorio extends Controller
       $linea = $this->mdlgestor->lineasnodo();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/laboratorio/modificar.php';
+		 require APP . 'view/_footer/footerdinamizador.php';
 
     }
 ############################## Fin método edit ##############################

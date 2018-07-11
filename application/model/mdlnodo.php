@@ -52,19 +52,6 @@ class mdlnodo
            return $stm->fetch(PDO::FETCH_ASSOC);
          }
 
-  ################ Inicio método lineasNodo ################
-  /*-------------------- Ejecuta el procedimiento almacenado que muestra las líneas tecnológicas del nodo --------------------*/
-
-         // public function lineasNodo(){
-         //   $sql = "CALL lineasnodo(?)";
-         //   $stm = $this->db->prepare($sql);
-         //   $stm->bindParam(1, $this->idnodo);
-         //   $stm->execute();
-         //   return $stm->fetchAll(PDO::FETCH_ASSOC);
-         // }
-
-  ################ Fin método lineasNodo ################
-
 
          public function consultadepto(){
            $sql = "CALL consultadepto";
@@ -83,12 +70,6 @@ class mdlnodo
             $stm->execute();
          }
 
-         // public function consultaciudad(){
-         //   $sql = "CALL consultaciudad";
-         //   $stm = $this->db->prepare($sql);
-         //   $stm->execute();
-         //   return $stm->fetchAll(PDO::FETCH_ASSOC);
-         // }
 
          public function consultarnodos(){
           $sql = "SELECT nodo.idnodo, concat('Tecnoparque nodo ', nodo.nombrenodo, ' (', departamento.nombre, ') ') as nodo FROM nodo
@@ -117,7 +98,5 @@ class mdlnodo
              return $stm->fetchAll(PDO::FETCH_ASSOC);
 
           }
-
-
 
 }

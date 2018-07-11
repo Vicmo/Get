@@ -12,12 +12,14 @@ $('#txttipodocumento').change(function(){
 =======================================*/
 $('#txtdocumento').change(function(){
 	var documento = $('#txtdocumento').val();
+	var idpersona = $('#txtidpersona').val();
 	var documentoExistente = false;
 	var datos = new FormData();
 
 	datos.append("validarDocumento", documento);
+	datos.append("idpersona", idpersona);
 	$.ajax({
-        url:uri+"dinamizador/ValidarDocumentoAjax",
+        url:uri+"usuario/ValidarDocumentoAjax",
 		method: 'post',
 		data: datos,
         cache: false,
@@ -26,10 +28,12 @@ $('#txtdocumento').change(function(){
         success: function(respuesta){
 
             if (respuesta == 0) {
-            	$(".help-block-1").html("<strong>Este documento ya existe en nuestros datos</strong>")
+							$("#msgDoc").remove();
+            	// $(".help-block-1").html("<strong id='msgDoc'>Este documento ya existe en nuestros datos</strong>")
             	documentoExistente = true;
             }else{
-            	$(".help-block-1").html()
+							$(".help-block-1").html("<strong id='msgDoc'>Este documento ya existe en nuestros datos</strong>")
+            	// $("#msgDoc").remove();
             	documentoExistente = false;
             }
         }
@@ -62,23 +66,23 @@ $('#txtcorreo').change(function(){
 	var correoExistente = false;
 	var datos = new FormData();
 
-	if (correo != "") {
-		var caracteres = correo.length;
-		var Expresion = /^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/;
-		if (caracteres > 45 ) {
-			$(".help-block-2").html("<strong>Este campo debe tener máximo 45 caracetes</strong>");
-		}else{
-			$(".help-block-2").html();
-		}
-		if (!Expresion.test(correo)) {
-			$(".help-block-2").html("<strong>Este campo no coincide con un correo</strong>");
-		}
-	}else{
-		$(".help-block-2").html("<strong>Este campo es obligatorio</strong>");
-	}
+	// if (correo != "") {
+	// 	var caracteres = correo.length;
+	// 	var Expresion = /^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/;
+	// 	if (caracteres > 45 ) {
+	// 		$(".help-block-2").html("<strong>Este campo debe tener máximo 45 caracetes</strong>");
+	// 	}else{
+	// 		$(".help-block-2").html();
+	// 	}
+	// 	if (!Expresion.test(correo)) {
+	// 		$(".help-block-2").html("<strong>Este campo no coincide con un correo</strong>");
+	// 	}
+	// }else{
+	// 	$(".help-block-2").html("<strong>Este campo es obligatorio</strong>");
+	// }
 	datos.append("validarCorreo", correo);
 	$.ajax({
-        url:uri+"dinamizador/ValidarCorreoAjax",
+        url:uri+"usuario/ValidarCorreoAjax",
 		method: 'post',
 		data: datos,
         cache: false,
@@ -147,3 +151,43 @@ $('#txtcorreo').change(function(){
 
 
 /*=====  End of validacion ajax dinamizador  ======*/
+
+/*================================================================================
+=            consulta para mostrar dinamizadores por nodo en la tabla            =
+================================================================================*/
+$('#btnconsulta').click (function () {
+  var nodo = $("#txtnodotb").val();
+  if (nodo == "") {
+  	swal('Ups!!', 'Por favor seleccione un nodo', 'warning');
+  }else{
+	      $.ajax({
+	      dataType:'json',
+	      type:'post',
+	      url:uri+"usuario/DinamizadorPorNodo/"+nodo
+	    }).done(function(response) {
+
+	       var t = $('#tbldinamizador').DataTable();
+	       t.clear().draw();
+
+	       if (response == 0) {
+	       	swal('Ups!!', 'No se han encontrado resultados', 'warning');
+	       	// t.row.remove().draw(true);
+	       	//t.clear().draw();
+	       } else {
+	       	$('#tbldinamizador').css("visibility", "visible");
+
+	      $.each(response, function(i, item) {
+		        var editar = '<a href="'+uri+'usuario/edit/'+item.idpersona+'" type="button" class="btn btn-round btn-primary btn-sm">Editar</a>'
+		        var t = $('#tbldinamizador').DataTable();
+		        t.row.add( [item.tipodocumento,item.dinamizador,item.correo,item.contacto,item.rol,item.nodo,item.estado, editar] ).draw(true);
+
+
+	      	});
+	       }
+	    });
+    }
+
+  });
+
+
+/*=====  End of consulta para mostrar dinamizadores por nodo en la tabla  ======*/

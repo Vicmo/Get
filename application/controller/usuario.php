@@ -4,7 +4,8 @@ class usuario extends Controller
 {
 
 	private $mdlmodel = null;
-
+	private $mdltipodocumento = null;
+	private $mdlusuario = null;
 
   function __construct(){
   	$this->mdltipodocumento = $this->loadModel("mdltipodocumento");
@@ -12,29 +13,27 @@ class usuario extends Controller
   	$this->mdlusuario = $this->loadModel("mdlusuario");
   }
 
-  public function index($nodo ='1')
+  public function index()
   {
-  	$this->mdlnodo->__SET("idnodo", $nodo);
-  	$nodos = $this->mdlnodo->nodos();
-  	$dinamizadorpornodo = $this->mdlnodo->dinamizadorpornodo();
+  	$nodos = $this->mdlnodo->consultarnodos();
     $tipodocumento = $this->mdltipodocumento->queryTipoDocumento();
-  	 if ($nodo == $nodos["idnodo"]) {
-       require APP . 'view/_templates/headeradminodos.php';
-       require APP . 'view/dinamizador/index.php';
-    }else{
-      header('location: ' . URL . 'problem/index');
-    }
+    require APP . 'view/_templates/headeradminodos.php';
+    require APP . 'view/usuario/dinamizador/index.php';
+		require APP . 'view/_footer/footeradminnodos.php';
 
   }
 
-  public function registrar($nodo ='1'){
+  public function indexadmin()
+  {
 
-    if (isset($_POST["txtrol"]) && isset($_POST["txtnodo"]) && isset($_POST["txttipodocumento"]) && !empty($_POST["txtdocumento"]) && isset($_POST["txtnombres"]) &&
-       isset($_POST["txtapellidos"]) && isset($_POST["txtcorreo"]) && isset($_POST["txtestado"]) ) {
-        if (preg_match("/^([0-9]){10,10}$/", $_POST["txtdocumento"])
-            && preg_match("/^([a-z A-Z]){1,45}$/", $_POST["txtnombres"])
-            && preg_match("/^([a-z A-Z]){1,45}$/", $_POST["txtapellidos"])
-            && preg_match("/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/", $_POST["txtcorreo"])&& preg_match("/^([0-9]){1,10}$/", $_POST["txtcontacto"])) {
+    $nodos = $this->mdlnodo->consultarnodos();
+		require APP . 'view/_templates/headeradminodos.php';
+		require APP . 'view/usuario/administrador/index.php';
+		require APP . 'view/_footer/footeradminnodos.php';
+
+  }
+
+  public function registrar(){
 
                    $this->mdlusuario->__SET("rol", $_POST["txtrol"]);
                    $this->mdlusuario->__SET("nodo", $_POST["txtnodo"]);
@@ -49,20 +48,22 @@ class usuario extends Controller
                    $very= $this->mdlusuario->RegistrarDinamizador();
                    if ($very == true) {
 
-                      echo '';
-                    header('location: ' . URL . 'dinamizador/index/'.$nodo);
+                    header('location: ' . URL . 'usuario/index/');
 
                    }else{
-                       echo "<script>alert();</script>";
+                    echo "fallo";
                    }
+    // if (isset($_POST["txtrol"]) && isset($_POST["txtnodo"]) && isset($_POST["txttipodocumento"]) && !empty($_POST["txtdocumento"]) && isset($_POST["txtnombres"]) &&
+    //    isset($_POST["txtapellidos"]) && isset($_POST["txtcorreo"]) && isset($_POST["txtestado"]) ) {
+    //     if (preg_match("/^([0-9]){10,10}$/", $_POST["txtdocumento"])
+    //         && preg_match("/^([a-z A-Z]){1,45}$/", $_POST["txtnombres"])
+    //         && preg_match("/^([a-z A-Z]){1,45}$/", $_POST["txtapellidos"])
+    //         && preg_match("/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/", $_POST["txtcorreo"])&& preg_match("/^([0-9]){1,10}$/", $_POST["txtcontacto"])) {
 
-              }else{
-                echo "<script>alert('error');</script>";
-              }
-        }else{
-          echo "<script>alert('error');</script>";
-    }
+    //           }
+    //     }
   }
+
 
   public function ValidarCorreoAjax()
   {
@@ -82,11 +83,125 @@ class usuario extends Controller
   public function ValidarDocumentoAjax()
   {
     $this->mdlusuario->__SET("documento", $_POST["validarDocumento"]);
+    $this->mdlusuario->__SET("idpersona", $_POST["idpersona"]);
     $respuesta = $this->mdlusuario->ValidarDocumentoAjax();
     if (count($respuesta["documento"]) > 0 && isset($_POST["validarDocumento"])) {
       echo 0;
     }else{
       echo 1;
+    }
+  }
+  public function DinamizadorPorNodo($nodo)
+  {
+    $this->mdlusuario->__SET("nodo", $nodo);
+    $datos = $this->mdlusuario->QueryDinamizadorPorNodo();
+    echo json_encode($datos);
+  }
+
+  /*============================================================================
+  =            consulta gestores por rol para mostrar en datatables            =
+  ============================================================================*/
+   public function GestoresPorNodo($nodo)
+   {
+     $this->mdlusuario->__SET("nodo", $nodo);
+     $datos = $this->mdlusuario->QueryGestorPorNodo();
+     echo json_encode($datos);
+   }
+
+
+  /*=====  End of consulta gestores por rol para mostrar en datatables  ======*/
+
+  /*==============================================================================================
+  =            consulta talentos por nodo para mostrar en el datatables administrador            =
+  ==============================================================================================*/
+  public function TaletosPorNodo($nodo)
+  {
+    $this->mdlusuario->__SET("nodo", $nodo);
+     $datos = $this->mdlusuario->QueryTalentoPorNodo();
+     echo json_encode($datos);
+  }
+
+
+  /*=====  End of consulta talentos por nodo para mostrar en el datatables administrador  ======*/
+
+  /*====================================================================
+  =            metodo para consultar los gestores por nodo (combo dependiente)            =
+  ====================================================================*/
+
+  public function getGestor($nodo)
+  {
+    $this->mdlusuario->__SET("nodo", $nodo);
+    $datos = $this->mdlusuario->QueryGestorPorNodo();
+    echo json_encode($datos);
+  }
+
+  /*=====  End of metodo para consultar los gestores por nodo (combo dependiente)  ======*/
+
+  /*=================================================================
+  =            metodo para consultar talentos por gestor            =
+  =================================================================*/
+
+  public function TalentosPorGestor($gestor)
+  {
+    $this->mdlusuario->__SET("idpersona", $gestor);
+    $datos = $this->mdlusuario->QueryTalentosPorGestor();
+    echo json_encode($datos);
+  }
+
+  /*=====  End of metodo para consultar talentos por gestor  ======*/
+
+  /*=========================================================================
+  =            metodo para mostrar en el modal talentos por nodo            =
+  =========================================================================*/
+  public function modalTalentoPorNodo($idpersona)
+  {
+    $this->mdlusuario->__SET("idpersona", $idpersona);
+    $datos = $this->mdlusuario->QuerymodalTalentoPorNodo();
+    echo json_encode($datos);
+  }
+
+
+  /*=====  End of metodo para mostrar en el modal talentos por nodo  ======*/
+
+
+
+
+
+
+  public function edit($idpersona)
+  {
+    $this->mdlusuario->__SET("idpersona", $idpersona);
+    $dinamizador = $this->mdlusuario->QueryVerDinamizaddor();
+    $nodos = $this->mdlnodo->consultarnodos();
+    $tipodocumento = $this->mdltipodocumento->queryTipoDocumento();
+    require APP . 'view/_templates/headeradminodos.php';
+    require APP . 'view/usuario/dinamizador/edit.php';
+		require APP . 'view/_footer/footeradminnodos.php';
+
+  }
+
+  public function Update()
+  {
+    $this->mdlusuario->__SET("idpersona", $_POST["txtidpersona"]);
+    $this->mdlusuario->__SET("rol", $_POST["txtrol"]);
+    $this->mdlusuario->__SET("nodo", $_POST["txtnodo"]);
+    $this->mdlusuario->__SET("tipodocumento", $_POST["txttipodocumento"]);
+    $this->mdlusuario->__SET("documento", $_POST["txtdocumento"]);
+    $this->mdlusuario->__SET("nombres",ucwords ($_POST["txtnombres"]) );
+    $this->mdlusuario->__SET("apellidos", ucwords ($_POST["txtapellidos"]));
+    $this->mdlusuario->__SET("correo", $_POST["txtcorreo"]);
+    $this->mdlusuario->__SET("estado", $_POST["txtestado"]);
+    $this->mdlusuario->__SET("password", MD5($_POST["txtdocumento"]));
+    $this->mdlusuario->__SET("contacto", $_POST["txtcontacto"]);
+		// var_dump($_POST["txtdocumento"]);
+		// exit;
+    $very= $this->mdlusuario->ActualizarDinamizador();
+    if ($very == true) {
+
+      header('location: ' . URL . 'usuario/index/');
+
+    }else{
+       echo "Falló";
     }
   }
 }

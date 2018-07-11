@@ -43,10 +43,10 @@ class mdlgestor
            return $stm->fetchAll(PDO::FETCH_ASSOC);
 
          }
-         ############################ Fin método lineasnodo ############################
+    ############################ Fin método lineasnodo ############################
 
 
-         ########################### Inicio método consultargestor ###########################
+    ########################### Inicio método consultargestor ###########################
 
 /*------------------------ Método para mostrar los gestores por nodo -----------------------*/
 

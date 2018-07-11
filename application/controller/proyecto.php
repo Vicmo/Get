@@ -8,18 +8,59 @@ class proyecto extends Controller
   function __construct(){
 
     $this->mdlmodel = $this->loadModel("mdlproyecto");
+    $this->mdlnodo = $this->loadModel("mdlnodo");
   }
 
 	public function index($idnodo)
 	{
-		
+
     $this->mdlmodel->__SET("idnodo", $idnodo);
     $proyecto = $this->mdlmodel->consultaproyecto();
 		require APP . 'view/_templates/headeradmin.php';
 		require APP . 'view/proyecto/index.php';
+		require APP . 'view/_footer/footerdinamizador.php';
 
     }
 
+	/*=======================================================================
+  =            metodo para la vista de proyectos administrador            =
+  =======================================================================*/
+
+   public function indexAdmin()
+   {
+     $nodos = $this->mdlnodo->consultarnodos();
+     require APP . 'view/_templates/headeradminodos.php';
+     require APP . 'view/proyecto/admin/index.php';
+		 require APP . 'view/_footer/footeradminnodos.php';
+   }
+
+  /*=====  End of metodo para la vista de proyectos administrador  ======*/
+
+  /*================================================================
+  =            metodo para consultar proyectos por nodo            =
+  ================================================================*/
+  public function ProyectosPorNodo($idnodo)
+  {
+    $this->mdlmodel->__SET("idnodo", $idnodo);
+     $datos = $this->mdlmodel->consultaproyecto();
+     echo json_encode($datos);
+  }
+
+
+  /*=====  End of metodo para consultar proyectos por nodo  ======*/
+
+
+  /*==============================================================================================================
+  =            metodo para cosultar toda la informacion de proyectos por nodo y mostrarlo en el modal            =
+  ==============================================================================================================*/
+public function modalProyectosPorNodo($idproyecto)
+{
+  $this->mdlmodel->__SET("idproyecto", $idproyecto);
+  $datos = $this->mdlmodel->QueryModalProyectosPorNodo();
+  echo json_encode($datos);
+}
+
+  /*=====  End of metodo para cosultar toda la informacion de proyectos por nodo y mostrarlo en el modal  ======*/
 
 
   public function gestor($gestor,$ano)
@@ -237,6 +278,7 @@ class proyecto extends Controller
 
      require APP . 'view/_templates/headergestor.php';
      require APP . 'view/proyecto/modificar.php';
+		 require APP . 'view/_footer/footerdinamizador.php';
 
     }
 
@@ -276,6 +318,7 @@ class proyecto extends Controller
 
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/proyecto/modificaradmin.php';
+		 require APP . 'view/_footer/footerdinamizador.php';
 
     }
 

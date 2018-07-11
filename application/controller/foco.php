@@ -25,12 +25,12 @@ class foco extends Controller
 
 	public function dinamizador($idnodo)
 	{
-		// $this->mdlgestor->__SET("idnodo", $idnodo);
-    // $linea = $this->mdlgestor->lineasNodo();
+
 		$this->mdlmodel->__SET("idnodo", $idnodo);
 		$consultar = $this->mdlmodel->consultar();
 		require APP . 'view/_templates/headeradmin.php';
   	require APP . 'view/foco/indexdinamizador.php';
+		require APP . 'view/_footer/footerdinamizador.php';
 
 	}
 
@@ -43,6 +43,7 @@ class foco extends Controller
       $linea = $this->mdlgestor->lineasnodo();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/foco/modificar.php';
+		 require APP . 'view/_footer/footerdinamizador.php';
 
     }
 

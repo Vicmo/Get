@@ -24,6 +24,7 @@ class grupos extends Controller
     $consulta = $this->mdlmodel->consultaad();
     require APP . 'view/_templates/headeradmin.php';
     require APP . 'view/grupos/indexad.php';
+    require APP . 'view/_footer/footerdinamizador.php';
 
     }
 

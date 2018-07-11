@@ -104,6 +104,37 @@ class mdlproyecto
 
     }
 
+    /*===============================================================
+    =            metodo para cosultar proyectos por nodo            =
+    ===============================================================*/
+
+     public function QueryProyectosPorNodo()
+     {
+         $sql = "CALL consultaProyectosPorNodo(?)";
+         $stm = $this->db->prepare($sql);
+         $stm->bindParam(1, $this->nodo);
+         $stm->execute();
+         return $stm->fetchAll(PDO::FETCH_ASSOC);
+     }
+
+     /*=====  End of metodo para cosultar proyectos por nodo  ======*/
+
+     /*======================================================================================
+     =            metodo para consultar y mostrar en el modal proyectos por nodo            =
+     ======================================================================================*/
+     public function QueryModalProyectosPorNodo()
+     {
+        $sql = "CALL VerModalProyectosPorNodo(?)";
+         $stm = $this->db->prepare($sql);
+         $stm->bindParam(1, $this->idproyecto);
+         $stm->execute();
+         return $stm->fetchAll(PDO::FETCH_ASSOC);
+     }
+
+
+ /*=====  End of metodo para consultar y mostrar en el modal proyectos por nodo  ======*/
+
+
     public function registrar()
    {
 

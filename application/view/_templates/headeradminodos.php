@@ -38,13 +38,13 @@ if ($_SESSION["rol"] == 'Administrador') {
 }
 ?>
 
-<body class="footer_fixed nav-md">
+<body class="nav-md footer_fixed">
   <div class="container body">
     <div class="main_container">
-      <div class="col-md-3 left_col">
+      <div class="col-md-3 left_col menu_fixed" style="background: #238276">
         <div class="left_col scroll-view" style="background: #238276">
           <div class="navbar nav_title" style="background: #238276">
-           <a class="site_title"> <img src="<?php echo URL; ?>img/logo3.png" style="margin-left: 13px;"></a>
+          <a href="<?php echo URL; ?>inicio/gestor" style="background: #238276;  " class="site_title"> <img src="<?php echo URL; ?>img/logo3.png" ></a>
          </div>
          <div class="clearfix"></div>
          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -52,11 +52,11 @@ if ($_SESSION["rol"] == 'Administrador') {
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
              <li><a style="background:#238276" href="<?php echo URL; ?>nodo/indexr"><i class="fa fa-home"></i>Nodos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>usuario/index/<?= $nodos['idnodo'];?>"><i class="fa fa-users"></i>Dinamizadores</a></li>
-             <!-- <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?php echo $idnodo ?>"><i class="fa fa-users"></i>Dinamizadores</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?php echo date("Y"); ?>"><i class="fa fa-user"></i>Talentos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>foco"><i class="fa fa-bell-o"></i>Focos</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>usuario/index"><i class="fa fa-users"></i>Dinamizadores</a></li>
+             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos/indexadmin"><i class="fa fa-users"></i>Costos Administrativos</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>usuario/indexadmin"><i class="fa fa-folder"></i>Usuarios</a></li>
+             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/indexAdmin"><i class="fa fa-user"></i>Proyecto</a></li>
+             <!-- <li><a style="background:#238276" href="<?php echo URL; ?>foco"><i class="fa fa-bell-o"></i>Focos</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio"><i class="fa fa-flask"></i>Laboratorios</a></li>
              <li><a style="background: #238276" href="<?php echo URL; ?>grupos/indexad/"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
              <li><a style="background:#238276" href="<?php echo URL; ?>depreciacion/index"><i class="fa fa-bolt"></i>Depreciación</a></li>
@@ -73,58 +73,33 @@ if ($_SESSION["rol"] == 'Administrador') {
 
 
 
-   <div class="top_nav">
-    <div class="nav_menu">
-      <nav>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li class="">
-           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <?php echo " $nombres  $apellidos - $rol nodos Tecnoparque "  ?>
-            <span class=" fa fa-angle-down"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-usermenu pull-right">
-            <li><a href="<?php echo URL; ?>cuentas/cambiarclave"><i class="fa fa-unlock pull-right"></i> Cambiar Contraseña</a></li>
-            <li><a href="<?php echo URL; ?>home/salir"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
+<!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <?php echo " $nombres  $apellidos - $rol nodos Tecnoparque "  ?>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="<?php echo URL; ?>cuentas/cambiarclav"> Perfil</a></li>
+
+                    <li><a href="javascript:;">Ayuda</a></li>
+                    <li><a href="<?php echo URL; ?>home/salir"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                  </ul>
+                </li>
 
 
-<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo URL; ?>css/vendors/nprogress/nprogress.js"></script>
-<script src="<?php echo URL; ?>css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/iCheck/icheck.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/switchery/dist/switchery.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
-<script src="<?php echo URL; ?>css/alertas/dist/sweetalert-dev.js"></script>
-<script src="<?php echo URL; ?>css/build/js/custom.min.js"></script>
-<script src="<?php echo URL; ?>js/tabla.min.js"></script>
-<script src="<?php echo URL; ?>js/campos.js"></script>
-<script src="<?php echo URL; ?>css/datatable/tabla2.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-<script src="<?php echo URL; ?>js/md5.min.js"></script>
-<script src="<?php echo URL; ?>css/calendario/moment.js"></script>
-<script src="<?php echo URL; ?>css/calendario/daterangepicker.js"></script>
-<script src="<?php echo URL; ?>css/select/js.js"></script>
+              </ul>
+            </nav>
+          </div>
 
-<script src="<?php echo URL; ?>css/reportes/g1.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g2.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g3.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g4.js"></script>
-
-<script>var uri = "<?php echo URL; ?>";</script>
-<script>$(document).ready(function(){$('#tabla').DataTable();});</script>
-</script>
-</body>
-</html>
+        </div>
+        <!-- /top navigation -->

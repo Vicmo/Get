@@ -78,6 +78,7 @@
 </div>
 <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
 <script src="<?php echo URL; ?>js/materiales.js"></script>
 <script type="text/javascript">
   $("#txttipo").val("<?= $datos['tipomaterial'];?>");

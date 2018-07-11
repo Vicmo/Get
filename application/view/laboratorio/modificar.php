@@ -1,5 +1,4 @@
 <title>Tecnoparque | Laboratorios</title>
-<body style="background: #EDEDED">
   <div class="right_col" role="main">
     <div class="">
       <div class="clearfix"></div>
@@ -49,6 +48,9 @@
               </div>
               <div class="clearfix"></div>
             </div>
+            <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+            <script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
               <script type="text/javascript">
                $("#txtlinea").val("<?= $datos['linea'];?>");
              </script>

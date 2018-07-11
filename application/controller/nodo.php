@@ -9,21 +9,8 @@ class nodo extends Controller
   function __construct(){
     $this->mdlmodel = $this->loadModel("mdlnodo");
     $this->mdlciudad = $this->loadModel("mdlciudad");
+    $this->mdlgestor = $this->loadModel("mdlgestor");
   }
-
-  public function index ($nodo ='1'){
-      $this->mdlmodel->__SET("idnodo", $nodo);
-      $nodos = $this->mdlmodel->nodos();
-
-     if ($nodo == $nodos["idnodo"]) {
-       require APP . 'view/_templates/headeradminodos.php';
-       require APP . 'view/nodo/index.php';
-     }else{
-       header('location: ' . URL . 'problem/index');
-     }
-
-
-   }
 
 
   public function indexr (){
@@ -31,6 +18,7 @@ class nodo extends Controller
     $consultardept = $this->mdlciudad->consultardepto();
     require APP . 'view/_templates/headeradminodos.php';
     require APP . 'view/nodo/indexr.php';
+    require APP . 'view/_footer/footeradminnodos.php';
 
   }
 
@@ -45,8 +33,8 @@ class nodo extends Controller
   /*-------------------- Petición Ajax para mostrar las líneas tecnológicas del nodo --------------------*/
 
   public function lineasNodo($idnodo){
-    $this->mdlmodel->__SET("idnodo", $idnodo);
-    $datos = $this->mdlmodel->lineasNodo();
+    $this->mdlgestor->__SET("idnodo", $idnodo);
+    $datos = $this->mdlgestor->lineasNodo();
     echo json_encode($datos);
   }
   ################ Inicio método lineasNodo ################
@@ -68,6 +56,8 @@ class nodo extends Controller
     $datos = $this->mdlmodel->vernodo();
     require APP . 'view/_templates/headeradminodos.php';
     require APP . 'view/nodo/modificar.php';
+    require APP . 'view/_footer/footeradminnodos.php';
+
   }
 
   public function modificar(){
@@ -79,14 +69,8 @@ class nodo extends Controller
 
          $very= $this->mdlmodel->modificarnodo();
 
-        header('location: ' . URL . 'nodo/');
+        header('location: ' . URL . 'nodo/indexr');
 
         }
-
-  public function selectnodo()
-         {
-           $this->mdlmodel->__SET("idnodo", $_GET["idnodo"]);
-           header('location: ' . URL . 'nodo/index/' . $_GET["idnodo"]);
-         }
 
 }

@@ -1,4 +1,3 @@
-<body style="background: #F7F7F7">
   <title>Tecnoparque  | Nodos</title>
   <div class="right_col" role="main" >
 
@@ -37,7 +36,7 @@
                       <label class="control-label col-md-2 col-sm-3 col-xs-3" >Departamento<span class="required">*</span>
                       </label>
                       <div class="col-md-3 col-sm-3 col-xs-3">
-                        <select id="txtdept" class="form-control" name="txtdept" required onchange="metodos.getCiudad(this)">
+                        <select id="txtdept" class="form-control select2" name="txtdept" required onchange="metodos.getCiudad(this)">
                          <option value="">Seleccione</option>
                          <?php foreach ($consultardept as $key => $value): ?>
                            <option value="<?= $value['iddepartamento'] ?>"><?=$value['nombre']?></option>
@@ -47,7 +46,7 @@
                      <label class="control-label col-md-2 col-sm-3 col-xs-3" >Ciudad<span class="required">*</span>
                      </label>
                      <div class="col-md-3 col-sm-3 col-xs-3">
-                       <select id="txtciudad" class="form-control" name="txtciudad" required>
+                       <select id="txtciudad" class="form-control select2" name="txtciudad" required>
                         <option value="">Seleccione</option>
                       </select>
                     </div>
@@ -148,7 +147,9 @@
    </div>
  </div>
 </div>
-
+<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
 <script type="text/javascript">
 /*-------------------- Inicio de las funciones/métodos --------------------*/
   var metodos = {
@@ -179,7 +180,7 @@
 
     getLineasNodo:function(id){
       // let id = $('#lineasNodo').val();
-      console.log(id);
+      // console.log(id);
       $.ajax({
         dataType: 'json',
         type: 'post',

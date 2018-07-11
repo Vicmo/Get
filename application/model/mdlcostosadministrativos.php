@@ -28,6 +28,20 @@ class mdlcostosadministrativos
         }
     }
 
+    /*=============================================================================
+    =            consulta a la db para costos administrativos por nodo            =
+    =============================================================================*/
+
+       public function QueryCostosAdministrativosPorNodo()
+       {
+         $sql = "CALL costosadministrativospornodo(?)";
+            $stm = $this->db->prepare($sql);
+            $stm->bindParam(1, $this->nodo);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+       }
+
+       /*=====  End of consulta a la db para costos administrativos por nodo  ======*/
 
 
     public function consultar()

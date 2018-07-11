@@ -1,5 +1,3 @@
-<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
-<body style="background: #EDEDED">
   <title>Tecnoparque  | Grupos de Investigación</title>
   <div class="right_col" role="main" >
       <div class="page-title">
@@ -47,3 +45,5 @@
   </div>
 </div>
 </div>
+<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

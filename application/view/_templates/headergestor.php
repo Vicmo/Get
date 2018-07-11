@@ -1,5 +1,5 @@
-  <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,10 +21,12 @@
   <link href="<?php echo URL; ?>css/datatable/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo URL; ?>css/calendario/daterangepicker.css" rel="stylesheet">
   <link href="<?php echo URL; ?>css/select/css.css" rel="stylesheet">
+  <link href="<?php echo URL; ?>css/reportes/r.min.css" rel="stylesheet">
+
   <link rel="shortcut icon" type="image/x-icon" href="<?php echo URL; ?>img/web.jpg">
 </head>
 
-<body class="nav-md">
+<body class="nav-md footer_fixed">
 
   <?php
   session_start();
@@ -40,12 +42,12 @@
   }
   ?>
 
-  <div class="container body" >
+  <div class="container body " >
     <div class="main_container" >
-      <div class="col-md-3 left_col" >
+      <div class="col-md-3 left_col menu_fixed" style="background: #238276">
         <div class="left_col scroll-view" style="background: #238276">
           <div class="navbar nav_title"  style="background: #238276">
-           <a style="background: #238276" class="site_title"> <img src="<?php echo URL; ?>img/logo3.png" style="margin-left: 13px;"></a>
+           <a href="<?php echo URL; ?>inicio/gestor" style="background: #238276;  " class="site_title"> <img src="<?php echo URL; ?>img/logo3.png" ></a>
          </div>
          <div class="clearfix"></div >
          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -65,111 +67,32 @@
      </div>
    </div>
 
-   <div class="top_nav">
-    <div class="nav_menu">
-      <nav>
+<!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li class="">
-           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-             <?php echo " $nombres  $apellidos - $rol nodo $nodo "  ?>
-            <span class=" fa fa-angle-down"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-usermenu pull-right">
-            <li><a href="<?php echo URL; ?>cuentas/cambiarclave1"><i class="fa fa-unlock pull-right"></i> Cambiar Contraseña</a></li>
-            <li><a href="<?php echo URL; ?>home/salir"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <?php echo " $nombres  $apellidos - $rol nodo $nodo "  ?>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="<?php echo URL; ?>cuentas/cambiarclave1"> Perfil</a></li>
 
-<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo URL; ?>css/vendors/nprogress/nprogress.js"></script>
-<script src="<?php echo URL; ?>css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/iCheck/icheck.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/switchery/dist/switchery.min.js"></script>
-<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
-<script src="<?php echo URL; ?>css/alertas/dist/sweetalert-dev.js"></script>
-<script src="<?php echo URL; ?>css/build/js/custom.min.js"></script>
-<script src="<?php echo URL; ?>js/tabla.min.js"></script>
-<script src="<?php echo URL; ?>js/campos.js"></script>
+                    <li><a href="javascript:;">Ayuda</a></li>
+                    <li><a href="<?php echo URL; ?>home/salir"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                  </ul>
+                </li>
 
 
-<script src="<?php echo URL; ?>css/datatable/tabla2.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+              </ul>
+            </nav>
+          </div>
 
-<!-- <script src="<?php echo URL; ?>css/datatable/datatables.net-buttons/js/dataTables.buttons.js"></script> -->
-
-<!--
-<script src="<?php echo URL; ?>css/datatable/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script> -->
-<!-- <script src="<?php echo URL; ?>css/datatable/datatables.net-buttons/js/buttons.flash.min.js"></script> -->
-<script src="<?php echo URL; ?>css/datatable/datatables.net-buttons/js/buttons.html5.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script src="<?php echo URL; ?>css/datatable/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-
-
-<script src="<?php echo URL; ?>css/reportes/g1.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g2.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g3.js"></script>
-<script src="<?php echo URL; ?>css/reportes/g4.js"></script>
-
-
-
-<script src="<?php echo URL; ?>js/md5.min.js"></script>
-<script src="<?php echo URL; ?>css/calendario/moment.js"></script>
-<script src="<?php echo URL; ?>css/calendario/daterangepicker.js"></script>
-<script src="<?php echo URL; ?>css/select/js.js"></script>
-
-
-<script>var uri = "<?php echo URL; ?>";</script>
-<script>$(document).ready(function(){$('#tabla').DataTable();});</script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#reportesgestorp').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [0,1,2,3,4,5,6]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-    $(document).ready(function() {
-    $('#reportesadmin').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-
-            {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: [0,1,2,3,4]
-                }
-            },
-
-
-        ]
-    } );
-} );
-
-</script>
-
-
-</body>
-
-</html>
+        </div>
+        <!-- /top navigation -->

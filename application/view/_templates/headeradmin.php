@@ -21,6 +21,7 @@
  <link href="<?php echo URL; ?>css/datatable/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
  <link href="<?php echo URL; ?>css/calendario/daterangepicker.css" rel="stylesheet">
  <link href="<?php echo URL; ?>css/select/css.css" rel="stylesheet">
+ <link href="<?php echo URL; ?>css/reportes/r.min.css" rel="stylesheet">
  <link rel="shortcut icon" type="image/x-icon" href="<?php echo URL; ?>img/web.jpg">
 </head>
 
@@ -42,8 +43,8 @@ if ($_SESSION["rol"] == 'Dinamizador') {
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
-        <div class="left_col scroll-view" style="background: #238276">
-          <div class="navbar nav_title" style="background: #238276">
+        <div class="left_col scroll-view" style="background: #008981">
+          <div class="navbar nav_title" style="background: #008981">
            <a class="site_title"> <img src="<?php echo URL; ?>img/logo3.png" style="margin-left: 13px;"></a>
          </div>
          <div class="clearfix"></div>
@@ -51,19 +52,19 @@ if ($_SESSION["rol"] == 'Dinamizador') {
           <div class="menu_section">
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
-             <li><a style="background:#238276" href="<?php echo URL; ?>costosadministrativos/index/<?= $idnodo ?>"><i class="fa fa-home"></i>Costos Administrativos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>gestor/index/<?= $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>proyecto/index/<?= $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>talento/admin/<?= $idnodo ?>"><i class="fa fa-user"></i>Talentos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>foco/dinamizador/<?= $idnodo  ?>"><i class="fa fa-bell-o"></i>Focos</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>laboratorio/index/<?= $idnodo ?>"><i class="fa fa-flask"></i>Laboratorios</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>grupos/indexad/<?= $idnodo ?>"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>depreciacion/index/<?= $idnodo ?>"><i class="fa fa-bolt"></i>Depreciación</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>mantenimiento/index/<?= $idnodo ?>"><i class="fa fa-legal"></i>Mantenimiento</a></li>
-             <li><a style="background:#238276" href="<?php echo URL; ?>materiales/index/<?= $idnodo ?>"><i class="fa fa-book"></i>Materiales de Formación</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>costos/index/<?= $idnodo ?>"><i class="fa fa-usd"></i>Costos</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>reportes/index"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
-             <li><a style="background: #238276" href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li>
+             <li><a href="<?php echo URL; ?>costosadministrativos/index/<?= $idnodo ?>"><i class="fa fa-home"></i>Costos Administrativos</a></li>
+             <li><a href="<?php echo URL; ?>gestor/index/<?= $idnodo ?>"><i class="fa fa-users"></i>Gestores</a></li>
+             <li><a href="<?php echo URL; ?>proyecto/index/<?= $idnodo ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
+             <li><a href="<?php echo URL; ?>talento/admin/<?= $idnodo ?>"><i class="fa fa-user"></i>Talentos</a></li>
+             <li><a href="<?php echo URL; ?>foco/dinamizador/<?= $idnodo  ?>"><i class="fa fa-bell-o"></i>Focos</a></li>
+             <li><a href="<?php echo URL; ?>laboratorio/index/<?= $idnodo ?>"><i class="fa fa-flask"></i>Laboratorios</a></li>
+             <li><a href="<?php echo URL; ?>grupos/indexad/<?= $idnodo ?>"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>
+             <li><a href="<?php echo URL; ?>depreciacion/index/<?= $idnodo ?>"><i class="fa fa-bolt"></i>Depreciación</a></li>
+             <li><a href="<?php echo URL; ?>mantenimiento/index/<?= $idnodo ?>"><i class="fa fa-legal"></i>Mantenimiento</a></li>
+             <li><a href="<?php echo URL; ?>materiales/index/<?= $idnodo ?>"><i class="fa fa-book"></i>Materiales de Formación</a></li>
+             <li><a href="<?php echo URL; ?>costos/index/<?= $idnodo ?>"><i class="fa fa-usd"></i>Costos</a></li>
+             <li><a href="<?php echo URL; ?>reportes/index"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
+             <li><a href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li>
            </ul>
          </div>
        </div>

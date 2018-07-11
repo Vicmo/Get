@@ -24,6 +24,7 @@ class depreciacion extends Controller
 	    $consultadepreciacion = $this->mdlmodel->consultadepreciacion();
 	    require APP . 'view/_templates/headeradmin.php';
       require APP . 'view/depreciacion/index.php';
+			require APP . 'view/_footer/footerdinamizador.php';
 
 	}
 ############################## Fin método index ##############################
@@ -63,6 +64,7 @@ class depreciacion extends Controller
      $laboratorio = $this->mdllaboratorio->consultalaboratorioo();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/depreciacion/modificar.php';
+		 require APP . 'view/_footer/footerdinamizador.php';
      }
 ############################## Fin método edit ##############################
 

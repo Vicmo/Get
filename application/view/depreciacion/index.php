@@ -1,5 +1,3 @@
-<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
-<body style="background: #EDEDED">
   <title>Tecnoparque  | Depreciación</title>
   <div class="right_col" role="main" >
     <div class="">
@@ -39,7 +37,7 @@
                      <label class="control-label col-md-2 col-sm-3 col-xs-3" >Laboratorio<span class="required">*</span>
                      </label>
                      <div class="col-md-3 col-sm-3 col-xs-3">
-                      <select id="txtlaboratorio" class="form-control" name="txtlaboratorio" >
+                      <select id="txtlaboratorio" class="form-control select2" name="txtlaboratorio" >
                        <option value="">Seleccione</option>
                        <?php foreach ($laboratorio as $key => $value): ?>
                          <option value="<?= $value['idlaboratorio'] ?>"><?=$value['nombre']?></option>
@@ -171,8 +169,10 @@
 </div>
 </div>
 </div>
+<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
 <script src="<?php echo URL; ?>js/depreciacion.js"></script>
-<script type="text/javascript"> $('#txtlaboratorio').select2();</script>
 <script type="text/javascript">
  var x = location.hash;
  if (x != "") {

@@ -142,7 +142,7 @@ class mdltalento
 
 
    ##################################################################################
-   #															Inicio método verproyectotalento																	#
+   #															Inicio método verproyectotalento									#
    ##################################################################################
    #---------------- Ejecuta el procedimiento almacenado para ver el detalle del talento según el id -----------------------#
    public function verproyectotalento(){

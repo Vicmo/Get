@@ -26,6 +26,7 @@ class talento extends Controller
 
 		require APP . 'view/_templates/headergestor.php';
 		require APP . 'view/talento/index.php';
+		require APP . 'view/_footer/footergestor.php';
 
     }
 
@@ -42,6 +43,7 @@ class talento extends Controller
         $gestor = $this->mdlgestor->consultargestor();
 				require APP . 'view/_templates/headeradmin.php';
 				require APP . 'view/talento/admin.php';
+				require APP . 'view/_footer/footerdinamizador.php';
 
     }
 
@@ -99,9 +101,7 @@ public function registrar()
    }
 
 ##################################################################################
-#																																								#
 #															Inicio método ver																	#
-#																																								#
 ##################################################################################
 #---------------- Ver el detalles del talento según el id -----------------------#
 public function ver($idpersona)
@@ -112,17 +112,11 @@ public function ver($idpersona)
     }
 
 ##################################################################################
-#																																								#
 #														  	Fin método ver																	#
-#																																								#
 ##################################################################################
 
-####################################------------------------------------------------------------###################################
-
 ##################################################################################
-#																																								#
 #															Inicio método reporte															#
-#																																								#
 ##################################################################################
 #----------------------------- Método para mostrar los talentos filtrados por año -----------------------------#
 public function reporte($ano,$nodo)
@@ -136,9 +130,7 @@ public function reporte($ano,$nodo)
     }
 
 ##################################################################################
-#																																								#
 #															Fin método reporte																#
-#																																								#
 ##################################################################################
 
 

@@ -1310,7 +1310,7 @@ table.jambo_table {
     border: 1px solid rgba(221, 221, 221, 0.78)
 }
 table.jambo_table thead {
-    background: rgba(35, 130, 118, 1);
+    background: #008981;
     color: #ECF0F1
 }
 table.jambo_table tbody tr:hover td {
@@ -4278,7 +4278,7 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-   background: #238276;
+   background: #008981;
    border-radius: 10px;
 }
 

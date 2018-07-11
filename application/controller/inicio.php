@@ -15,6 +15,7 @@ class inicio extends Controller
 
    require APP . 'view/_templates/headeradmin.php';
    require APP . 'view/inicio/index.php';
+   require APP.  'view/_footer/footerdinamizador.php';
 
  }
 
@@ -23,6 +24,7 @@ class inicio extends Controller
 
    require APP . 'view/_templates/headergestor.php';
    require APP . 'view/inicio/index.php';
+   require APP . 'view/_footer/footergestor.php';
 
  }
 
@@ -42,11 +44,12 @@ class inicio extends Controller
 
 }
 
- public function adminodos()
+public function adminodos()
 {
-  $nodos = $this->mdlmodel->consultarnodos();
-  require APP . 'view/_templates/headeradminodos.php';
-  require APP . 'view/inicio/index.php';
+
+ require APP . 'view/_templates/headeradminodos.php';
+ require APP . 'view/inicio/index.php';
+ require APP . 'view/_footer/footeradminnodos.php';
 
 }
 

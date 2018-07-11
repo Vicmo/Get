@@ -1,5 +1,3 @@
-  <body style="background: #EDEDED">
-      <script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
   <link href="<?php echo URL; ?>css/reportes/r.min.css" rel="stylesheet">
     <title>Tecnoparque  | Proyecto</title>
     <div class="right_col" role="main" id="demo-form2">
@@ -158,6 +156,10 @@
 
 
   </div>
+  <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+  <script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/melo.js"></script>
+  <script src="<?php echo URL; ?>css/vendors/parsleyjs/dist/parsley.js"></script>
   <script src="<?php echo URL; ?>js/proyecto.js"></script>
   <script type="text/javascript"> $('#txtcedulalider').select2();</script>
   <script type="text/javascript"> $('#txttalento').select2();</script>
