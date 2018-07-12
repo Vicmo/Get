@@ -6,6 +6,7 @@ class mdlcostos
 
     private $db;
     private $id;
+    private $idnodo;
 
     public function __SET($attr, $val){
 
@@ -48,8 +49,9 @@ class mdlcostos
 
         public function costosadmin()
    {
-       $sql = "CALL calculocostos";
+       $sql = "CALL calculocostos(?)";
        $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->idnodo);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
@@ -77,9 +79,10 @@ class mdlcostos
 
       public function valoradmin()
    {
-       $sql = "CALL valoradmin(?)";
+       $sql = "CALL valoradmin(?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->id);
+       $stm->bindParam(2, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 

@@ -7,6 +7,7 @@
             <div class="item form-group" >
               <div class="item form-group" >
                 <label class="control-label col-md-3" >Proyecto<span class="required"></span></label>
+                <input type="hidden" id="txtidnodo" name="txtidnodo" value="<?= $idnodo ?>">
                 <div class="col-md-6 col-sm-3 col-xs-3">
                  <select id="idproyecto" class="form-control select2">
                    <option value="">Seleccione</option>
@@ -74,3 +75,5 @@
   </div>
 <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo URL; ?>js/graficos.js"></script>
+<script src="<?php echo URL; ?>js/costos.js"></script>

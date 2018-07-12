@@ -59,15 +59,17 @@ class costos extends Controller
         echo json_encode($datos);
     }
 
-     public function costosadmin()
+     public function costosadmin($idnodo)
     {
+				$this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->costosadmin();
         echo json_encode($datos);
     }
 
-     public function valoradmin($id)
+     public function valoradmin($id, $idnodo)
     {
         $this->mdlmodel->__SET("id", $id);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->valoradmin();
         echo json_encode($datos);
     }

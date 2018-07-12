@@ -22,12 +22,12 @@
 <script src="<?php echo URL; ?>js/md5.min.js"></script>
 <script src="<?php echo URL; ?>css/calendario/moment.js"></script>
 <script src="<?php echo URL; ?>css/calendario/daterangepicker.js"></script>
-<script src="<?php echo URL; ?>js/graficos.js"></script>
 <script src="<?php echo URL; ?>css/reportes/g1.js"></script>
 <script src="<?php echo URL; ?>css/reportes/g2.js"></script>
 <script src="<?php echo URL; ?>css/reportes/g3.js"></script>
 <script src="<?php echo URL; ?>css/reportes/g4.js"></script>
 <script src="<?php echo URL; ?>css/select/js.js"></script>
+<!-- <script src="<?php echo URL; ?>js/graficos.js"></script> -->
 <!-- <script src="<?php echo URL; ?>js/costos.js"></script> -->
 <script type="text/javascript">
 $(document).ready(function() {
