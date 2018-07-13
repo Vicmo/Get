@@ -1,13 +1,14 @@
 <title>Tecnoparque | Costos</title>
   <div class="right_col" role="main">
-    <div class="">
+    <div class="x_panel">
+      <div class="x_content">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="col-md-6">
            <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal">
-            <div class="item form-group" >
               <div class="item form-group" >
                 <label class="control-label col-md-3" >Proyecto<span class="required"></span></label>
                 <input type="hidden" id="txtidnodo" name="txtidnodo" value="<?= $idnodo ?>">
+                <input type="hidden" value="<?php echo date("Y"); ?>" id="txtano">
                 <div class="col-md-6 col-sm-3 col-xs-3">
                  <select id="idproyecto" class="form-control select2">
                    <option value="">Seleccione</option>
@@ -17,7 +18,6 @@
                  </select>
                </div>
              </div>
-           </div>
             <div class="item form-group" >
               <label class="control-label col-md-3" >Línea<span class="required"></span></label>
               <div class="col-md-6 col-sm-3 col-xs-3">
@@ -73,6 +73,8 @@
   </div>
   </div>
   </div>
+</div>
+</div>
 <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?php echo URL; ?>js/graficos.js"></script>

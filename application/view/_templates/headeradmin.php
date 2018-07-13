@@ -63,7 +63,7 @@ if ($_SESSION["rol"] == 'Dinamizador') {
              <li><a href="<?php echo URL; ?>mantenimiento/index/<?= $idnodo ?>"><i class="fa fa-legal"></i>Mantenimiento</a></li>
              <li><a href="<?php echo URL; ?>materiales/index/<?= $idnodo ?>"><i class="fa fa-book"></i>Materiales de Formación</a></li>
              <li><a href="<?php echo URL; ?>costos/index/<?= $idnodo ?>"><i class="fa fa-usd"></i>Costos</a></li>
-             <li><a href="<?php echo URL; ?>reportes/index"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
+             <li><a href="<?php echo URL; ?>reportes/index/<?= $idnodo ?>"><i class="fa fa-bar-chart-o"></i>Reportes</a></li>
              <li><a href="<?php echo URL; ?>indicadores/index"><i class="fa fa-sort-numeric-asc"></i>Indicadores</a></li>
            </ul>
          </div>

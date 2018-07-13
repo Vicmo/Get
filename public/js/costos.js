@@ -66,7 +66,6 @@ $('#costos').on('click',function(){
          } else  {
        $("#txthoras").val("0");
          }
-         console.log(item.horasasesoria)
         })
       });
 
@@ -88,8 +87,6 @@ $('#costos').on('click',function(){
           $.each(a, function(i, item) {
            if ((ano-item.ano)<item.vidautil) {
                ttdepre +=item.depreciacion*item.tiempo;
-               // console.log(item.depreciacion);
-               // console.log(item.tiempo);
            }
         });
 
@@ -143,7 +140,9 @@ $('#costos').on('click',function(){
         $("#costosadmin").val("$ "+adminnnnnn);
         var ttt =  totaltotal.toFixed(2);
         var ttttt = totaltotal.toLocaleString();
-        $("#totalcosto").val("$ "+ttttt);
+        // parseFloat(ttttt);
+        console.log(Math.round(ttttt));
+        $("#totalcosto").val("$ "+(ttttt));
 
          $('#grafico').remove();
       $('#idgrafico').append('<canvas id="grafico"></canvas>');

@@ -13,12 +13,15 @@ class reportes extends Controller
 
   }
 
-	public function index()
+	public function index($idnodo)
 	{
-         $linea = $this->mdlgestor->consultalineaa();
-           $gestor = $this->mdlgestor->consultargestor();
-		require APP . 'view/_templates/headeradmin.php';
-		require APP . 'view/reportes/index.php';
+
+			$this->mdlgestor->__SET("idnodo", $idnodo);
+	    $linea = $this->mdlgestor->lineasNodo();
+	    $gestor = $this->mdlgestor->consultargestor();
+			require APP . 'view/_templates/headeradmin.php';
+			require APP . 'view/reportes/index.php';
+			require APP . 'view/_footer/footerdinamizador.php';
 
     }
 
@@ -67,30 +70,33 @@ class reportes extends Controller
 ###################### Fin método reportetalentosgestor ##############################
 
 
-    	 public function reportemantenimientolinea($fi,$ff,$l)
+    	 public function reportemantenimientolinea($fi,$ff,$l,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
         $this->mdlmodel->__SET("l", $l);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportemantenimientolinea();
         echo json_encode($datos);
     }
 
 
-       public function reporteasesoriaslinea($fi,$ff,$l)
+       public function reporteasesoriaslinea($fi,$ff,$l,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
         $this->mdlmodel->__SET("l", $l);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reporteasesoriaslinea();
         echo json_encode($datos);
     }
 
-     public function reportematerialeslinea($fi,$ff,$l)
+     public function reportematerialeslinea($fi,$ff,$l,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
         $this->mdlmodel->__SET("l", $l);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportematerialeslinea();
         echo json_encode($datos);
     }
@@ -105,20 +111,22 @@ class reportes extends Controller
         echo json_encode($datos);
     }
 
-          public function reporteadminlinea($fi,$ff,$l)
+          public function reporteadminlinea($fi,$ff,$l,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
         $this->mdlmodel->__SET("l", $l);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reporteadminlinea();
         echo json_encode($datos);
     }
 
-          public function reportedepreciacionlinea($fi,$ff,$l)
+          public function reportedepreciacionlinea($fi,$ff,$l,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
         $this->mdlmodel->__SET("l", $l);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportedepreciacionlinea();
         echo json_encode($datos);
     }
@@ -212,10 +220,11 @@ class reportes extends Controller
         echo json_encode($datos);
     }
 
-    public function reporteadmintodo($fi,$ff)
+    public function reporteadmintodo($fi,$ff,$idnodo)
     {
       $this->mdlmodel->__SET("fi", $fi);
       $this->mdlmodel->__SET("ff", $ff);
+      $this->mdlmodel->__SET("idnodo", $idnodo);
       $datos = $this->mdlmodel->reporteadmintodo();
       echo json_encode($datos);
     }

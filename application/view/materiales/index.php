@@ -13,7 +13,7 @@
         <div class="col-md-12">
           <div class="x_panel" >
             <div class="x_title">
-             <ul class="nav nav-tabs">
+             <ul class="nav nav-tabs bar_tabs">
               <li id="registro" class="active"><a data-toggle="tab" href="#home">Registrar Materiales</a></li>
               <li id="consulta"><a data-toggle="tab" href="#menu2"> Consultar Materiales</a></li>
             </ul>

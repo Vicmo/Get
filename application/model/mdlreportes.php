@@ -9,6 +9,7 @@ class mdlreportes
     private $ff;
     private $l;
     private $g;
+    private $idnodo;
 
     public function __SET($attr, $val){
 
@@ -31,11 +32,12 @@ class mdlreportes
 
          public function reportemantenimientolinea()
    {
-       $sql = "CALL reportemantenimientolinea(?,?,?)";
+     $sql = "CALL reportemantenimientolinea(?,?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
        $stm->bindParam(3, $this->l);
+       $stm->bindParam(4, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -43,11 +45,12 @@ class mdlreportes
 
        public function reporteasesoriaslinea()
    {
-       $sql = "CALL reporteasesoriaslinea(?,?,?)";
+       $sql = "CALL reporteasesoriaslinea(?,?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
        $stm->bindParam(3, $this->l);
+       $stm->bindParam(4, $this->idnodo);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
@@ -55,11 +58,12 @@ class mdlreportes
 
       public function reportematerialeslinea()
    {
-       $sql = "CALL reportematerialeslinea(?,?,?)";
+       $sql = "CALL reportematerialeslinea(?,?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
        $stm->bindParam(3, $this->l);
+       $stm->bindParam(4, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -80,11 +84,12 @@ class mdlreportes
 
        public function reporteadminlinea()
    {
-       $sql = "CALL reporteadminlinea(?,?,?)";
+       $sql = "CALL reporteadminlinea(?,?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
        $stm->bindParam(3, $this->l);
+       $stm->bindParam(4, $this->idnodo);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
@@ -154,16 +159,17 @@ class mdlreportes
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
    }
-   
+
 ############################## Fin método reportetalentosgestor ##############################
 
        public function reportedepreciacionlinea()
    {
-       $sql = "CALL reportedepreciacionlinea(?,?,?)";
+       $sql = "CALL reportedepreciacionlinea(?,?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
        $stm->bindParam(3, $this->l);
+       $stm->bindParam(4, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -290,10 +296,11 @@ class mdlreportes
 
          public function reporteadmintodo()
    {
-       $sql = "CALL reporteadmintodo(?,?)";
+       $sql = "CALL reporteadmintodo(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 
