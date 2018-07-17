@@ -252,10 +252,11 @@ class mdlreportes
 
           public function reportet()
    {
-       $sql = "CALL reportet(?,?)";
+       $sql = "CALL reportet(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -263,10 +264,11 @@ class mdlreportes
 
           public function reportemantenimientotodo()
    {
-       $sql = "CALL reportemantenimientotodo(?,?)";
+       $sql = "CALL reportemantenimientotodo(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -274,10 +276,11 @@ class mdlreportes
 
        public function reportematerialestodo()
    {
-       $sql = "CALL reportematerialestodo(?,?)";
+       $sql = "CALL reportematerialestodo(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -285,10 +288,11 @@ class mdlreportes
 
      public function reporteasesoriastodo()
    {
-       $sql = "CALL reporteasesoriastodo(?,?)";
+       $sql = "CALL reporteasesoriastodo(?,?,?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->fi);
        $stm->bindParam(2, $this->ff);
+       $stm->bindParam(3, $this->idnodo);
        $stm->execute();
        return $stm->fetch(PDO::FETCH_ASSOC);
 

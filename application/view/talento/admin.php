@@ -264,37 +264,6 @@
        </div>
      </div>
    </div>
-    <div class="x_content">
-      <div id="verproyectostalento" class="modal fade" role="dialog" >
-       <div class="modal-dialog" >
-         <div class="modal-content">
-           <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">X</button>
-             <center><h4 class="modal-title">Proyectos asociados al talento.</h4></center>
-           </div>
-           <div class="modal-body">
-             <div class="table-responsive">
-               <table class="table table-striped jambo_table bulk_action">
-                 <thead>
-                   <tr class="headings">
-                     <th class="column-title">Código de Proyecto</th>
-                     <th class="column-title">Nombre del Proyecto</th>
-                     <th class="column-title">Línea</th>
-                     <th class="column-title">Gestor</th>
-                     <th class="column-title">Estado</th>
-                     <th class="column-title">Fecha de Cierre</th>
-                     <th class="column-title">Revisado Final</th>
-                   </tr>
-                 </thead>
-                 <tbody id="tablaproyectotalento">
-                 </tbody>
-               </table>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
  </div>
 </div>
 <script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>

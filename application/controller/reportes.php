@@ -188,34 +188,38 @@ class reportes extends Controller
         echo json_encode($datos);
     }
 
-        public function reportet($fi,$ff)
+        public function reportet($fi,$ff,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportet();
         echo json_encode($datos);
     }
 
-            public function reportemantenimientotodo($fi,$ff)
+            public function reportemantenimientotodo($fi,$ff,$idnodo)
     {
          $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportemantenimientotodo();
         echo json_encode($datos);
     }
 
-         public function reportematerialestodo($fi,$ff)
+         public function reportematerialestodo($fi,$ff,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reportematerialestodo();
         echo json_encode($datos);
     }
 
-           public function reporteasesoriastodo($fi,$ff)
+           public function reporteasesoriastodo($fi,$ff,$idnodo)
     {
         $this->mdlmodel->__SET("fi", $fi);
         $this->mdlmodel->__SET("ff", $ff);
+        $this->mdlmodel->__SET("idnodo", $idnodo);
         $datos = $this->mdlmodel->reporteasesoriastodo();
         echo json_encode($datos);
     }

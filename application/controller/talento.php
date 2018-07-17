@@ -13,6 +13,10 @@ class talento extends Controller
      // $this->mdlproyecto = $this->loadModel("mdlproyecto");
   }
 
+################################### Inicio método index ############################
+
+	#---------------------- Método que lista todos los talentos por gestor (lo ve el gestor)----------------------#
+
 	public function index($persona)
 	{
         $this->mdlmodel->__SET("idges", $persona);
@@ -23,12 +27,12 @@ class talento extends Controller
         $depto = $this->mdlmodel->consultadepto();
         $nivelaca = $this->mdlmodel->consultanivelaca();
 
-
-		require APP . 'view/_templates/headergestor.php';
-		require APP . 'view/talento/index.php';
-		require APP . 'view/_footer/footergestor.php';
+				require APP . 'view/_templates/headergestor.php';
+				require APP . 'view/talento/index.php';
+				require APP . 'view/_footer/footergestor.php';
 
     }
+################################### Fin método index ############################
 
 
 ################################### Inicio método admin ############################

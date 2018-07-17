@@ -43,8 +43,8 @@ if ($_SESSION["rol"] == 'Dinamizador') {
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
-        <div class="left_col scroll-view" style="background: #008981">
-          <div class="navbar nav_title" style="background: #008981">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title">
            <a class="site_title"> <img src="<?php echo URL; ?>img/logo3.png" style="margin-left: 13px;"></a>
          </div>
          <div class="clearfix"></div>

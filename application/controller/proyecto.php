@@ -300,7 +300,7 @@ public function modalProyectosPorNodo($idproyecto)
       $datos = $this->mdlmodel->verp();
      require APP . 'view/_templates/headeradmin.php';
      require APP . 'view/proyecto/entregablesa.php';
-
+		 require APP . 'view/_footer/footerdinamizador.php';
     }
 
 

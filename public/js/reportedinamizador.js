@@ -675,11 +675,11 @@ $('#todo').on('click',function(){
    var fi = aa.replace("/", "-");
    var bb = b.replace("/", "-");
    var ff = bb.replace("/", "-");
-
+   var idnodo = $('#txtidnodo').val();
    $.ajax({
      dataType:'json',
      type:'post',
-     url:uri+"reportes/reportet/"+fi+"/"+ff
+     url:uri+"reportes/reportet/"+fi+"/"+ff+"/"+idnodo
    }).done(function(response){
 
      if (response == "") {
@@ -707,7 +707,7 @@ $('#todo').on('click',function(){
        $.ajax({
          dataType:'json',
          type:'post',
-         url:uri+"reportes/reportemantenimientotodo/"+fi+"/"+ff
+         url:uri+"reportes/reportemantenimientotodo/"+fi+"/"+ff+"/"+idnodo
        }).done(function(man) {
          var mmantenimiento = 0;
          $.each(man, function(i, item) {
@@ -717,7 +717,7 @@ $('#todo').on('click',function(){
          $.ajax({
            dataType:'json',
            type:'post',
-           url:uri+"reportes/reportematerialestodo/"+fi+"/"+ff
+           url:uri+"reportes/reportematerialestodo/"+fi+"/"+ff+"/"+idnodo
          }).done(function(mat) {
          var mmateriales = 0;
          $.each(mat, function(i, item) {
@@ -726,7 +726,7 @@ $('#todo').on('click',function(){
          $.ajax({
            dataType:'json',
            type:'post',
-           url:uri+"reportes/reporteasesoriastodo/"+fi+"/"+ff
+           url:uri+"reportes/reporteasesoriastodo/"+fi+"/"+ff+"/"+idnodo
          }).done(function(as) {
            var idnodo = $('#txtidnodo').val();
           $.ajax({
