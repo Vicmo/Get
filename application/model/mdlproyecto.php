@@ -283,8 +283,9 @@ class mdlproyecto
    return $stm->fetchAll(PDO::FETCH_ASSOC);
   }
    public function consultalider(){
-    $sql = "CALL consultalider";
+    $sql = "CALL consultalider(?)";
     $stm = $this->db->prepare($sql);
+    $stm->bindParam(1, $this->idnodo);
    $stm->execute();
    return $stm->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -311,10 +312,9 @@ class mdlproyecto
 
       public function consultarproyecto()
    {
-       $sql = "CALL consultaproyectog(?,?)";
+       $sql = "CALL consultaproyectogestor(?)";
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $this->gestor);
-       $stm->bindParam(2, $this->ano);
        $stm->execute();
        return $stm->fetchAll(PDO::FETCH_ASSOC);
 
@@ -363,7 +363,7 @@ class mdlproyecto
     public function consultafocoo(){
     $sql = "CALL consultafco(?)";
     $stm = $this->db->prepare($sql);
-    $stm->bindParam(1, $this->linea);
+    $stm->bindParam(1, $this->gestor);
     $stm->execute();
     return $stm->fetchAll(PDO::FETCH_ASSOC);
    }

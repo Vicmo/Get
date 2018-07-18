@@ -9,6 +9,7 @@ class proyecto extends Controller
 
     $this->mdlmodel = $this->loadModel("mdlproyecto");
     $this->mdlnodo = $this->loadModel("mdlnodo");
+    $this->mdlgestor = $this->loadModel("mdlgestor");
   }
 
 	public function index($idnodo)
@@ -63,20 +64,22 @@ public function modalProyectosPorNodo($idproyecto)
   /*=====  End of metodo para cosultar toda la informacion de proyectos por nodo y mostrarlo en el modal  ======*/
 
 
-  public function gestor($gestor,$ano)
+  public function gestor($gestor,$idnodo)
   {
+		$this->mdlgestor->__SET("idgestor", $gestor);
+		$linea = $this->mdlgestor->consultalinea();
     $this->mdlmodel->__SET("gestor", $gestor);
-    $this->mdlmodel->__SET("ano", $ano);
-    $ultima = $this->mdlmodel->consultaultima();
-    $gestor = $this->mdlmodel->consultagestor();
+    $this->mdlmodel->__SET("idnodo", $idnodo);
+    // $ultima = $this->mdlmodel->consultaultima();
+    $foco = $this->mdlmodel->consultafocoo();
     $sector = $this->mdlmodel->consultasector();
-    $foco = $this->mdlmodel->consultafoco();
     $estadopro = $this->mdlmodel->consultaestadoproyecto();
     $tipoproyecto = $this->mdlmodel->consultatipoproyecto();
     $talentolider = $this->mdlmodel->consultalider();
     $proyecto = $this->mdlmodel->consultarproyecto();
     require APP . 'view/_templates/headergestor.php';
     require APP . 'view/proyecto/gestor.php';
+		require APP . 'view/_footer/footergestor.php';
 
     }
 
@@ -283,12 +286,15 @@ public function modalProyectosPorNodo($idproyecto)
     }
 
 
-     public function entregables($idproyecto)
+     public function entregables($idproyecto,$idgestor)
     {
+			$this->mdlgestor->__SET("idgestor", $idgestor);
+			$linea = $this->mdlgestor->consultalinea();
       $this->mdlmodel->__SET("idproyecto", $idproyecto);
       $datos = $this->mdlmodel->verp();
      require APP . 'view/_templates/headergestor.php';
      require APP . 'view/proyecto/entregables.php';
+		 require APP . 'view/_footer/footergestor.php';
 
     }
 

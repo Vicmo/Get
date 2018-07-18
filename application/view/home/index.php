@@ -22,16 +22,12 @@
 <body>
   <div class="bg">
     <div id="home" class="header wow bounceInDown" data-wow-delay="0.4s">
-      <div class="top-header"  style="background: #238276">
-
-
-
+      <div class="top-header">
         <div class="container">
           <div class="logo" style="margin-left: -100px">
             <img src="<?php echo URL; ?>css/assets/images/logot.png">
             <img src="<?php echo URL; ?>img/logos.png">
           </div>
-
           <script type="text/javascript">
            function idea(){
              var uri = "<?php echo URL; ?>";

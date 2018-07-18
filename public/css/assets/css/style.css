@@ -20,7 +20,7 @@ body a{
 
 /* Delineado letra del título */
 #titulo_index{
-    -webkit-text-stroke: 1px black;		
+    -webkit-text-stroke: 1px black;
 }
 
 /*----start-container----*/
@@ -53,7 +53,7 @@ body a{
 /*----navbar-nav----*/
 .top-header{
 	padding: 0.8em 0em;
-    background:#000;
+    background:#008981;
 }
 .top-nav ul li a{
 	color: #FFF;
@@ -111,7 +111,7 @@ nav a#pull {
 }
 /*Styles for screen 600px and lower*/
 @media screen and (max-width: 768px) {
-	nav { 
+	nav {
   		height: auto;
   		float:none;
   	}
@@ -337,7 +337,7 @@ a.leran-more{
 	text-transform:uppercase;
 	text-decoration:none;
 	font-weight:600;
-	padding:0.9em 2em; 
+	padding:0.9em 2em;
 	display:inline-block;
 	font-size:1.1em;
 	border-radius: 3em;
@@ -799,7 +799,7 @@ a.leran-more:hover{
 }
 .contact-right input[type="text"],.contact-right textarea{
 	width:100%;
-	padding:0.8em;	
+	padding:0.8em;
 	font-family: 'Open Sans', sans-serif;
 	color:#777;
 	font-weight:300;

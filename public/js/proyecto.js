@@ -1,23 +1,20 @@
-// function vert(id){
-//   $.ajax({
-//     dataType:'json',
-//     type:'post',
-//     url:uri+"proyecto/detalletalen/"+id
-//   }).done(function(respuesta){
-//     $("#tablatalen").empty()
-//     if (respuesta != null ) {
-//       console.log(respuesta);
-//       $.each(respuesta, function(i, item) {
-//         $("#tablatalen").append("<tr><td>"+item.documento+
-//           "</td><td>"+item.nombres+" "+item.apellidos+"</td><td>"+item.correo+"</td><td>"+item.numerocelular+"</td></tr>");
-//       });
-//       $("#vert").modal();
-//     } else {
-//       swal('Ups!!', 'Ha ocurrido un error', 'warning')
-//     }
-//   });
-//
-// };
+document.getElementById("txttipoproyecto").addEventListener("change", divNit);
+// document.getElementsByName("txtpata_publi")[0].elements;
+$divNit = $("#divNit");
+$divNit.hide();
+
+
+function divNit(){
+  $('#nit').val("");
+  $('#txtrazon_social').val("");
+  let id =  $("#txttipoproyecto").val();
+  let nombre = $("#txttipoproyecto [value='"+id+"']").text();
+  if (nombre != 'Proyecto acompañamiento a empresa ya constituida') {
+    $divNit.hide();
+  } else {
+    $divNit.show();
+  }
+}
 
 function ver(id){
  $.ajax({
@@ -50,8 +47,8 @@ function ver(id){
    	"<tr><td>"+'<b>Sector: </b>'+" "+respuesta.nombrese +"<tr><td>"+
    	"<tr><td>"+'<b>Gestor:</b>'+" "+respuesta.nombresg +" "+respuesta.apellidosg+"<tr><td>"+
    	"<tr><td>"+'<b>Foco:</b>'+" "+respuesta.foco +"<tr><td>"+
-      "<tr><td>"+'<b>Estado del proyecto: </b>'+" "+respuesta.estadoproyecto +"<tr><td>"+
-       "<tr><td>"+'<b>Tipo de proyecto: </b>'+" "+respuesta.tipoproyecto +"<tr><td>"+
+    "<tr><td>"+'<b>Estado del proyecto: </b>'+" "+respuesta.estadoproyecto +"<tr><td>"+
+    "<tr><td>"+'<b>Tipo de proyecto: </b>'+" "+respuesta.tipoproyecto +"<tr><td>"+
    	"<tr><td>"+'<b>Talento Lider:</b>'+" "+respuesta.nombres +" "+respuesta.apellidos+"<tr><td>"+
    	"<tr><td>"+'<b>Observaciones: </b>'+" "+respuesta.observaciones +"<tr><td>"+
    	"<tr><td>"+'<b>Proyecto articulado con Tecnoacademia:</b>'+" "+respuesta.pro_art_tecnoaca +"<tr><td>"+
@@ -64,18 +61,18 @@ function ver(id){
    	"<tr><td>"+'<b>Dinero de regalías: </b>'+" "+respuesta.dine_reg +"<tr><td>"+
    	"<tr><td>"+'<b>Acompañamiento proceso de patente:</b>'+" "+respuesta.aco_pro_pate +"<tr><td>"+
    	"<tr><td>"+'<b>Patente publicada: </b>'+" "+respuesta.pata_publi +"<tr><td>"+
- "<tr><td>"+'<b>ID patente: </b>'+" "+pate +"<tr><td>"+
- "<tr><td>"+'<b>Fecha de cierre: </b>'+" "+fechacierre +"<tr><td>"+
-  "<tr><td>"+'<b>Acta de Inicio: </b>'+" "+respuesta.actainicio +"<tr><td>"+
-   "<tr><td>"+'<b>Propuesta Técnica: </b>'+" "+respuesta.propuesta +"<tr><td>"+
+    "<tr><td>"+'<b>ID patente: </b>'+" "+pate +"<tr><td>"+
+    "<tr><td>"+'<b>Fecha de cierre: </b>'+" "+fechacierre +"<tr><td>"+
+    "<tr><td>"+'<b>Acta de Inicio: </b>'+" "+respuesta.actainicio +"<tr><td>"+
+    "<tr><td>"+'<b>Propuesta Técnica: </b>'+" "+respuesta.propuesta +"<tr><td>"+
     "<tr><td>"+'<b>Book de planeación: </b>'+" "+respuesta.bookplaneacion +"<tr><td>"+
-     "<tr><td>"+'<b>Cronograma: </b>'+" "+respuesta.cronograma +"<tr><td>"+
-      "<tr><td>"+'<b>Book de ejecución: </b>'+" "+respuesta.bookejecucion +"<tr><td>"+
-       "<tr><td>"+'<b>Lecciones aprendidas: </b>'+" "+respuesta.lecciones +"<tr><td>"+
-        "<tr><td>"+'<b>Ficha de caracterización: </b>'+" "+respuesta.ficha +"<tr><td>"+
-         "<tr><td>"+'<b>Video: </b>'+" "+respuesta.video +"<tr><td>"+
-          "<tr><td>"+'<b>Acta de cierre: </b>'+" "+respuesta.actacierre +"<tr><td>"+
-           "<tr><td>"+'<b>Revisado final: </b>'+" "+respuesta.revisadofinal +"<tr><td>"
+    "<tr><td>"+'<b>Cronograma: </b>'+" "+respuesta.cronograma +"<tr><td>"+
+    "<tr><td>"+'<b>Book de ejecución: </b>'+" "+respuesta.bookejecucion +"<tr><td>"+
+    "<tr><td>"+'<b>Lecciones aprendidas: </b>'+" "+respuesta.lecciones +"<tr><td>"+
+    "<tr><td>"+'<b>Ficha de caracterización: </b>'+" "+respuesta.ficha +"<tr><td>"+
+    "<tr><td>"+'<b>Video: </b>'+" "+respuesta.video +"<tr><td>"+
+    "<tr><td>"+'<b>Acta de cierre: </b>'+" "+respuesta.actacierre +"<tr><td>"+
+    "<tr><td>"+'<b>Revisado final: </b>'+" "+respuesta.revisadofinal +"<tr><td>"
  );
     $("#ver").modal();
 
@@ -103,32 +100,6 @@ function ver(id){
   document.getElementById("txtfoco").options.length = 0;
   $("#txtfoco").append('<option value="">'+"Seleccione"+'</option>')
 }
-
-  var x = $("#gestor").val();
-  $("#txtgestor").val(x);
-  var g = $("#txtgestor").val();
-  $.ajax({
-    dataType:'json',
-    type:'post',
-    url:uri+"gestor/consultalinea/"+g
-  }).done(function(respons) {
-    $("#txtlinea").val(respons.nombre);
-    $("#txtlineaa").val(respons.id);
-    var id = respons.id;
-
-        $.ajax({
-          dataType:'json',
-          type:'post',
-          url:uri+"proyecto/consultafocoo/"+id
-        }).done(function(respon) {
-          $.each(respon, function(i, item) {
-            $("#txtfoco").append('<option value="'+item.idfoco+'">'+item.nombre+'</option>')
-          });
-
-        });
-
-      });
-   $("#txtfoco").prop("disabled", false);
 
 
  function quitar(elemento) {

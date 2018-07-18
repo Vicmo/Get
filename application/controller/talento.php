@@ -104,6 +104,17 @@ public function registrar()
 
    }
 
+############################## Inicio método verpersona ##############################
+#---------------- Consulta si el documento ingresado ya lo tiene otra persona -----------------------#
+public function verdocumento($documento)
+	   {
+	        $this->mdlmodel->__SET("documento", $documento);
+	      	$datos = $this->mdlmodel->verdocumento();
+	        echo json_encode($datos);
+	   }
+
+############################## Fin método verpersona ##############################
+
 ##################################################################################
 #															Inicio método ver																	#
 ##################################################################################

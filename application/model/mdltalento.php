@@ -126,6 +126,25 @@ class mdltalento
    #															Inicio método ver																	#
    ##################################################################################
    #---------------- Ejecuta el procedimiento almacenado para ver el detalle del talento según el id -----------------------#
+   public function verdocumento(){
+
+       $sql = "CALL verdocumento(?)";
+       $stm = $this->db->prepare($sql);
+       $stm->bindParam(1, $this->documento);
+       $stm->execute();
+       return $stm->fetch(PDO::FETCH_ASSOC);
+
+   }
+
+  ##################################################################################
+  #														  	Fin método ver																	#
+  ##################################################################################
+
+
+   ##################################################################################
+   #															Inicio método ver																	#
+   ##################################################################################
+   #---------------- Ejecuta el procedimiento almacenado para ver el detalle del talento según el id -----------------------#
    public function ver(){
 
        $sql = "CALL vertalento(?)";

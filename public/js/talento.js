@@ -64,8 +64,7 @@ $('#registrar').on('click',function(e){
 
     if ($("#txttipodocumento").val() && $("#txtdocumeto").val() && $("#txtnombre").val() && $("#txtapellidos").val()
         && $("#txtcorreo").val() && $("#txttipotalento").val() && $("#txtocupacion").val() && $("#txtnum_cel").val() && $("#txtciudad").val()
-        && $("#txtestrato").val() && $("#txtinstucion").val() && $("#txtnivel_aca").val() && $("#txttitu_obte").val()
-        && $("#txtaño_termi").val()) {
+        && $("#txtestrato").val() ) {
 
         if(d.length == 10){
 
@@ -105,18 +104,19 @@ $('#registrar').on('click',function(e){
 
 });
 
-  function validad(){
-     var d = $("#txtdocumeto").val();
-  $.ajax({
-    dataType:'json',
-    type:'post',
-    url:uri+"talento/ver/"+d
+function validad(){
+   var d = $("#txtdocumeto").val();
+$.ajax({
+  dataType:'json',
+  type:'post',
+  url:uri+"talento/verdocumento/"+d
 }).done(function(respuesta){
-   if (respuesta.documento == d) {
+  console.log(respuesta);
+ if (respuesta.documento == d) {
     document.getElementById("txtdocumeto").focus();
-    swal("Ups!!", "El documento ingresado ya existe", "warning");
-       $("#txtdocumeto").val("");
-   }
+    swal("Ups!!", "El documento ingresado ya se encuentra registrado en el nodo "+respuesta.nombrenodo, "warning");
+    $("#txtdocumeto").val("");
+ }
 });
 }
 

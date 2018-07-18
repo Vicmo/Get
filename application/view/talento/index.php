@@ -46,7 +46,7 @@
                        <div class="control-group">
                         <div class="controls">
                          <div class="col-md-3 col-sm-3 col-xs-3">
-                          <input  name="txtdocumento" required="" maxlength="18" id="txtdocumeto" onchange="validad()" onkeypress="return valida(event)" class="form-control col-md-7 col-xs-12">
+                          <input  name="txtdocumento" required="" maxlength="18" id="txtdocumeto" onchange="validad()" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                     </div>
@@ -176,23 +176,24 @@
        </div>
        <div id="divEstudios" style="visibility: hidden;">
        <div class="item form-group">
-         <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Institución<span class="required">*</span>
+         <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Institución
          </label>
          <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="txtinstitucion"  required
-          id="txtinstucion" class="form-control col-md-7 col-xs-12" >
+          <input name="txtinstitucion" id="txtinstucion" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
      <div class="item form-group">
-       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Título Obtenido<span class="required">*</span>
+       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Título Obtenido
        </label>
        <div class="col-md-3 col-sm-3 col-xs-3">
-         <input name="txttitu_obte"  id="txttitu_obte" required class="form-control col-md-7 col-xs-12" >
+         <input name="txttitu_obte"  id="txttitu_obte" class="form-control col-md-7 col-xs-12" >
        </div>
-       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Año terminación<span class="required">*</span>
+       <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Fecha de terminación
        </label>
        <div class="col-md-3 col-sm-3 col-xs-3">
-         <input name="txtaño_termi" maxlength="4" onkeypress="return valida(event)" minlength="4" maxlength="4" id="txtaño_termi" required class="form-control col-md-7 col-xs-12" >
+         <input type="text" name="txtaño_termi" class="form-control has-feedback-left" id="single_cal2">
+         <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+         <!-- <input name="txtaño_termi" id="txtaño_termi"  class="form-control col-md-7 col-xs-12" > -->
        </div>
      </div>
    </div>

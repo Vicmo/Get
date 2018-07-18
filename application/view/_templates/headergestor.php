@@ -55,7 +55,7 @@
             <center><h3>MENÚ</h3></center>
             <ul class="nav side-menu">
              <li><a href="<?php echo URL; ?>talento/index/<?php echo $persona ?>"><i class="fa fa-users"></i>Talentos</a></li>
-             <li><a href="<?php echo URL; ?>proyecto/gestor/<?php echo $persona ?>/<?php echo date("Y"); ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
+             <li><a href="<?php echo URL; ?>proyecto/gestor/<?php echo $persona ?>/<?= $idnodo; ?>"><i class="fa fa-folder"></i>Proyectos</a></li>
              <li><a href="<?php echo URL; ?>usoinfraestructura/index/<?php echo $persona ?>"><i class="fa fa-building"></i>Uso de Infraestructura</a></li>
              <li><a href="<?php echo URL; ?>edt/index/<?php echo $persona ?>"><i class="fa fa-institution"></i>EDT</a></li>
              <li><a href="<?php echo URL; ?>grupos/index/<?php echo $persona ?>"><i class="fa fa-laptop"></i>Grupos de Investigación</a></li>

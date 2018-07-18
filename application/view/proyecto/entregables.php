@@ -19,21 +19,13 @@
           <div class="x_title">
            <ul class="tab-content">
              <div id="home" class="tab-pane fade in active">
-
               <br>
-
               <br>
-
-
               <div class="clearfix" ></div>
-
               <div class="x_content" >
                 <br />
-
                 <form name="aulas" id="demo-form2"  data-parsley-validate class="form-horizontal form-label-left"
                 action="<?= URL?>proyecto/modificarentregables"  method="POST">
-
-
                 <input value="<?= $datos['gestor'];?>"  name="gestortxt"  id="gestortxt" type="hidden">
                 <input value="<?= $datos['linea'];?>"  id="lineatxt" type="hidden">
                 <input value="<?= $datos['idproyecto'];?>"  name="txtidproyecto"  type="hidden">
@@ -49,7 +41,6 @@
                 <input value=""  id="i" type="hidden">
                 <input value=""  id="j" type="hidden">
                 <input value=""  id="k" type="hidden">
-
                 <input value=""  id="campoactainicio" name="campoactainicio" type="hidden">
                 <input value=""  id="campopropuesta" name="campopropuesta" type="hidden">
                 <input value=""  id="campobookp" name="campobookp" type="hidden">
@@ -62,88 +53,46 @@
                 <input value=""  id="campomanualuso" name="campomanualuso" type="hidden">
                 <input value=""  id="campoavalgrupo" name="campoavalgrupo" type="hidden">
                  <input value="<?php echo date("Y"); ?>" id="txtano" type="hidden">
-
-
-
-
-
-
-
                 <div class="item form-group">
-                  <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">ID<span class="required">*</span>
+                  <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Código de Proyecto<span class="required">*</span>
                   </label>
                   <div class="control-group">
                     <div class="controls">
                       <div class="col-md-3 ">
-
                         <input  name="txtid" required="" disabled="" value="<?= $datos['id'];?>" id="txtid"  class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
                   </div>
-
-
-
-
                   <div class="item form-group">
-
                     <label class="control-label col-md-2 col-sm-3 col-xs-12" for="email">Nombre<span class="required">*</span>
                     </label>
-
                     <div class="col-md-3 col-sm-3 col-xs-3">
                      <input name="txtnombre" value="<?= $datos['nombre'];?>" disabled onkeypress="return validas(event)" id="txtnombre" required class="form-control col-md-7 col-xs-12">
-
                    </div>
                  </div>
-
-
-
-
-
                </div>
-
-
-
                <div class="item form-group">
                 <div class="item form-group">
                   <label class="control-label col-md-2 col-sm-3 col-xs-3" >Gestor<span class="required">*</span>
                   </label>
-
-
                   <div class="col-md-3 col-sm-3 col-xs-3">
-                    <select id="txtgestor" class="form-control" name="txtgestor" required disabled="">
-
-
+                    <input type="text" name="" value="<?php echo "$nombres $apellidos" ?>" class="form-control" disabled>
                     </select>
                   </div>
-
-
                   <label class="control-label col-md-2 col-sm-3 col-xs-3" for="email">Linea<span class="required">*</span>
                   </label>
-
                   <div class="col-md-3 col-sm-3 col-xs-3">
-
-                   <input  name="" id="txtlinea" disabled="" class="form-control col-md-7 col-xs-12" >
+                   <input  value="<?= $linea['nombre'] ?>" id="txtlinea" disabled="" class="form-control col-md-7 col-xs-12" >
                  </div>
-
-
                </div>
              </div>
-
-
              <div class="item form-group">
                <div class="item form-group">
                  <div class="item form-group">
                   <div class="item form-group">
-
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
               <hr>
               <h4>Entregables Fase Inicio</h4>
               <div class="item form-group">
@@ -207,7 +156,7 @@
 
                  <center><button type="button" id="modificar" class="btn btn-success">Modificar</button>
 
-                   <a  id="cancelar" class="btn btn-danger" type="button">Cancelar</a>
+                   <a  id="cancelar" href="<?php echo URL; ?>proyecto/gestor/<?php echo $persona ?>/<?php echo $idnodo; ?>" class="btn btn-danger" type="button">Cancelar</a>
 
                  </div>
 
@@ -233,40 +182,13 @@
 </div>
 </div>
 
-
-<script type="text/javascript">
-
-
-  var g = $("#gestortxt").val();
-  $.ajax({
-    dataType:'json',
-    type:'post',
-    url:uri+"gestor/consultalinea/"+g
-  }).done(function(respons) {
-    $("#txtlinea").val(respons.nombre);
-  });
-
-
-  var l = $("#lineatxt").val();
-  $.ajax({
-    dataType:'json',
-    type:'post',
-    url:uri+"proyecto/consultagestorl/"+l
-  }).done(function(response) {
-    $.each(response, function(i, item) {
-      $("#txtgestor").append('<option value="'+item.documento+'">'+item.nombres+" "+item.apellidos+'</option>')
-    });
-    $("#txtgestor").val("<?= $datos['gestor'];?>");
-  });
-
-
-</script>
-
+<script src="<?php echo URL; ?>css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo URL; ?>css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   var docug = $("#txtdocumento").val();
   var ano = $("#txtano").val();
 </script>
-<script type="text/javascript"> $('#cancelar').on('click',function(){location.href = uri+"proyecto/gestor/"+docug+"/"+ano+"#menu2";});</script>
+<script type="text/javascript"></script>
 <script type="text/javascript">
  $("#a").val("<?= $datos['actainicio'];?>");
  var a = $("#a").val();
